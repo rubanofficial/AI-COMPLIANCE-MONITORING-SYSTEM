@@ -45,9 +45,9 @@ def check_port_free(port: int) -> bool:
         return False
 
 if __name__ == "__main__":
-    print("🧹 Cleaning up ports 8000-8002...")
+    print("🧹 Cleaning up ports 8006-8002...")
     
-    for port in [8000, 8001, 8002]:
+    for port in [8006, 8001, 8002]:
         if not check_port_free(port):
             print(f"\n📍 Port {port} is in use")
             kill_process_on_port(port)

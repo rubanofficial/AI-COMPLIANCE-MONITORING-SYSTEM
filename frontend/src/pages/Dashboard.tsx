@@ -98,7 +98,7 @@ const Dashboard: React.FC = () => {
             }}>
                 <AlertTriangle size={40} color="#f43f5e" />
                 <div style={{ color: '#f43f5e', fontSize: '14px' }}>{error}</div>
-                <div style={{ color: '#64748b', fontSize: '12px' }}>Make sure the backend server is running on port 8000</div>
+                <div style={{ color: '#64748b', fontSize: '12px' }}>Make sure the backend server is running on port 8006</div>
             </div>
         );
     }

@@ -31,7 +31,7 @@ const Toggle: React.FC<{ defaultOn?: boolean }> = ({ defaultOn = true }) => {
 };
 
 const Settings: React.FC = () => {
-    const [apiUrl, setApiUrl] = useState('http://localhost:8000');
+    const [apiUrl, setApiUrl] = useState('http://localhost:8006');
     const [geminiKey, setGeminiKey] = useState('AIza••••••••••••••••••••••••••••');
 
     return (

@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     from main import app
 
-    def find_free_port(host: str, preferred_port: int = 8000) -> int:
+    def find_free_port(host: str, preferred_port: int = 8006) -> int:
         """Find a free port starting from preferred_port."""
         for port in range(preferred_port, preferred_port + 20):
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -23,7 +23,7 @@ if __name__ == "__main__":
         raise RuntimeError(f"No free ports found")
 
     host = "127.0.0.1"
-    preferred_port = 8000
+    preferred_port = 8006
     
     port_to_use = find_free_port(host, preferred_port)
     

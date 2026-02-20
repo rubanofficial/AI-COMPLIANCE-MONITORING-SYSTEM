@@ -16,6 +16,21 @@ export async function evaluateProduct(query: string) {
     return response.json();
 }
 
+export async function getProductDetails(productUrl: string, platform: string) {
+    const params = new URLSearchParams({ product_url: productUrl, platform });
+    const response = await fetch(`${API_BASE_URL}/product/details?${params.toString()}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.detail || 'Failed to fetch product details');
+    }
+
+    return response.json();
+}
+
 export async function getDashboardStats() {
     const response = await fetch(`${API_BASE_URL}/dashboard/stats`);
 

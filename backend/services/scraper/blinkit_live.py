@@ -59,6 +59,25 @@ async def scrape_blinkit_live(product_name):
                         product_image = await img_el.get_attribute("data-src") if img_el else None
                     product_image = product_image or "https://via.placeholder.com/150"
 
+                    # Try to find the product detail URL via nearest ancestor <a>
+                    product_url = await product.evaluate(
+                        "el => { const a = el.closest('a'); return a ? a.href : null; }"
+                    )
+                    if not product_url:
+                        # Fallback: try sibling/parent anchor
+                        product_url = await page.evaluate(
+                            """(el) => {
+                                let node = el;
+                                for (let i = 0; i < 6; i++) {
+                                    if (!node.parentElement) break;
+                                    node = node.parentElement;
+                                    if (node.tagName === 'A' && node.href) return node.href;
+                                }
+                                return null;
+                            }""",
+                            product
+                        )
+
                     results.append({
                         "platform": "blinkit",
                         "product_name": name,
@@ -68,7 +87,8 @@ async def scrape_blinkit_live(product_name):
                         "mrp": mrp,
                         "discount": discount,
                         "store_name": "Blinkit",
-                        "product_image": product_image
+                        "product_image": product_image,
+                        "product_url": product_url or ""
                     })
                 except Exception:
                     continue

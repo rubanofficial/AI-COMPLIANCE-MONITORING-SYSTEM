@@ -21,4 +21,4 @@ except Exception as e:
 if __name__ == '__main__':
     import uvicorn
     logger.info("Starting uvicorn with app from main.py")
-    uvicorn.run(app, host="127.0.0.1", port=8000, log_level="debug")
+    uvicorn.run(app, host="127.0.0.1", port=8006, log_level="debug")

@@ -62,3 +62,27 @@ export interface TrendDataPoint {
     violations: number;
     products_scanned: number;
 }
+
+export interface ProductDetail {
+    platform: string;
+    product_url: string;
+    product_name: string;
+    brand: string;
+    price: string;
+    mrp: string;
+    discount: string;
+    weight: string;
+    description: string;
+    images: string[];
+    highlights: Record<string, string>;
+    ingredients: string;
+    nutritional_info: string;
+    fssai_number: string;
+    manufacturer_name: string;
+    manufacturer_address: string;
+    country_of_origin: string;
+    expiry_date: string;
+    shelf_life: string;
+    seller_name: string;
+    category: string;
+}

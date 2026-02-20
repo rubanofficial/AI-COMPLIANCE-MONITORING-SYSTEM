@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ScanLine, Link, Loader2, ArrowRight, Sparkles } from 'lucide-react';
+import { ScanLine, Link, Loader2, ArrowRight, Sparkles, Eye } from 'lucide-react';
 import ComplianceScoreWidget from '../components/widgets/ComplianceScoreWidget';
 import ViolationTimeline from '../components/widgets/ViolationTimeline';
 import DualViewScraperData from '../components/widgets/DualViewScraperData';
+import ProductDetailModal from '../components/widgets/ProductDetailModal';
 import SkeletonCard from '../components/ui/SkeletonCard';
-import type { EvaluateResponse } from '../types';
+import type { EvaluateResponse, ProductDetail } from '../types';
 
-import { evaluateProduct } from '../services/api';
+import { evaluateProduct, getProductDetails } from '../services/api';
 
 const Scanner: React.FC = () => {
     const [url, setUrl] = useState('');
@@ -15,6 +16,37 @@ const Scanner: React.FC = () => {
     const [results, setResults] = useState<any[]>([]);
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [error, setError] = useState('');
+
+    // Product detail modal state
+    const [modalOpen, setModalOpen] = useState(false);
+    const [modalLoading, setModalLoading] = useState(false);
+    const [modalError, setModalError] = useState('');
+    const [modalDetail, setModalDetail] = useState<ProductDetail | null>(null);
+    const [modalMeta, setModalMeta] = useState<{ name: string; platform: string; url: string } | null>(null);
+
+    const handleViewProductDetails = async (productUrl: string, platform: string, name: string) => {
+        if (!productUrl) {
+            alert('No product URL available for this item. It may not have been captured during scraping.');
+            return;
+        }
+        setModalMeta({ name, platform, url: productUrl });
+        setModalDetail(null);
+        setModalError('');
+        setModalLoading(true);
+        setModalOpen(true);
+        try {
+            const data = await getProductDetails(productUrl, platform);
+            if (data.detail) {
+                setModalDetail(data.detail as ProductDetail);
+            } else {
+                setModalError(data.error || 'No detail data returned');
+            }
+        } catch (err: any) {
+            setModalError(err.message || 'Failed to fetch product details');
+        } finally {
+            setModalLoading(false);
+        }
+    };
 
     const handleEvaluate = async () => {
         if (!url.trim()) { setError('Please enter a product URL or name'); return; }
@@ -40,7 +72,9 @@ const Scanner: React.FC = () => {
                         manufacturer_address: result.product.manufacturer_address || 'N/A',
                         expiry_date: result.product.expiry_date || 'N/A',
                         platform: result.product.platform || 'unknown',
-                        store_name: result.product.store_name || 'Unknown Store'
+                        store_name: result.product.store_name || 'Unknown Store',
+                        product_url: result.product.product_url || '',
+                        product_image: result.product.product_image || ''
                     };
 
                     return {
@@ -229,7 +263,25 @@ const Scanner: React.FC = () => {
                                             }}
                                             whileHover={{ scale: 1.02, borderColor: 'rgba(16,185,129,0.4)' } as any}
                                         >
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
+                                            {/* Product image + name row */}
+                                            <div style={{ display: 'flex', gap: '10px', marginBottom: '8px', alignItems: 'flex-start' }}>
+                                                {result.product.product_image && (
+                                                    <img
+                                                        src={result.product.product_image}
+                                                        alt={result.product.name}
+                                                        style={{
+                                                            width: '44px',
+                                                            height: '44px',
+                                                            objectFit: 'contain',
+                                                            borderRadius: '6px',
+                                                            background: 'rgba(30,41,59,0.6)',
+                                                            border: '1px solid rgba(51,65,85,0.3)',
+                                                            flexShrink: 0,
+                                                            padding: '2px',
+                                                        }}
+                                                        onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                                                    />
+                                                )}
                                                 <div style={{ flex: 1, minWidth: 0 }}>
                                                     <div style={{
                                                         fontSize: '13px',
@@ -238,7 +290,7 @@ const Scanner: React.FC = () => {
                                                         whiteSpace: 'nowrap',
                                                         overflow: 'hidden',
                                                         textOverflow: 'ellipsis',
-                                                        marginBottom: '4px'
+                                                        marginBottom: '3px'
                                                     }}>
                                                         {result.product.name}
                                                     </div>
@@ -250,7 +302,7 @@ const Scanner: React.FC = () => {
                                                     fontSize: '16px',
                                                     fontWeight: 700,
                                                     color: scoreColor,
-                                                    marginLeft: '8px'
+                                                    flexShrink: 0,
                                                 }}>
                                                     {result.compliance.rule_score}
                                                 </div>
@@ -261,14 +313,15 @@ const Scanner: React.FC = () => {
                                             <div style={{
                                                 marginTop: '8px',
                                                 display: 'flex',
-                                                gap: '4px',
-                                                fontSize: '10px',
-                                                color: '#64748b'
+                                                gap: '6px',
+                                                alignItems: 'center',
+                                                flexWrap: 'wrap',
                                             }}>
                                                 <span style={{
                                                     padding: '2px 6px',
                                                     background: 'rgba(16,185,129,0.15)',
                                                     borderRadius: '4px',
+                                                    fontSize: '10px',
                                                     color: '#10b981'
                                                 }}>
                                                     {result.compliance.passed_rules.length} passed
@@ -277,10 +330,39 @@ const Scanner: React.FC = () => {
                                                     padding: '2px 6px',
                                                     background: 'rgba(244,63,94,0.15)',
                                                     borderRadius: '4px',
+                                                    fontSize: '10px',
                                                     color: '#f43f5e'
                                                 }}>
                                                     {result.compliance.violations.length} issues
                                                 </span>
+                                                {/* View Details button */}
+                                                <button
+                                                    onClick={e => {
+                                                        e.stopPropagation();
+                                                        handleViewProductDetails(
+                                                            result.product.product_url,
+                                                            result.product.platform,
+                                                            result.product.name
+                                                        );
+                                                    }}
+                                                    style={{
+                                                        marginLeft: 'auto',
+                                                        display: 'flex',
+                                                        alignItems: 'center',
+                                                        gap: '4px',
+                                                        fontSize: '10px',
+                                                        fontWeight: 600,
+                                                        color: '#38bdf8',
+                                                        background: 'rgba(56,189,248,0.08)',
+                                                        border: '1px solid rgba(56,189,248,0.2)',
+                                                        borderRadius: '5px',
+                                                        padding: '3px 8px',
+                                                        cursor: 'pointer',
+                                                        transition: 'all 0.2s',
+                                                    }}
+                                                >
+                                                    <Eye size={10} /> View Details
+                                                </button>
                                             </div>
                                         </motion.div>
                                     );
@@ -310,16 +392,51 @@ const Scanner: React.FC = () => {
                                     flexWrap: 'wrap',
                                     gap: '12px',
                                 }}>
-                                    <div>
-                                        <div style={{ fontSize: '16px', fontWeight: 700, color: '#e2e8f0' }}>
-                                            {results[selectedIndex].product.name}
-                                        </div>
-                                        <div style={{ fontSize: '12px', color: '#64748b', marginTop: '2px' }}>
-                                            ₹{results[selectedIndex].product.price} · MRP ₹{results[selectedIndex].product.mrp} · {results[selectedIndex].product.weight} · FSSAI: {results[selectedIndex].product.fssai_number}
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                        {results[selectedIndex].product.product_image && (
+                                            <img
+                                                src={results[selectedIndex].product.product_image}
+                                                alt={results[selectedIndex].product.name}
+                                                style={{
+                                                    width: '48px', height: '48px',
+                                                    objectFit: 'contain', borderRadius: '8px',
+                                                    background: 'rgba(15,23,42,0.6)',
+                                                    border: '1px solid rgba(51,65,85,0.3)',
+                                                    padding: '3px',
+                                                }}
+                                                onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                                            />
+                                        )}
+                                        <div>
+                                            <div style={{ fontSize: '16px', fontWeight: 700, color: '#e2e8f0' }}>
+                                                {results[selectedIndex].product.name}
+                                            </div>
+                                            <div style={{ fontSize: '12px', color: '#64748b', marginTop: '2px' }}>
+                                                ₹{results[selectedIndex].product.price} · MRP ₹{results[selectedIndex].product.mrp} · {results[selectedIndex].product.weight} · FSSAI: {results[selectedIndex].product.fssai_number}
+                                            </div>
                                         </div>
                                     </div>
-                                    <div style={{ fontSize: '12px', color: '#475569' }}>
-                                        Evaluated @ {new Date(results[selectedIndex].evaluated_at).toLocaleTimeString('en-IN')}
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                        <div style={{ fontSize: '12px', color: '#475569' }}>
+                                            Evaluated @ {new Date(results[selectedIndex].evaluated_at).toLocaleTimeString('en-IN')}
+                                        </div>
+                                        <button
+                                            onClick={() => handleViewProductDetails(
+                                                results[selectedIndex].product.product_url,
+                                                results[selectedIndex].product.platform,
+                                                results[selectedIndex].product.name
+                                            )}
+                                            style={{
+                                                display: 'flex', alignItems: 'center', gap: '6px',
+                                                padding: '8px 16px', borderRadius: '8px',
+                                                background: 'linear-gradient(135deg,rgba(56,189,248,0.15),rgba(56,189,248,0.05))',
+                                                border: '1px solid rgba(56,189,248,0.3)',
+                                                color: '#38bdf8', fontSize: '13px', fontWeight: 600,
+                                                cursor: 'pointer', transition: 'all 0.2s',
+                                            }}
+                                        >
+                                            <Eye size={14} /> View Full Details
+                                        </button>
                                     </div>
                                 </div>
 
@@ -406,6 +523,18 @@ const Scanner: React.FC = () => {
             </AnimatePresence>
 
             <style>{`@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }`}</style>
+
+            {/* Product Detail Modal */}
+            <ProductDetailModal
+                open={modalOpen}
+                onClose={() => setModalOpen(false)}
+                loading={modalLoading}
+                error={modalError}
+                detail={modalDetail}
+                productName={modalMeta?.name}
+                platform={modalMeta?.platform}
+                productUrl={modalMeta?.url}
+            />
         </div>
     );
 };

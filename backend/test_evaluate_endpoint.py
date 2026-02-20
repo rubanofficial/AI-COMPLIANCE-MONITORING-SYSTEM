@@ -10,7 +10,7 @@ async def test_evaluate():
     """Test the /evaluate endpoint directly"""
     
     # Find which port the server is running on by trying common ports
-    ports_to_try = [8000, 8001, 8002, 8003, 8004]
+    ports_to_try = [8006, 8001, 8002, 8003, 8004]
     base_url = None
     
     async with httpx.AsyncClient(timeout=30.0) as client:

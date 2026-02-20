@@ -12,6 +12,9 @@ from fastapi.middleware.cors import CORSMiddleware
 # Use faster live scrapers instead of deep scrapers
 from services.scraper.blinkit_live import scrape_blinkit_live
 from services.scraper.zepto_live import scrape_zepto_live
+# Product detail scrapers
+from services.scraper.blinkit_detail import scrape_blinkit_detail
+from services.scraper.zepto_detail import scrape_zepto_detail
 from services.rule_engine import validate_product
 from services.openai_service import analyze_product  # Currently returns mock data
 from services.scoring_engine import combine_scores
@@ -117,6 +120,31 @@ async def evaluate(product_name: str):
         "products_analyzed": len(results),
         "results": results
     }
+
+@app.post("/product/details")
+async def get_product_details(product_url: str, platform: str = "blinkit"):
+    """
+    Scrape full product details (images, highlights, description, etc.)
+    from a product detail page URL.
+    platform: 'blinkit' or 'zepto'
+    """
+    if not product_url or not product_url.startswith("http"):
+        return {"error": "Invalid product URL"}
+
+    print(f"\n🔎 Fetching product details from {platform}: {product_url}")
+
+    try:
+        if "zepto" in platform.lower() or "zepto" in product_url.lower():
+            detail = await scrape_zepto_detail(product_url)
+        else:
+            detail = await scrape_blinkit_detail(product_url)
+
+        print(f"✓ Product detail fetched: {detail.get('product_name')}")
+        return {"status": "success", "detail": detail}
+    except Exception as e:
+        print(f"✗ Product detail fetch failed: {e}")
+        return {"error": str(e), "detail": None}
+
 
 @app.get("/dashboard/stats")
 async def get_stats():

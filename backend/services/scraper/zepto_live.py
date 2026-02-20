@@ -61,6 +61,14 @@ async def scrape_zepto_live(product_name):
                         product_image = await img_el.get_attribute("data-src") if img_el else None
                     product_image = product_image or "https://via.placeholder.com/150"
 
+                    # Zepto product cards are <a href="/pn/..."> elements
+                    href = await product.get_attribute("href") or ""
+                    product_url = (
+                        f"https://www.zeptonow.com{href}"
+                        if href.startswith("/")
+                        else href
+                    )
+
                     results.append({
                         "platform": "zepto",
                         "product_name": name,
@@ -70,7 +78,8 @@ async def scrape_zepto_live(product_name):
                         "mrp": mrp,
                         "discount": discount,
                         "store_name": "Zepto",
-                        "product_image": product_image
+                        "product_image": product_image,
+                        "product_url": product_url or ""
                     })
                 except Exception:
                     continue

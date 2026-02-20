@@ -12,7 +12,7 @@ if __name__ == "__main__":
     # Find an available port dynamically
     import socket
 
-    def _find_free_port(host: str, start_port: int = 8000, max_attempts: int = 10) -> int:
+    def _find_free_port(host: str, start_port: int = 8006, max_attempts: int = 10) -> int:
         """Find the first available port starting from start_port."""
         for port in range(start_port, start_port + max_attempts):
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         raise RuntimeError(f"No free ports found between {start_port} and {start_port + max_attempts - 1}")
 
     host = "127.0.0.1"
-    preferred_port = 8000
+    preferred_port = 8006
     
     port_to_use = _find_free_port(host, preferred_port)
     if port_to_use != preferred_port:

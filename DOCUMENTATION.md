@@ -160,7 +160,7 @@ This system automates the detection of these compliance gaps at scale.
 
 ### 5.1 Application Entry Point — `main.py` & `run.py`
 
-**`run.py`** — The startup script. Configures Windows `ProactorEventLoopPolicy` for Playwright compatibility on Windows + Python 3.12, then starts Uvicorn on `127.0.0.1:8000`.
+**`run.py`** — The startup script. Configures Windows `ProactorEventLoopPolicy` for Playwright compatibility on Windows + Python 3.12, then starts Uvicorn on `127.0.0.1:8006`.
 
 **`main.py`** — The FastAPI application definition. Contains:
 - CORS middleware (allows all origins for development)
@@ -553,7 +553,7 @@ Reusable loading placeholder with shimmer animation.
 **`services/api.ts`** — Clean API abstraction:
 
 ```typescript
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:8006';
 
 evaluateProduct(query: string)     → POST /evaluate?product_name=...
 getDashboardStats()                → GET  /dashboard/stats
@@ -723,7 +723,7 @@ echo "GEMINI_API_KEY=your_key_here" > .env
 python run.py
 ```
 
-Backend runs on: `http://127.0.0.1:8000`
+Backend runs on: `http://127.0.0.1:8006`
 
 ### Frontend Setup
 
