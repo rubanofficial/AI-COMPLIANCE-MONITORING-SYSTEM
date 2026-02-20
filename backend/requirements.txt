@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+playwright
+python-dotenv
+httpx
+easyocr
+opencv-python
+numpy
+
+# AI Integration (Uncomment when implementing)
+# openai
+# google-generativeai
