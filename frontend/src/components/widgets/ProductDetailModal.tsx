@@ -150,6 +150,19 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                         }}
                     />
 
+                    {/* Centering overlay — static, no transform, so Framer Motion
+                        animations don't fight the translate(-50%,-50%) trick */}
+                    <div
+                        style={{
+                            position: 'fixed',
+                            inset: 0,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            zIndex: 1001,
+                            pointerEvents: 'none',
+                        }}
+                    >
                     {/* Modal */}
                     <motion.div
                         key="modal"
@@ -158,22 +171,117 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                         exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         transition={{ duration: 0.25, ease: 'easeOut' }}
                         style={{
-                            position: 'fixed',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            width: 'min(92vw, 960px)',
-                            maxHeight: '90vh',
+                            pointerEvents: 'auto',
+                            width: 'min(96vw, 1080px)',
+                            height: 'min(96vh, 860px)',
                             overflow: 'hidden',
                             display: 'flex',
                             flexDirection: 'column',
                             background: 'rgba(15,23,42,0.98)',
                             border: '1px solid rgba(51,65,85,0.5)',
                             borderRadius: '16px',
-                            zIndex: 1001,
                             boxShadow: '0 25px 80px rgba(0,0,0,0.7)',
                         }}
                     >
+                        {/* Responsive + animation styles */}
+                        <style>{`
+                            @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+
+                            /* scrollbar */
+                            .pdm-scroll::-webkit-scrollbar { width: 5px; }
+                            .pdm-scroll::-webkit-scrollbar-track { background: transparent; }
+                            .pdm-scroll::-webkit-scrollbar-thumb { background: rgba(51,65,85,0.6); border-radius: 4px; }
+
+                            /* two-column content grid */
+                            .pdm-grid {
+                                display: grid;
+                                grid-template-columns: clamp(240px, 30%, 320px) 1fr;
+                                flex: 1;
+                                min-height: 0;
+                                overflow: hidden;
+                            }
+                            .pdm-left {
+                                border-right: 1px solid rgba(51,65,85,0.3);
+                                padding: 20px;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 14px;
+                                overflow-y: auto;
+                                min-height: 0;
+                            }
+                            .pdm-right {
+                                padding: 24px;
+                                display: flex;
+                                flex-direction: column;
+                                gap: 24px;
+                                overflow-y: auto;
+                                min-height: 0;
+                            }
+                            .pdm-header-title {
+                                font-size: 15px;
+                                font-weight: 700;
+                                color: #e2e8f0;
+                                max-width: 500px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                            .pdm-highlights-grid {
+                                display: grid;
+                                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                                gap: 8px;
+                            }
+                            .pdm-reg-grid {
+                                display: grid;
+                                grid-template-columns: 1fr 1fr;
+                                gap: 8px;
+                            }
+
+                            /* ── tablet ≤ 860px: narrow left column */
+                            @media (max-width: 860px) {
+                                .pdm-grid {
+                                    grid-template-columns: 220px 1fr;
+                                }
+                                .pdm-header-title {
+                                    max-width: 320px;
+                                    font-size: 13px;
+                                }
+                            }
+
+                            /* ── mobile ≤ 640px: single-column stacked */
+                            @media (max-width: 640px) {
+                                .pdm-grid {
+                                    grid-template-columns: 1fr;
+                                    overflow-y: auto;
+                                    overflow-x: hidden;
+                                }
+                                .pdm-left {
+                                    border-right: none;
+                                    border-bottom: 1px solid rgba(51,65,85,0.3);
+                                    overflow-y: unset;
+                                    min-height: unset;
+                                    padding: 16px;
+                                    gap: 12px;
+                                }
+                                .pdm-right {
+                                    overflow-y: unset;
+                                    min-height: unset;
+                                    padding: 16px;
+                                    gap: 18px;
+                                }
+                                .pdm-highlights-grid {
+                                    grid-template-columns: repeat(2, 1fr);
+                                }
+                                .pdm-reg-grid {
+                                    grid-template-columns: 1fr;
+                                }
+                                .pdm-header-title {
+                                    max-width: 180px;
+                                    font-size: 12px;
+                                }
+                            }
+                        `}</style>
+
                         {/* ─── Header ─────────────────────────────────────── */}
                         <div
                             style={{
@@ -200,17 +308,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                 >
                                     {platform ?? 'Platform'}
                                 </span>
-                                <span
-                                    style={{
-                                        fontSize: '15px',
-                                        fontWeight: 700,
-                                        color: '#e2e8f0',
-                                        maxWidth: '500px',
-                                        overflow: 'hidden',
-                                        textOverflow: 'ellipsis',
-                                        whiteSpace: 'nowrap',
-                                    }}
-                                >
+                                <span className="pdm-header-title">
                                     {detail?.product_name ?? productName ?? 'Product Details'}
                                 </span>
                             </div>
@@ -256,7 +354,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                         </div>
 
                         {/* ─── Body ───────────────────────────────────────── */}
-                        <div style={{ overflowY: 'auto', flex: 1 }}>
+                        <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: 0 }}>
                             {/* Loading state */}
                             {loading && (
                                 <div
@@ -265,8 +363,9 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         flexDirection: 'column',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        padding: '80px 40px',
+                                        flex: 1,
                                         gap: '16px',
+                                        padding: '40px',
                                     }}
                                 >
                                     <Loader2
@@ -280,7 +379,6 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                     <div style={{ fontSize: '12px', color: '#475569' }}>
                                         Scraping {platform} product page — this may take 10–20 seconds
                                     </div>
-                                    <style>{`@keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }`}</style>
                                 </div>
                             )}
 
@@ -292,8 +390,9 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         flexDirection: 'column',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        padding: '80px 40px',
+                                        flex: 1,
                                         gap: '14px',
+                                        padding: '40px',
                                     }}
                                 >
                                     <AlertTriangle size={40} color="#f43f5e" />
@@ -308,23 +407,9 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
                             {/* Detail content */}
                             {!loading && !error && detail && (
-                                <div
-                                    style={{
-                                        display: 'grid',
-                                        gridTemplateColumns: '340px 1fr',
-                                        gap: '0',
-                                    }}
-                                >
+                                <div className="pdm-grid">
                                     {/* ── LEFT: Image Gallery ────────────────── */}
-                                    <div
-                                        style={{
-                                            borderRight: '1px solid rgba(51,65,85,0.3)',
-                                            padding: '24px',
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            gap: '16px',
-                                        }}
-                                    >
+                                    <div className="pdm-left pdm-scroll">
                                         {/* Main Image */}
                                         <div
                                             style={{
@@ -543,17 +628,11 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                     </div>
 
                                     {/* ── RIGHT: Product Info ────────────────── */}
-                                    <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                                    <div className="pdm-scroll" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '24px', overflowY: 'auto', minHeight: 0 }}>
                                         {/* Quick Highlights Grid */}
                                         <section>
                                             <SectionHeader icon={Tag} title="Key Highlights" color="#10b981" />
-                                            <div
-                                                style={{
-                                                    display: 'grid',
-                                                    gridTemplateColumns: 'repeat(auto-fill, minmax(145px, 1fr))',
-                                                    gap: '8px',
-                                                }}
-                                            >
+                                            <div className="pdm-highlights-grid">
                                                 <HighlightItem icon={Award} label="Brand" value={formatVal(detail.brand)} />
                                                 <HighlightItem icon={Package} label="Weight" value={formatVal(detail.weight)} />
                                                 <HighlightItem icon={Globe} label="Origin" value={formatVal(detail.country_of_origin)} />
@@ -565,13 +644,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         {highlightEntries.length > 0 && (
                                             <section>
                                                 <SectionHeader icon={Info} title="Product Details" color="#38bdf8" />
-                                                <div
-                                                    style={{
-                                                        display: 'grid',
-                                                        gridTemplateColumns: 'repeat(auto-fill, minmax(155px, 1fr))',
-                                                        gap: '8px',
-                                                    }}
-                                                >
+                                                <div className="pdm-highlights-grid">
                                                     {highlightEntries.map(([k, v]) => (
                                                         <HighlightItem key={k} label={k} value={formatVal(v)} />
                                                     ))}
@@ -582,7 +655,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         {/* Regulatory / Compliance Info */}
                                         <section>
                                             <SectionHeader icon={ShieldCheck} title="Regulatory & Label Info" color="#a78bfa" />
-                                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                                            <div className="pdm-reg-grid">
                                                 <HighlightItem icon={ShieldCheck} label="FSSAI Number" value={formatVal(detail.fssai_number)} />
                                                 <HighlightItem icon={Calendar} label="Expiry / Best Before" value={formatVal(detail.expiry_date)} />
                                                 <HighlightItem icon={Building2} label="Manufacturer" value={formatVal(detail.manufacturer_name)} />
@@ -660,6 +733,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                             )}
                         </div>
                     </motion.div>
+                    </div>{/* /centering overlay */}
                 </>
             )}
         </AnimatePresence>
