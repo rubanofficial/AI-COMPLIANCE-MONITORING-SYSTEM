@@ -13,25 +13,25 @@
         },
         {
             "platform": "blinkit",
-            "product_name": "Tata Sampann High In Fibre Popular Thick Poha",
-            "description": "Tata Sampann High In Fibre Popular Thick Poha - 500 g",
+            "product_name": "Tata Sampann Thin Poha",
+            "description": "Tata Sampann Thin Poha - 500 g",
             "weight": "500 g",
-            "price": "60",
-            "mrp": "80",
-            "discount": "25%",
+            "price": "56",
+            "mrp": "63",
+            "discount": "11%",
             "store_name": "Blinkit",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/e1ea9cdb-de9e-41e5-8a4d-c6b5fff07095.png"
         },
         {
             "platform": "blinkit",
             "product_name": "Rajdhani Thick Poha",
             "description": "Rajdhani Thick Poha - 500 g",
             "weight": "500 g",
-            "price": "69",
+            "price": "54",
             "mrp": "80",
-            "discount": "13%",
+            "discount": "32%",
             "store_name": "Blinkit",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/7878a545-9e53-47db-9ad1-c725e63301d4.png"
         },
         {
             "platform": "blinkit",
@@ -42,7 +42,29 @@
             "mrp": "68",
             "discount": "47%",
             "store_name": "Blinkit",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/6ebf3068-b4d7-485d-9dfa-78eda3afcadc.png"
+        },
+        {
+            "platform": "blinkit",
+            "product_name": "Tata Sampann High In Fibre Popular Thick Poha",
+            "description": "Tata Sampann High In Fibre Popular Thick Poha - 500 g",
+            "weight": "500 g",
+            "price": "70",
+            "mrp": "80",
+            "discount": "12%",
+            "store_name": "Blinkit",
+            "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/52eee739-7d65-4334-8cbf-57107de803f3.png"
+        },
+        {
+            "platform": "blinkit",
+            "product_name": "MTR 3 Minute Poha Breakfast Mix - Pack of 5",
+            "description": "MTR 3 Minute Poha Breakfast Mix - Pack of 5 - 300 g",
+            "weight": "300 g",
+            "price": "120",
+            "mrp": "133",
+            "discount": "9%",
+            "store_name": "Blinkit",
+            "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/189d2d89-9cb7-4f6c-9bb2-aaa8fc11269c.png"
         },
         {
             "platform": "blinkit",
@@ -53,40 +75,7 @@
             "mrp": "60",
             "discount": "11%",
             "store_name": "Blinkit",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "blinkit",
-            "product_name": "Tata Sampann Thin Poha",
-            "description": "Tata Sampann Thin Poha - 500 g",
-            "weight": "500 g",
-            "price": "56",
-            "mrp": "63",
-            "discount": "11%",
-            "store_name": "Blinkit",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "blinkit",
-            "product_name": "GM Foods Poha - Free Masala Inside",
-            "description": "GM Foods Poha - Free Masala Inside - 500 g",
-            "weight": "500 g",
-            "price": "47",
-            "mrp": "89",
-            "discount": "47%",
-            "store_name": "Blinkit",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "blinkit",
-            "product_name": "MOM Poha with Bhujia",
-            "description": "MOM Poha with Bhujia - 80 g",
-            "weight": "80 g",
-            "price": "50",
-            "mrp": "58",
-            "discount": "13%",
-            "store_name": "Blinkit",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/fbe4abe0-6082-4dce-9eaa-2b0b1c3b50a4.png"
         }
     ],
     "zepto": [
@@ -95,66 +84,33 @@
             "product_name": "Tata Sampann High in Fibre Poha",
             "description": "Tata Sampann High in Fibre Poha",
             "weight": "N/A",
-            "price": "52",
-            "mrp": "57",
+            "price": "51",
+            "mrp": "60",
             "discount": "0%",
             "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Daily Good Medium Poha | Avalakki | Indori Poha",
-            "description": "Daily Good Medium Poha | Avalakki | Indori Poha",
-            "weight": "N/A",
-            "price": "39",
-            "mrp": "80",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Daily Good Medium Poha | Avalakki | Indori Poha",
-            "description": "Daily Good Medium Poha | Avalakki | Indori Poha",
-            "weight": "N/A",
-            "price": "39",
-            "mrp": "80",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Daily Good Poha / Avalakki Thick",
-            "description": "Daily Good Poha / Avalakki Thick",
-            "weight": "N/A",
-            "price": "39",
-            "mrp": "80",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Vijay Gold Poha Medium Avalakki",
-            "description": "Vijay Gold Poha Medium Avalakki",
-            "weight": "N/A",
-            "price": "40",
-            "mrp": "50",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1000-1000,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/30c67490-1d4c-4aa6-b85a-0368dc59d80a.jpeg"
         },
         {
             "platform": "zepto",
             "product_name": "Tata Sampann High in Fibre Poha",
             "description": "Tata Sampann High in Fibre Poha",
             "weight": "N/A",
-            "price": "52",
-            "mrp": "57",
+            "price": "89",
+            "mrp": "113",
             "discount": "0%",
             "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-600-600,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/6a114476-319e-4a5a-b396-2a4cee2e06f8.jpeg"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Daily Good Medium Poha | Avalakki | Indori Poha",
+            "description": "Daily Good Medium Poha | Avalakki | Indori Poha",
+            "weight": "N/A",
+            "price": "39",
+            "mrp": "80",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/4dfcd08d-f571-4219-99bb-eb7e529826fa.jpeg"
         },
         {
             "platform": "zepto",
@@ -165,40 +121,7 @@
             "mrp": "60",
             "discount": "0%",
             "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Fortune Poha | Thick",
-            "description": "Fortune Poha | Thick",
-            "weight": "N/A",
-            "price": "40",
-            "mrp": "60",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Poha",
-            "description": "Poha",
-            "weight": "N/A",
-            "price": "115",
-            "mrp": "139",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Fortune Indori Poha",
-            "description": "Fortune Indori Poha",
-            "weight": "N/A",
-            "price": "55",
-            "mrp": "75",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/3644fb56-f2aa-466b-b824-a5461e358d3d.jpeg"
         },
         {
             "platform": "zepto",
@@ -209,29 +132,7 @@
             "mrp": null,
             "discount": "0%",
             "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "DeHaat HF Pesticide Free Poha | Thick",
-            "description": "DeHaat HF Pesticide Free Poha | Thick",
-            "weight": "N/A",
-            "price": "49",
-            "mrp": "70",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Vijay Gold Poha Thick",
-            "description": "Vijay Gold Poha Thick",
-            "weight": "N/A",
-            "price": "40",
-            "mrp": "50",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/4ceee5a0-f152-4e98-9090-163520b0e1ac.jpeg"
         },
         {
             "platform": "zepto",
@@ -242,7 +143,106 @@
             "mrp": "75",
             "discount": "0%",
             "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1100-1100,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/29d6aff0-e6d0-4ac1-b94c-c5a24c797edb.jpeg"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Vijay Gold Poha Medium Avalakki",
+            "description": "Vijay Gold Poha Medium Avalakki",
+            "weight": "N/A",
+            "price": "47",
+            "mrp": "50",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/f713f330-7c20-4d8e-abbf-0d5c51d30ba0.png"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Popular Essentials Thin Poha | Avalakki",
+            "description": "Popular Essentials Thin Poha | Avalakki",
+            "weight": "N/A",
+            "price": "48",
+            "mrp": "62",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-4167-4167,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/f336bfe4-2023-45ea-9b74-0f36a58c446c.jpeg"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Fortune Poha | Thick",
+            "description": "Fortune Poha | Thick",
+            "weight": "N/A",
+            "price": "40",
+            "mrp": "60",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/3644fb56-f2aa-466b-b824-a5461e358d3d.jpeg"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "24 Mantra Organic Poha",
+            "description": "24 Mantra Organic Poha",
+            "weight": "N/A",
+            "price": "69",
+            "mrp": "90",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/6f7a2c88-8aa2-49bf-a97d-bc3cb2c8180e.jpeg"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Tata Sampann High in Fibre Poha",
+            "description": "Tata Sampann High in Fibre Poha",
+            "weight": "N/A",
+            "price": "89",
+            "mrp": "113",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-600-600,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/6a114476-319e-4a5a-b396-2a4cee2e06f8.jpeg"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Organic Tattva Poha",
+            "description": "Organic Tattva Poha",
+            "weight": "N/A",
+            "price": "72",
+            "mrp": "89",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1500-1500,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/17166e34-c814-45a2-9a02-b6edb3a65873.jpeg"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Poha",
+            "description": "Poha",
+            "weight": "N/A",
+            "price": "115",
+            "mrp": "139",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1024-1024,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/6bfc071b-3a65-4f4d-95fd-25dc5301c4de.png"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Fortune Indori Poha",
+            "description": "Fortune Indori Poha",
+            "weight": "N/A",
+            "price": "55",
+            "mrp": "75",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1100-1100,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/29d6aff0-e6d0-4ac1-b94c-c5a24c797edb.jpeg"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Vijay Gold Poha Thick",
+            "description": "Vijay Gold Poha Thick",
+            "weight": "N/A",
+            "price": "40",
+            "mrp": "50",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/3f83bb54-e54d-4a37-83d9-49c4e3a8cc67.jpg"
         },
         {
             "platform": "zepto",
@@ -253,18 +253,7 @@
             "mrp": "120",
             "discount": "0%",
             "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Daily Good Poha / Avalakki Thick",
-            "description": "Daily Good Poha / Avalakki Thick",
-            "weight": "N/A",
-            "price": "39",
-            "mrp": "80",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-857-860,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/5e4e725a-87b9-4cbe-bddd-bdbda9235bc2.jpg"
         },
         {
             "platform": "zepto",
@@ -275,7 +264,29 @@
             "mrp": "40",
             "discount": "0%",
             "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/948ebeef-78b7-4d17-8fe3-12baf49c4d7c.jpeg"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Daily Good Poha / Avalakki Thick",
+            "description": "Daily Good Poha / Avalakki Thick",
+            "weight": "N/A",
+            "price": "39",
+            "mrp": "80",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/35ef6f83-5f72-41a3-b372-305dfe649e83.jpeg"
+        },
+        {
+            "platform": "zepto",
+            "product_name": "Safe Harvest Pesticide- Free White Poha",
+            "description": "Safe Harvest Pesticide- Free White Poha",
+            "weight": "N/A",
+            "price": "61",
+            "mrp": "79",
+            "discount": "0%",
+            "store_name": "Zepto",
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-800-800,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/c617b6c9-08e1-4995-997e-a243e5f624d1.jpeg"
         },
         {
             "platform": "zepto",
@@ -286,29 +297,7 @@
             "mrp": null,
             "discount": "0%",
             "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Rajdhani Mota Poha | Thick",
-            "description": "Rajdhani Mota Poha | Thick",
-            "weight": "N/A",
-            "price": "61",
-            "mrp": "80",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
-        },
-        {
-            "platform": "zepto",
-            "product_name": "Tata Sampann Unpolished Toor Dal | Arhar Dal",
-            "description": "Tata Sampann Unpolished Toor Dal | Arhar Dal",
-            "weight": "N/A",
-            "price": "76",
-            "mrp": "106",
-            "discount": "0%",
-            "store_name": "Zepto",
-            "product_image": "https://via.placeholder.com/150"
+            "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1000-1000,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/738d3ffc-b309-4376-8176-5d9374c6889a.jpeg"
         }
     ]
 }

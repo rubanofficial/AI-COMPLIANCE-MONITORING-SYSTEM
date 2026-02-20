@@ -9,11 +9,13 @@ if sys.platform.startswith("win"):
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from services.scraper.scraper_manager import scrape_all
+# Use faster live scrapers instead of deep scrapers
+from services.scraper.blinkit_live import scrape_blinkit_live
+from services.scraper.zepto_live import scrape_zepto_live
 from services.rule_engine import validate_product
 from services.openai_service import analyze_product  # Currently returns mock data
 from services.scoring_engine import combine_scores
-from services.ocr_service import perform_ocr_on_images, extract_compliance_data_rules
+from services.ocr_service import perform_ocr_on_images, extract_compliance_data_rules, classify_product_images
 from services.dashboard_service import (
     add_scan_to_history,
     get_recent_scans,
@@ -41,8 +43,25 @@ async def startup_event():
 
 @app.post("/evaluate")
 async def evaluate(product_name: str):
-
-    scraped = await scrape_all(product_name)
+    # Use live scrapers for faster response
+    print(f"\n🔍 Scraping for: {product_name}")
+    
+    # Run both scrapers in parallel
+    blinkit_task = scrape_blinkit_live(product_name)
+    zepto_task = scrape_zepto_live(product_name)
+    
+    blinkit_results, zepto_results = await asyncio.gather(
+        blinkit_task, zepto_task, return_exceptions=True
+    )
+    
+    # Combine results
+    scraped = []
+    if isinstance(blinkit_results, list):
+        scraped.extend(blinkit_results[:5])  # Top 5 from Blinkit
+    if isinstance(zepto_results, list):
+        scraped.extend(zepto_results[:5])  # Top 5 from Zepto
+    
+    print(f"✓ Scraped {len(scraped)} products total")
 
     if not scraped:
         return {"error": "Scraping failed"}
@@ -51,10 +70,17 @@ async def evaluate(product_name: str):
 
     for product in scraped:
         try:
-            # 1. Local OCR Pipeline
+            # 1. Local OCR Pipeline (TEMPORARILY DISABLED for speed)
             image_urls = product.get("product_images", [])
-            ocr_result = await perform_ocr_on_images(image_urls)
-            ocr_data = extract_compliance_data_rules(ocr_result)
+            
+            # Skip OCR for now - it's causing timeouts
+            ocr_result = {"raw_text": "", "avg_confidence": 0.0}
+            ocr_data = {
+                "fssai_from_ocr": "N/A",
+                "ingredients_from_ocr": "N/A",
+                "expiry_from_ocr": "N/A",
+                "ocr_confidence": 0.0
+            }
             
             # Merge OCR data into product
             product.update(ocr_data)

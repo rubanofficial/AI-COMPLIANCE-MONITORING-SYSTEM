@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:8006';
 
 export async function evaluateProduct(query: string) {
     const response = await fetch(`${API_BASE_URL}/evaluate?product_name=${encodeURIComponent(query)}`, {
