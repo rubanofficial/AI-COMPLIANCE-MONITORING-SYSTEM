@@ -16,8 +16,8 @@ const StatCard: React.FC<{ icon: React.ElementType; label: string; value: string
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
             style={{
-                background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)',
-                border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px',
+                background: '#ffffff', backdropFilter: 'blur(16px)',
+                border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px',
                 padding: '20px', display: 'flex', flexDirection: 'column', gap: '12px',
             }}
         >
@@ -31,8 +31,8 @@ const StatCard: React.FC<{ icon: React.ElementType; label: string; value: string
                     <Icon size={16} color={color} />
                 </div>
             </div>
-            <div style={{ fontSize: '32px', fontWeight: 800, color: '#e2e8f0', lineHeight: 1, letterSpacing: '-1px' }}>{value}</div>
-            <div style={{ fontSize: '12px', color: '#475569' }}>{sub}</div>
+            <div style={{ fontSize: '32px', fontWeight: 800, color: '#0f172a', lineHeight: 1, letterSpacing: '-1px' }}>{value}</div>
+            <div style={{ fontSize: '12px', color: '#64748b' }}>{sub}</div>
         </motion.div>
     );
 
@@ -107,7 +107,7 @@ const Dashboard: React.FC = () => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {/* Page Header */}
             <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
-                <div style={{ fontSize: '22px', fontWeight: 800, color: '#e2e8f0', letterSpacing: '-0.5px' }}>
+                <div style={{ fontSize: '22px', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.5px' }}>
                     Dashboard
                 </div>
                 <div style={{ fontSize: '13px', color: '#64748b', marginTop: '4px' }}>
@@ -172,10 +172,10 @@ const Dashboard: React.FC = () => {
 
                 {/* Recent Scans */}
                 <div style={{
-                    background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)',
-                    border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '20px 24px',
+                    background: '#ffffff', backdropFilter: 'blur(16px)',
+                    border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '20px 24px',
                 }}>
-                    <div style={{ fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <div style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <Clock size={15} color="#94a3b8" /> Recent Scans
                     </div>
                     {recentScans.length === 0 ? (
@@ -198,15 +198,15 @@ const Dashboard: React.FC = () => {
                                     style={{
                                         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                                         padding: '10px 10px', borderRadius: '8px',
-                                        background: 'rgba(15,23,42,0.3)',
+                                        background: 'rgba(241,245,249,0.7)',
                                         marginBottom: '4px',
                                         cursor: 'pointer',
                                         transition: 'background 0.2s',
                                     }}
-                                    whileHover={{ background: 'rgba(30,41,59,0.5)' } as never}
+                                    whileHover={{ background: 'rgba(226,232,240,0.8)' } as never}
                                 >
                                     <div style={{ flex: 1, minWidth: 0 }}>
-                                        <div style={{ fontSize: '13px', fontWeight: 600, color: '#cbd5e1', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                                        <div style={{ fontSize: '13px', fontWeight: 600, color: '#1e293b', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                                             {scan.name}
                                         </div>
                                         <div style={{ fontSize: '11px', color: '#475569', marginTop: '2px' }}>
@@ -228,8 +228,8 @@ const Dashboard: React.FC = () => {
                     )}
                     <button style={{
                         width: '100%', marginTop: '8px', padding: '10px', borderRadius: '8px',
-                        background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.15)',
-                        color: '#10b981', fontSize: '13px', fontWeight: 600, cursor: 'pointer',
+                        background: 'rgba(16,185,129,0.06)', border: '1px solid rgba(16,185,129,0.15)',
+                        color: '#059669', fontSize: '13px', fontWeight: 600, cursor: 'pointer',
                         display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
                         transition: 'all 0.2s',
                     }}>

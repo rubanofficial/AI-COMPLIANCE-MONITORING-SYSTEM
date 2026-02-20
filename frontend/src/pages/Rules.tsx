@@ -13,7 +13,7 @@ const Rules: React.FC = () => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {/* Header */}
             <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
-                <div style={{ fontSize: '22px', fontWeight: 800, color: '#e2e8f0', letterSpacing: '-0.5px' }}>
+                <div style={{ fontSize: '22px', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.5px' }}>
                     Compliance Rules
                 </div>
                 <div style={{ fontSize: '13px', color: '#64748b', marginTop: '4px' }}>
@@ -35,8 +35,8 @@ const Rules: React.FC = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: i * 0.06 }}
                         style={{
-                            background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)',
-                            border: `1px solid rgba(71,85,105,0.3)`, borderRadius: '10px',
+                            background: '#ffffff', backdropFilter: 'blur(16px)',
+                            border: `1px solid rgba(226,232,240,0.8)`, borderRadius: '10px',
                             padding: '14px 20px', display: 'flex', alignItems: 'center', gap: '14px',
                         }}
                     >
@@ -57,12 +57,12 @@ const Rules: React.FC = () => {
 
             {/* Regulatory Footer */}
             <div style={{
-                background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(16,185,129,0.15)',
+                background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.15)',
                 borderRadius: '10px', padding: '16px 20px',
                 display: 'flex', alignItems: 'center', gap: '12px',
             }}>
                 <BookOpen size={16} color="#10b981" style={{ flexShrink: 0 }} />
-                <div style={{ fontSize: '12px', color: '#64748b', lineHeight: 1.6 }}>
+                <div style={{ fontSize: '12px', color: '#475569', lineHeight: 1.6 }}>
                     Rules enforced under <span style={{ color: '#94a3b8', fontWeight: 500 }}>Food Safety &amp; Standards Act 2006</span>,{' '}
                     <span style={{ color: '#94a3b8', fontWeight: 500 }}>Legal Metrology Act 2009</span>, and{' '}
                     <span style={{ color: '#94a3b8', fontWeight: 500 }}>Consumer Protection Act 2019</span>.

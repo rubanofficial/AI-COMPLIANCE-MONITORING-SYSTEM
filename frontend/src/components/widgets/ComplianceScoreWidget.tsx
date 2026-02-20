@@ -46,20 +46,20 @@ const ComplianceScoreWidget: React.FC<ComplianceScoreWidgetProps> = ({ score, to
     if (loading) {
         return (
             <div style={{
-                background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)',
-                border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '28px',
+                background: '#ffffff', backdropFilter: 'blur(16px)',
+                border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '28px',
                 display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px',
             }}>
-                <div style={{ width: '180px', height: '180px', borderRadius: '50%', background: 'rgba(51,65,85,0.4)', animation: 'shimmer 1.5s ease-in-out infinite' }} />
-                <div style={{ width: '100px', height: '20px', borderRadius: '6px', background: 'rgba(51,65,85,0.4)', animation: 'shimmer 1.5s ease-in-out infinite' }} />
+                <div style={{ width: '180px', height: '180px', borderRadius: '50%', background: 'rgba(226,232,240,0.6)', animation: 'shimmer 1.5s ease-in-out infinite' }} />
+                <div style={{ width: '100px', height: '20px', borderRadius: '6px', background: 'rgba(226,232,240,0.6)', animation: 'shimmer 1.5s ease-in-out infinite' }} />
             </div>
         );
     }
 
     return (
         <div style={{
-            background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)',
-            border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '28px',
+            background: '#ffffff', backdropFilter: 'blur(16px)',
+            border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '28px',
             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px',
             boxShadow: `0 0 40px ${colors.glow}`,
         }}>
@@ -71,7 +71,7 @@ const ComplianceScoreWidget: React.FC<ComplianceScoreWidgetProps> = ({ score, to
             <div style={{ position: 'relative' }}>
                 <svg width="180" height="180" viewBox="0 0 180 180" style={{ transform: 'rotate(-90deg)' }}>
                     {/* Track */}
-                    <circle cx="90" cy="90" r={RADIUS} fill="none" stroke="rgba(51,65,85,0.4)" strokeWidth="12" />
+                    <circle cx="90" cy="90" r={RADIUS} fill="none" stroke="rgba(226,232,240,0.9)" strokeWidth="12" />
                     {/* Progress */}
                     <circle
                         cx="90" cy="90" r={RADIUS}
@@ -127,12 +127,12 @@ const ComplianceScoreWidget: React.FC<ComplianceScoreWidgetProps> = ({ score, to
                     <div style={{ fontSize: '22px', fontWeight: 700, color: '#10b981' }}>{passedRules}</div>
                     <div style={{ fontSize: '11px', color: '#64748b' }}>Passed</div>
                 </div>
-                <div style={{ width: '1px', background: 'rgba(51,65,85,0.5)' }} />
+                <div style={{ width: '1px', background: 'rgba(226,232,240,0.9)' }} />
                 <div style={{ textAlign: 'center' }}>
                     <div style={{ fontSize: '22px', fontWeight: 700, color: '#f43f5e' }}>{totalRules - passedRules}</div>
                     <div style={{ fontSize: '11px', color: '#64748b' }}>Failed</div>
                 </div>
-                <div style={{ width: '1px', background: 'rgba(51,65,85,0.5)' }} />
+                <div style={{ width: '1px', background: 'rgba(226,232,240,0.9)' }} />
                 <div style={{ textAlign: 'center' }}>
                     <div style={{ fontSize: '22px', fontWeight: 700, color: '#94a3b8' }}>{totalRules}</div>
                     <div style={{ fontSize: '11px', color: '#64748b' }}>Total</div>

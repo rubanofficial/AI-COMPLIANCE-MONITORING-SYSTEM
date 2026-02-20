@@ -16,9 +16,9 @@ const CustomTooltip: React.FC<{ active?: boolean; payload?: { value: number; dat
     if (!active || !payload?.length) return null;
     return (
         <div style={{
-            background: 'rgba(15,23,42,0.95)', backdropFilter: 'blur(16px)',
-            border: '1px solid rgba(51,65,85,0.5)', borderRadius: '10px', padding: '12px 16px',
-            boxShadow: '0 4px 24px rgba(0,0,0,0.4)',
+            background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(16px)',
+            border: '1px solid rgba(226,232,240,0.9)', borderRadius: '10px', padding: '12px 16px',
+            boxShadow: '0 4px 24px rgba(15,23,42,0.08)',
         }}>
             <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '8px', fontWeight: 600 }}>{label}</div>
             {payload.map((p) => (
@@ -28,7 +28,7 @@ const CustomTooltip: React.FC<{ active?: boolean; payload?: { value: number; dat
                         background: p.dataKey === 'score' ? '#10b981' : p.dataKey === 'violations' ? '#f43f5e' : '#f59e0b',
                     }} />
                     <span style={{ fontSize: '12px', color: '#94a3b8' }}>{p.name}:</span>
-                    <span style={{ fontSize: '13px', fontWeight: 700, color: '#e2e8f0' }}>
+                    <span style={{ fontSize: '13px', fontWeight: 700, color: '#0f172a' }}>
                         {p.dataKey === 'score' ? `${p.value}/100` : p.value}
                     </span>
                 </div>
@@ -40,9 +40,9 @@ const CustomTooltip: React.FC<{ active?: boolean; payload?: { value: number; dat
 const ComplianceTrendChart: React.FC<ComplianceTrendChartProps> = ({ data, loading }) => {
     if (loading) {
         return (
-            <div style={{ background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)', border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '20px 24px' }}>
-                <div style={{ width: '200px', height: '18px', borderRadius: '5px', background: 'rgba(51,65,85,0.4)', marginBottom: '24px', animation: 'shimmer 1.5s infinite' }} />
-                <div style={{ height: '220px', borderRadius: '8px', background: 'rgba(51,65,85,0.2)', animation: 'shimmer 1.5s infinite' }} />
+            <div style={{ background: '#ffffff', backdropFilter: 'blur(16px)', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '20px 24px' }}>
+                <div style={{ width: '200px', height: '18px', borderRadius: '5px', background: 'rgba(226,232,240,0.6)', marginBottom: '24px', animation: 'shimmer 1.5s infinite' }} />
+                <div style={{ height: '220px', borderRadius: '8px', background: 'rgba(226,232,240,0.4)', animation: 'shimmer 1.5s infinite' }} />
             </div>
         );
     }
@@ -54,11 +54,11 @@ const ComplianceTrendChart: React.FC<ComplianceTrendChartProps> = ({ data, loadi
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            style={{ background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)', border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '20px 24px' }}
+            style={{ background: '#ffffff', backdropFilter: 'blur(16px)', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '20px 24px' }}
         >
             {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
-                <div style={{ fontSize: '15px', fontWeight: 700, color: '#e2e8f0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <TrendingUp size={16} color="#10b981" />
                     30-Day Compliance Trend
                 </div>
@@ -96,7 +96,7 @@ const ComplianceTrendChart: React.FC<ComplianceTrendChartProps> = ({ data, loadi
                                 <stop offset="95%" stopColor="#f43f5e" stopOpacity={0} />
                             </linearGradient>
                         </defs>
-                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(51,65,85,0.3)" vertical={false} />
+                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(226,232,240,0.8)" vertical={false} />
                         <XAxis dataKey="date" tick={{ fill: '#475569', fontSize: 11 }} axisLine={false} tickLine={false} />
                         <YAxis tick={{ fill: '#475569', fontSize: 11 }} axisLine={false} tickLine={false} domain={[0, 100]} />
                         <Tooltip content={<CustomTooltip />} />

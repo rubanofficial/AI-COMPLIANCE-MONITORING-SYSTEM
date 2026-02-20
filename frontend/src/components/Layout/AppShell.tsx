@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 const AppShell: React.FC = () => {
     return (
-        <div style={{ display: 'flex', minHeight: '100vh', background: '#020617' }}>
+        <div style={{ display: 'flex', minHeight: '100vh', background: '#f1f5f9' }}>
             <Sidebar />
             <div style={{
                 flex: 1,

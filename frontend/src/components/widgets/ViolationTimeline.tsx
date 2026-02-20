@@ -18,10 +18,10 @@ const severityConfig = {
 
 const SkeletonItem: React.FC = () => (
     <div style={{ display: 'flex', gap: '12px', padding: '14px 0' }}>
-        <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(51,65,85,0.4)', flexShrink: 0, animation: 'shimmer 1.5s ease-in-out infinite' }} />
+        <div style={{ width: '32px', height: '32px', borderRadius: '8px', background: 'rgba(226,232,240,0.6)', flexShrink: 0, animation: 'shimmer 1.5s ease-in-out infinite' }} />
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <div style={{ width: '60%', height: '14px', borderRadius: '4px', background: 'rgba(51,65,85,0.4)', animation: 'shimmer 1.5s ease-in-out infinite' }} />
-            <div style={{ width: '90%', height: '12px', borderRadius: '4px', background: 'rgba(51,65,85,0.3)', animation: 'shimmer 1.5s ease-in-out infinite' }} />
+            <div style={{ width: '60%', height: '14px', borderRadius: '4px', background: 'rgba(226,232,240,0.6)', animation: 'shimmer 1.5s ease-in-out infinite' }} />
+            <div style={{ width: '90%', height: '12px', borderRadius: '4px', background: 'rgba(226,232,240,0.5)', animation: 'shimmer 1.5s ease-in-out infinite' }} />
         </div>
     </div>
 );
@@ -30,10 +30,10 @@ const ViolationTimeline: React.FC<ViolationTimelineProps> = ({ violations, loadi
     if (loading) {
         return (
             <div style={{
-                background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)',
-                border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '20px 24px',
+                background: '#ffffff', backdropFilter: 'blur(16px)',
+                border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '20px 24px',
             }}>
-                <div style={{ width: '160px', height: '18px', borderRadius: '5px', background: 'rgba(51,65,85,0.4)', marginBottom: '20px', animation: 'shimmer 1.5s ease-in-out infinite' }} />
+                <div style={{ width: '160px', height: '18px', borderRadius: '5px', background: 'rgba(226,232,240,0.6)', marginBottom: '20px', animation: 'shimmer 1.5s ease-in-out infinite' }} />
                 {[1, 2, 3].map(i => <SkeletonItem key={i} />)}
             </div>
         );
@@ -41,12 +41,12 @@ const ViolationTimeline: React.FC<ViolationTimelineProps> = ({ violations, loadi
 
     return (
         <div style={{
-            background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)',
-            border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '20px 24px',
+            background: '#ffffff', backdropFilter: 'blur(16px)',
+            border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '20px 24px',
         }}>
             {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-                <div style={{ fontSize: '15px', fontWeight: 700, color: '#e2e8f0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <ShieldAlert size={16} color="#f43f5e" />
                     Violation Timeline
                 </div>
@@ -83,7 +83,7 @@ const ViolationTimeline: React.FC<ViolationTimelineProps> = ({ violations, loadi
                 {violations.length > 0 && (
                     <div style={{
                         position: 'absolute', left: '15px', top: '8px', bottom: '8px',
-                        width: '1px', background: 'rgba(51,65,85,0.6)', zIndex: 0,
+                        width: '1px', background: 'rgba(226,232,240,0.9)', zIndex: 0,
                     }} />
                 )}
 
@@ -102,7 +102,7 @@ const ViolationTimeline: React.FC<ViolationTimelineProps> = ({ violations, loadi
                                 transition={{ duration: 0.35, delay: i * 0.08 }}
                                 style={{
                                     display: 'flex', gap: '12px', padding: '10px 0',
-                                    borderBottom: i < violations.length - 1 ? '1px solid rgba(51,65,85,0.2)' : 'none',
+                                    borderBottom: i < violations.length - 1 ? '1px solid rgba(226,232,240,0.6)' : 'none',
                                     position: 'relative', zIndex: 1,
                                 }}
                             >
@@ -119,12 +119,12 @@ const ViolationTimeline: React.FC<ViolationTimelineProps> = ({ violations, loadi
                                 {/* Content */}
                                 <div style={{ flex: 1, minWidth: 0 }}>
                                     <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginBottom: '2px' }}>
-                                        <span style={{ fontSize: '12px', fontWeight: 600, color: '#cbd5e1' }}>{v.rule}</span>
+                                        <span style={{ fontSize: '12px', fontWeight: 600, color: '#334155' }}>{v.rule}</span>
                                         <StatusBadge variant={v.severity} size="sm" />
                                         {v.field && (
                                             <span style={{
                                                 fontSize: '10px', color: '#475569', fontFamily: 'monospace',
-                                                background: 'rgba(51,65,85,0.4)', padding: '0px 5px', borderRadius: '3px',
+                                                background: 'rgba(226,232,240,0.7)', padding: '0px 5px', borderRadius: '3px',
                                             }}>
                                                 .{v.field}
                                             </span>

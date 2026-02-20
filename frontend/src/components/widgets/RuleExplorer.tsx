@@ -47,10 +47,10 @@ const RuleExplorer: React.FC<RuleExplorerProps> = ({ rules, onToggle }) => {
     };
 
     return (
-        <div style={{ background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)', border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '20px 24px' }}>
+        <div style={{ background: '#ffffff', backdropFilter: 'blur(16px)', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '20px 24px' }}>
             {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '16px', flexWrap: 'wrap', gap: '12px' }}>
-                <div style={{ fontSize: '15px', fontWeight: 700, color: '#e2e8f0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <BookOpen size={16} color="#94a3b8" />
                     Rule Explorer
                 </div>
@@ -62,16 +62,16 @@ const RuleExplorer: React.FC<RuleExplorerProps> = ({ rules, onToggle }) => {
                         value={search}
                         onChange={e => setSearch(e.target.value)}
                         style={{
-                            background: 'rgba(15,23,42,0.6)', border: '1px solid rgba(51,65,85,0.4)',
+                            background: 'rgba(241,245,249,0.9)', border: '1px solid rgba(203,213,225,0.8)',
                             borderRadius: '7px', padding: '6px 10px 6px 30px',
-                            fontSize: '13px', color: '#cbd5e1', outline: 'none', width: '200px',
+                            fontSize: '13px', color: '#0f172a', outline: 'none', width: '200px',
                         }}
                     />
                 </div>
             </div>
 
             {/* Tabs */}
-            <div style={{ display: 'flex', gap: '4px', marginBottom: '16px', background: 'rgba(15,23,42,0.4)', borderRadius: '8px', padding: '4px' }}>
+            <div style={{ display: 'flex', gap: '4px', marginBottom: '16px', background: 'rgba(241,245,249,0.9)', borderRadius: '8px', padding: '4px' }}>
                 {tabs.map(tab => (
                     <button
                         key={tab}
@@ -79,15 +79,15 @@ const RuleExplorer: React.FC<RuleExplorerProps> = ({ rules, onToggle }) => {
                         style={{
                             flex: 1, padding: '6px 12px', borderRadius: '6px', border: 'none', cursor: 'pointer',
                             fontSize: '13px', fontWeight: 500,
-                            background: activeTab === tab ? 'rgba(30,41,59,0.8)' : 'transparent',
-                            color: activeTab === tab ? '#e2e8f0' : '#64748b',
+                            background: activeTab === tab ? '#ffffff' : 'transparent',
+                            color: activeTab === tab ? '#0f172a' : '#64748b',
                             transition: 'all 0.2s',
                             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
                         }}
                     >
                         {tab}
                         <span style={{
-                            background: activeTab === tab ? 'rgba(16,185,129,0.15)' : 'rgba(51,65,85,0.4)',
+                            background: activeTab === tab ? 'rgba(16,185,129,0.15)' : 'rgba(226,232,240,0.7)',
                             color: activeTab === tab ? '#10b981' : '#475569',
                             borderRadius: '4px', padding: '1px 6px', fontSize: '11px', fontWeight: 600,
                         }}>
@@ -103,7 +103,7 @@ const RuleExplorer: React.FC<RuleExplorerProps> = ({ rules, onToggle }) => {
                 <div style={{
                     display: 'grid', gridTemplateColumns: '1fr 110px 90px 80px 48px',
                     gap: '8px', padding: '8px 12px',
-                    background: 'rgba(15,23,42,0.4)', borderRadius: '7px', marginBottom: '6px',
+                    background: 'rgba(241,245,249,0.9)', borderRadius: '7px', marginBottom: '6px',
                 }}>
                     {['Rule Name', 'Category', 'Severity', 'Reg. Ref', 'Active'].map(h => (
                         <div key={h} style={{ fontSize: '11px', fontWeight: 600, color: '#475569', letterSpacing: '0.5px', textTransform: 'uppercase' }}>{h}</div>
@@ -121,8 +121,8 @@ const RuleExplorer: React.FC<RuleExplorerProps> = ({ rules, onToggle }) => {
                             style={{
                                 display: 'grid', gridTemplateColumns: '1fr 110px 90px 80px 48px',
                                 gap: '8px', padding: '10px 12px', borderRadius: '7px',
-                                background: rule.enabled ? 'rgba(30,41,59,0.3)' : 'rgba(15,23,42,0.2)',
-                                border: '1px solid rgba(51,65,85,0.15)',
+                                background: rule.enabled ? 'rgba(248,250,252,0.7)' : 'rgba(241,245,249,0.4)',
+                                border: '1px solid rgba(226,232,240,0.7)',
                                 transition: 'background 0.2s',
                                 alignItems: 'center',
                                 opacity: rule.enabled ? 1 : 0.55,
@@ -130,7 +130,7 @@ const RuleExplorer: React.FC<RuleExplorerProps> = ({ rules, onToggle }) => {
                         >
                             {/* Rule Name */}
                             <div>
-                                <div style={{ fontSize: '13px', fontWeight: 600, color: '#cbd5e1', marginBottom: '2px' }}>{rule.name}</div>
+                                <div style={{ fontSize: '13px', fontWeight: 600, color: '#1e293b', marginBottom: '2px' }}>{rule.name}</div>
                                 <div style={{ fontSize: '11px', color: '#475569', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{rule.description}</div>
                             </div>
 
@@ -159,7 +159,7 @@ const RuleExplorer: React.FC<RuleExplorerProps> = ({ rules, onToggle }) => {
                                 title={rule.enabled ? 'Disable rule' : 'Enable rule'}
                                 style={{
                                     width: '36px', height: '20px', borderRadius: '10px', cursor: 'pointer',
-                                    background: rule.enabled ? '#10b981' : 'rgba(51,65,85,0.6)',
+                                    background: rule.enabled ? '#10b981' : 'rgba(203,213,225,0.8)',
                                     position: 'relative', transition: 'background 0.25s',
                                     boxShadow: rule.enabled ? '0 0 8px rgba(16,185,129,0.3)' : 'none',
                                     display: 'flex', alignItems: 'center', flexShrink: 0,

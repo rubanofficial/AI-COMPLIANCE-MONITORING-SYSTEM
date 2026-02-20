@@ -30,8 +30,8 @@ const HighlightItem: React.FC<{ icon?: React.ElementType; label: string; value: 
 }) => (
     <div
         style={{
-            background: 'rgba(15,23,42,0.5)',
-            border: '1px solid rgba(51,65,85,0.35)',
+            background: 'rgba(248,250,252,0.9)',
+            border: '1px solid rgba(226,232,240,0.7)',
             borderRadius: '8px',
             padding: '10px 14px',
             display: 'flex',
@@ -58,7 +58,7 @@ const HighlightItem: React.FC<{ icon?: React.ElementType; label: string; value: 
             style={{
                 fontSize: '13px',
                 fontWeight: 500,
-                color: value === NA_DISPLAY ? '#334155' : '#cbd5e1',
+                color: value === NA_DISPLAY ? '#94a3b8' : '#334155',
                 wordBreak: 'break-word',
             }}
         >
@@ -70,7 +70,7 @@ const HighlightItem: React.FC<{ icon?: React.ElementType; label: string; value: 
 const SectionHeader: React.FC<{ icon: React.ElementType; title: string; color?: string }> = ({
     icon: Icon,
     title,
-    color = '#94a3b8',
+    color = '#64748b',
 }) => (
     <div
         style={{
@@ -79,12 +79,12 @@ const SectionHeader: React.FC<{ icon: React.ElementType; title: string; color?: 
             gap: '8px',
             fontSize: '13px',
             fontWeight: 700,
-            color: '#94a3b8',
+            color: '#64748b',
             textTransform: 'uppercase',
             letterSpacing: '0.6px',
             marginBottom: '12px',
             paddingBottom: '8px',
-            borderBottom: '1px solid rgba(51,65,85,0.3)',
+            borderBottom: '1px solid rgba(226,232,240,0.6)',
         }}
     >
         <Icon size={14} color={color} />
@@ -144,7 +144,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                         style={{
                             position: 'fixed',
                             inset: 0,
-                            background: 'rgba(2,6,23,0.85)',
+                            background: 'rgba(15,23,42,0.45)',
                             backdropFilter: 'blur(4px)',
                             zIndex: 1000,
                         }}
@@ -177,10 +177,10 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                             overflow: 'hidden',
                             display: 'flex',
                             flexDirection: 'column',
-                            background: 'rgba(15,23,42,0.98)',
-                            border: '1px solid rgba(51,65,85,0.5)',
+                            background: '#ffffff',
+                            border: '1px solid rgba(226,232,240,0.9)',
                             borderRadius: '16px',
-                            boxShadow: '0 25px 80px rgba(0,0,0,0.7)',
+                            boxShadow: '0 20px 60px rgba(15,23,42,0.15)',
                         }}
                     >
                         {/* Responsive + animation styles */}
@@ -190,7 +190,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                             /* scrollbar */
                             .pdm-scroll::-webkit-scrollbar { width: 5px; }
                             .pdm-scroll::-webkit-scrollbar-track { background: transparent; }
-                            .pdm-scroll::-webkit-scrollbar-thumb { background: rgba(51,65,85,0.6); border-radius: 4px; }
+                            .pdm-scroll::-webkit-scrollbar-thumb { background: rgba(203,213,225,0.8); border-radius: 4px; }
 
                             /* two-column content grid */
                             .pdm-grid {
@@ -201,13 +201,14 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                 overflow: hidden;
                             }
                             .pdm-left {
-                                border-right: 1px solid rgba(51,65,85,0.3);
+                                border-right: 1px solid rgba(226,232,240,0.8);
                                 padding: 20px;
                                 display: flex;
                                 flex-direction: column;
                                 gap: 14px;
                                 overflow-y: auto;
                                 min-height: 0;
+                                background: #f8fafc;
                             }
                             .pdm-right {
                                 padding: 24px;
@@ -220,7 +221,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                             .pdm-header-title {
                                 font-size: 15px;
                                 font-weight: 700;
-                                color: #e2e8f0;
+                                color: #0f172a;
                                 max-width: 500px;
                                 overflow: hidden;
                                 text-overflow: ellipsis;
@@ -257,7 +258,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                 }
                                 .pdm-left {
                                     border-right: none;
-                                    border-bottom: 1px solid rgba(51,65,85,0.3);
+                                    border-bottom: 1px solid rgba(226,232,240,0.8);
                                     overflow-y: unset;
                                     min-height: unset;
                                     padding: 16px;
@@ -289,7 +290,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                 alignItems: 'center',
                                 justifyContent: 'space-between',
                                 padding: '16px 24px',
-                                borderBottom: '1px solid rgba(51,65,85,0.4)',
+                                borderBottom: '1px solid rgba(226,232,240,0.8)',
                                 flexShrink: 0,
                             }}
                         >
@@ -323,10 +324,10 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                             alignItems: 'center',
                                             gap: '4px',
                                             fontSize: '12px',
-                                            color: '#64748b',
+                                            color: '#475569',
                                             textDecoration: 'none',
-                                            background: 'rgba(30,41,59,0.6)',
-                                            border: '1px solid rgba(51,65,85,0.4)',
+                                            background: 'rgba(241,245,249,0.9)',
+                                            border: '1px solid rgba(203,213,225,0.8)',
                                             borderRadius: '6px',
                                             padding: '5px 10px',
                                         }}
@@ -340,21 +341,21 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         width: '32px',
                                         height: '32px',
                                         borderRadius: '8px',
-                                        background: 'rgba(30,41,59,0.6)',
-                                        border: '1px solid rgba(51,65,85,0.4)',
+                                        background: 'rgba(241,245,249,0.9)',
+                                        border: '1px solid rgba(203,213,225,0.8)',
                                         cursor: 'pointer',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
                                     }}
                                 >
-                                    <X size={16} color="#94a3b8" />
+                                    <X size={16} color="#64748b" />
                                 </button>
                             </div>
                         </div>
 
                         {/* ─── Body ───────────────────────────────────────── */}
-                        <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: 0 }}>
+                        <div style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: 0, background: '#ffffff' }}>
                             {/* Loading state */}
                             {loading && (
                                 <div
@@ -373,7 +374,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         color="#10b981"
                                         style={{ animation: 'spin 1s linear infinite' }}
                                     />
-                                    <div style={{ fontSize: '15px', fontWeight: 600, color: '#94a3b8' }}>
+                                    <div style={{ fontSize: '15px', fontWeight: 600, color: '#475569' }}>
                                         Fetching product details...
                                     </div>
                                     <div style={{ fontSize: '12px', color: '#475569' }}>
@@ -414,8 +415,8 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         <div
                                             style={{
                                                 position: 'relative',
-                                                background: 'rgba(30,41,59,0.4)',
-                                                border: '1px solid rgba(51,65,85,0.3)',
+                                                background: 'rgba(241,245,249,0.8)',
+                                                border: '1px solid rgba(226,232,240,0.8)',
                                                 borderRadius: '12px',
                                                 overflow: 'hidden',
                                                 aspectRatio: '1 / 1',
@@ -448,8 +449,8 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                                                     left: '8px',
                                                                     top: '50%',
                                                                     transform: 'translateY(-50%)',
-                                                                    background: 'rgba(15,23,42,0.8)',
-                                                                    border: '1px solid rgba(51,65,85,0.5)',
+                                                                    background: 'rgba(255,255,255,0.9)',
+                                                                    border: '1px solid rgba(226,232,240,0.8)',
                                                                     borderRadius: '50%',
                                                                     width: '28px',
                                                                     height: '28px',
@@ -459,7 +460,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                                                     cursor: 'pointer',
                                                                 }}
                                                             >
-                                                                <ChevronLeft size={14} color="#94a3b8" />
+                                                                <ChevronLeft size={14} color="#475569" />
                                                             </button>
                                                             <button
                                                                 onClick={nextImg}
@@ -468,8 +469,8 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                                                     right: '8px',
                                                                     top: '50%',
                                                                     transform: 'translateY(-50%)',
-                                                                    background: 'rgba(15,23,42,0.8)',
-                                                                    border: '1px solid rgba(51,65,85,0.5)',
+                                                                    background: 'rgba(255,255,255,0.9)',
+                                                                    border: '1px solid rgba(226,232,240,0.8)',
                                                                     borderRadius: '50%',
                                                                     width: '28px',
                                                                     height: '28px',
@@ -479,7 +480,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                                                     cursor: 'pointer',
                                                                 }}
                                                             >
-                                                                <ChevronRight size={14} color="#94a3b8" />
+                                                                <ChevronRight size={14} color="#475569" />
                                                             </button>
                                                             <div
                                                                 style={{
@@ -488,8 +489,8 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                                                     left: '50%',
                                                                     transform: 'translateX(-50%)',
                                                                     fontSize: '11px',
-                                                                    color: '#94a3b8',
-                                                                    background: 'rgba(15,23,42,0.7)',
+                                                                    color: '#475569',
+                                                                    background: 'rgba(255,255,255,0.85)',
                                                                     borderRadius: '10px',
                                                                     padding: '2px 8px',
                                                                 }}
@@ -535,9 +536,9 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                                             borderRadius: '7px',
                                                             overflow: 'hidden',
                                                             cursor: 'pointer',
-                                                            border: `2px solid ${i === imgIdx ? platformColor : 'rgba(51,65,85,0.4)'}`,
+                                                            border: `2px solid ${i === imgIdx ? platformColor : 'rgba(203,213,225,0.7)'}`,
                                                             flexShrink: 0,
-                                                            background: 'rgba(30,41,59,0.4)',
+                                                            background: 'rgba(248,250,252,0.8)',
                                                         }}
                                                     >
                                                         <img
@@ -553,8 +554,8 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         {/* Price Card */}
                                         <div
                                             style={{
-                                                background: 'rgba(30,41,59,0.5)',
-                                                border: '1px solid rgba(51,65,85,0.3)',
+                                                background: '#f8fafc',
+                                                border: '1px solid rgba(226,232,240,0.8)',
                                                 borderRadius: '10px',
                                                 padding: '16px',
                                             }}
@@ -564,7 +565,7 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                                     style={{
                                                         fontSize: '28px',
                                                         fontWeight: 800,
-                                                        color: '#10b981',
+                                                        color: '#059669',
                                                         letterSpacing: '-1px',
                                                     }}
                                                 >
@@ -614,8 +615,8 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                                     <span
                                                         style={{
                                                             fontSize: '11px',
-                                                            background: 'rgba(51,65,85,0.4)',
-                                                            color: '#94a3b8',
+                                                            background: 'rgba(226,232,240,0.6)',
+                                                            color: '#475569',
                                                             borderRadius: '5px',
                                                             padding: '2px 8px',
                                                         }}
@@ -673,14 +674,15 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         {detail.ingredients && detail.ingredients !== 'N/A' && (
                                             <section>
                                                 <SectionHeader icon={Utensils} title="Ingredients" color="#f59e0b" />
+                                        {/* Ingredients text block */}
                                                 <div
                                                     style={{
-                                                        background: 'rgba(15,23,42,0.4)',
-                                                        border: '1px solid rgba(51,65,85,0.3)',
+                                                        background: '#f8fafc',
+                                                        border: '1px solid rgba(226,232,240,0.7)',
                                                         borderRadius: '8px',
                                                         padding: '12px 14px',
                                                         fontSize: '12px',
-                                                        color: '#94a3b8',
+                                                        color: '#475569',
                                                         lineHeight: '1.7',
                                                     }}
                                                 >
@@ -693,14 +695,15 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         {detail.description && detail.description !== 'N/A' && (
                                             <section>
                                                 <SectionHeader icon={Info} title="About This Product" color="#64748b" />
+                                        {/* Description text block */}
                                                 <div
                                                     style={{
-                                                        background: 'rgba(15,23,42,0.4)',
-                                                        border: '1px solid rgba(51,65,85,0.3)',
+                                                        background: '#f8fafc',
+                                                        border: '1px solid rgba(226,232,240,0.7)',
                                                         borderRadius: '8px',
                                                         padding: '12px 14px',
                                                         fontSize: '12px',
-                                                        color: '#94a3b8',
+                                                        color: '#475569',
                                                         lineHeight: '1.7',
                                                     }}
                                                 >
@@ -713,14 +716,15 @@ const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                                         {detail.nutritional_info && detail.nutritional_info !== 'N/A' && (
                                             <section>
                                                 <SectionHeader icon={Utensils} title="Nutritional Information" color="#34d399" />
+                                        {/* Nutritional text block */}
                                                 <div
                                                     style={{
-                                                        background: 'rgba(15,23,42,0.4)',
-                                                        border: '1px solid rgba(51,65,85,0.3)',
+                                                        background: '#f8fafc',
+                                                        border: '1px solid rgba(226,232,240,0.7)',
                                                         borderRadius: '8px',
                                                         padding: '12px 14px',
                                                         fontSize: '12px',
-                                                        color: '#94a3b8',
+                                                        color: '#475569',
                                                         lineHeight: '1.7',
                                                     }}
                                                 >

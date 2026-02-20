@@ -25,9 +25,9 @@ const TopBar: React.FC = () => {
     return (
         <header style={{
             height: '64px',
-            background: 'rgba(15, 23, 42, 0.9)',
+            background: 'rgba(255, 255, 255, 0.95)',
             backdropFilter: 'blur(20px)',
-            borderBottom: '1px solid rgba(51, 65, 85, 0.4)',
+            borderBottom: '1px solid rgba(226, 232, 240, 0.9)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -46,17 +46,17 @@ const TopBar: React.FC = () => {
                     onChange={(e) => setSearchValue(e.target.value)}
                     style={{
                         width: '100%',
-                        background: 'rgba(30, 41, 59, 0.6)',
-                        border: '1px solid rgba(51, 65, 85, 0.4)',
+                        background: 'rgba(241, 245, 249, 0.9)',
+                        border: '1px solid rgba(203, 213, 225, 0.8)',
                         borderRadius: '8px',
                         padding: '8px 12px 8px 38px',
                         fontSize: '14px',
-                        color: '#e2e8f0',
+                        color: '#0f172a',
                         outline: 'none',
                         transition: 'border-color 0.2s',
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = 'rgba(16, 185, 129, 0.4)')}
-                    onBlur={(e) => (e.target.style.borderColor = 'rgba(51, 65, 85, 0.4)')}
+                    onFocus={(e) => (e.target.style.borderColor = 'rgba(16, 185, 129, 0.5)')}
+                    onBlur={(e) => (e.target.style.borderColor = 'rgba(203, 213, 225, 0.8)')}
                 />
             </div>
 
@@ -96,13 +96,13 @@ const TopBar: React.FC = () => {
                 </div>
 
                 {/* Divider */}
-                <div style={{ width: '1px', height: '28px', background: 'rgba(51, 65, 85, 0.5)' }} />
+                <div style={{ width: '1px', height: '28px', background: 'rgba(226, 232, 240, 0.9)' }} />
 
                 {/* Bell */}
                 <button style={{
                     position: 'relative',
-                    background: 'rgba(30, 41, 59, 0.6)',
-                    border: '1px solid rgba(51, 65, 85, 0.4)',
+                    background: 'rgba(241, 245, 249, 0.9)',
+                    border: '1px solid rgba(203, 213, 225, 0.8)',
                     borderRadius: '8px',
                     padding: '8px',
                     cursor: 'pointer',
@@ -111,15 +111,15 @@ const TopBar: React.FC = () => {
                     justifyContent: 'center',
                     transition: 'all 0.2s',
                 }}>
-                    <Bell size={16} color="#94a3b8" />
+                    <Bell size={16} color="#64748b" />
                     <span style={{
                         position: 'absolute',
                         top: '6px', right: '6px',
                         width: '8px', height: '8px',
                         background: '#f43f5e',
                         borderRadius: '50%',
-                        border: '2px solid #0f172a',
-                        boxShadow: '0 0 6px rgba(244, 63, 94, 0.5)',
+                        border: '2px solid #ffffff',
+                        boxShadow: '0 0 6px rgba(244, 63, 94, 0.4)',
                     }} />
                 </button>
 

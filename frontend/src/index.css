@@ -32,8 +32,8 @@
   html, body, #root {
     height: 100%;
     min-height: 100vh;
-    background-color: #020617;
-    color: #e2e8f0;
+    background-color: #f1f5f9;
+    color: #0f172a;
     font-family: "Inter", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -44,31 +44,31 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #1e293b;
+    background: #f1f5f9;
   }
   ::-webkit-scrollbar-thumb {
-    background: #334155;
+    background: #cbd5e1;
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #475569;
+    background: #94a3b8;
   }
 }
 
 @layer utilities {
   .glass {
-    background: rgba(30, 41, 59, 0.6);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(71, 85, 105, 0.3);
+    border: 1px solid rgba(226, 232, 240, 0.8);
     border-radius: 12px;
   }
 
   .glass-dark {
-    background: rgba(15, 23, 42, 0.8);
+    background: rgba(248, 250, 252, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(51, 65, 85, 0.4);
+    border: 1px solid rgba(226, 232, 240, 0.8);
     border-radius: 12px;
   }
 
@@ -98,7 +98,7 @@
     gap: 12px;
     padding: 10px 12px;
     border-radius: 8px;
-    color: #94a3b8;
+    color: #64748b;
     font-size: 14px;
     font-weight: 500;
     transition: all 0.2s ease;
@@ -107,13 +107,13 @@
   }
 
   .sidebar-link:hover {
-    background: rgba(71, 85, 105, 0.2);
-    color: #e2e8f0;
+    background: rgba(226, 232, 240, 0.6);
+    color: #0f172a;
   }
 
   .sidebar-link.active {
-    background: rgba(16, 185, 129, 0.15);
-    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
     border: 1px solid rgba(16, 185, 129, 0.2);
   }
 }

@@ -124,7 +124,7 @@ const Scanner: React.FC = () => {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {/* Header */}
             <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
-                <div style={{ fontSize: '22px', fontWeight: 800, color: '#e2e8f0', letterSpacing: '-0.5px' }}>
+                <div style={{ fontSize: '22px', fontWeight: 800, color: '#0f172a', letterSpacing: '-0.5px' }}>
                     Product Scanner
                 </div>
                 <div style={{ fontSize: '13px', color: '#64748b', marginTop: '4px' }}>
@@ -138,11 +138,11 @@ const Scanner: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
                 style={{
-                    background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)',
-                    border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '28px 32px',
+                    background: '#ffffff', backdropFilter: 'blur(16px)',
+                    border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '28px 32px',
                 }}
             >
-                <div style={{ fontSize: '14px', fontWeight: 600, color: '#94a3b8', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <div style={{ fontSize: '14px', fontWeight: 600, color: '#64748b', marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                     <Link size={14} /> Product URL or Name
                 </div>
                 <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
@@ -155,13 +155,13 @@ const Scanner: React.FC = () => {
                             onChange={e => { setUrl(e.target.value); setError(''); }}
                             onKeyDown={handleKeyDown}
                             style={{
-                                width: '100%', background: 'rgba(15,23,42,0.6)',
-                                border: `1px solid ${error ? 'rgba(244,63,94,0.5)' : 'rgba(51,65,85,0.4)'}`,
+                                width: '100%', background: 'rgba(241,245,249,0.9)',
+                                border: `1px solid ${error ? 'rgba(244,63,94,0.5)' : 'rgba(203,213,225,0.8)'}`,
                                 borderRadius: '10px', padding: '13px 14px 13px 42px',
-                                fontSize: '14px', color: '#e2e8f0', outline: 'none', fontFamily: 'monospace',
+                                fontSize: '14px', color: '#0f172a', outline: 'none', fontFamily: 'monospace',
                             }}
-                            onFocus={e => (e.target.style.borderColor = 'rgba(16,185,129,0.4)')}
-                            onBlur={e => (e.target.style.borderColor = error ? 'rgba(244,63,94,0.5)' : 'rgba(51,65,85,0.4)')}
+                            onFocus={e => (e.target.style.borderColor = 'rgba(16,185,129,0.5)')}
+                            onBlur={e => (e.target.style.borderColor = error ? 'rgba(244,63,94,0.5)' : 'rgba(203,213,225,0.8)')}
                         />
                     </div>
                     <button
@@ -195,8 +195,8 @@ const Scanner: React.FC = () => {
                             key={sample}
                             onClick={() => { setUrl(`https://${sample}`); setError(''); }}
                             style={{
-                                fontSize: '12px', color: '#64748b', background: 'rgba(51,65,85,0.3)',
-                                border: '1px solid rgba(51,65,85,0.3)', borderRadius: '5px', padding: '3px 10px',
+                                fontSize: '12px', color: '#64748b', background: 'rgba(226,232,240,0.6)',
+                                border: '1px solid rgba(203,213,225,0.6)', borderRadius: '5px', padding: '3px 10px',
                                 cursor: 'pointer', fontFamily: 'monospace', transition: 'all 0.2s',
                             }}
                         >
@@ -237,8 +237,9 @@ const Scanner: React.FC = () => {
                         <div style={{
                             background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.2)',
                             borderRadius: '10px', padding: '14px 20px',
-                        }}>
-                            <div style={{ fontSize: '14px', fontWeight: 700, color: '#e2e8f0', marginBottom: '12px' }}>
+                        }}
+                        >
+                            <div style={{ fontSize: '14px', fontWeight: 700, color: '#0f172a', marginBottom: '12px' }}>
                                 Found {results.length} Product{results.length > 1 ? 's' : ''}
                             </div>
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '12px' }}>
@@ -254,8 +255,8 @@ const Scanner: React.FC = () => {
                                             transition={{ delay: index * 0.1 }}
                                             onClick={() => setSelectedIndex(index)}
                                             style={{
-                                                background: isSelected ? 'rgba(16,185,129,0.1)' : 'rgba(15,23,42,0.5)',
-                                                border: isSelected ? '2px solid rgba(16,185,129,0.5)' : '1px solid rgba(51,65,85,0.3)',
+                                            background: isSelected ? 'rgba(16,185,129,0.08)' : '#ffffff',
+                                            border: isSelected ? '2px solid rgba(16,185,129,0.5)' : '1px solid rgba(226,232,240,0.8)',
                                                 borderRadius: '8px',
                                                 padding: '12px 14px',
                                                 cursor: 'pointer',
@@ -274,8 +275,8 @@ const Scanner: React.FC = () => {
                                                             height: '44px',
                                                             objectFit: 'contain',
                                                             borderRadius: '6px',
-                                                            background: 'rgba(30,41,59,0.6)',
-                                                            border: '1px solid rgba(51,65,85,0.3)',
+                                                            background: 'rgba(241,245,249,0.8)',
+                                                            border: '1px solid rgba(226,232,240,0.8)',
                                                             flexShrink: 0,
                                                             padding: '2px',
                                                         }}
@@ -286,7 +287,7 @@ const Scanner: React.FC = () => {
                                                     <div style={{
                                                         fontSize: '13px',
                                                         fontWeight: 600,
-                                                        color: '#e2e8f0',
+                                                        color: '#0f172a',
                                                         whiteSpace: 'nowrap',
                                                         overflow: 'hidden',
                                                         textOverflow: 'ellipsis',
@@ -381,9 +382,9 @@ const Scanner: React.FC = () => {
                             >
                                 {/* Product Info Banner */}
                                 <div style={{
-                                    background: 'rgba(30,41,59,0.6)',
+                                    background: '#ffffff',
                                     backdropFilter: 'blur(16px)',
-                                    border: '1px solid rgba(71,85,105,0.3)',
+                                    border: '1px solid rgba(226,232,240,0.8)',
                                     borderRadius: '10px',
                                     padding: '14px 20px',
                                     display: 'flex',
@@ -400,15 +401,15 @@ const Scanner: React.FC = () => {
                                                 style={{
                                                     width: '48px', height: '48px',
                                                     objectFit: 'contain', borderRadius: '8px',
-                                                    background: 'rgba(15,23,42,0.6)',
-                                                    border: '1px solid rgba(51,65,85,0.3)',
+                                                    background: 'rgba(241,245,249,0.8)',
+                                                    border: '1px solid rgba(226,232,240,0.8)',
                                                     padding: '3px',
                                                 }}
                                                 onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
                                             />
                                         )}
                                         <div>
-                                            <div style={{ fontSize: '16px', fontWeight: 700, color: '#e2e8f0' }}>
+                                            <div style={{ fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>
                                                 {results[selectedIndex].product.name}
                                             </div>
                                             <div style={{ fontSize: '12px', color: '#64748b', marginTop: '2px' }}>
@@ -459,7 +460,7 @@ const Scanner: React.FC = () => {
                                         overflowY: 'auto',
                                         paddingRight: '4px',
                                         scrollbarWidth: 'thin',
-                                        scrollbarColor: 'rgba(51,65,85,0.5) transparent'
+                                        scrollbarColor: 'rgba(203,213,225,0.8) transparent'
                                     }}>
                                         <ViolationTimeline violations={results[selectedIndex].compliance.violations} />
                                     </div>
@@ -474,13 +475,12 @@ const Scanner: React.FC = () => {
                                 }}>
                                     {/* AI Analysis */}
                                     <div style={{
-                                        background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)',
-                                        border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '20px 24px',
+                                        background: 'rgba(16,185,129,0.04)', border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '20px 24px',
                                     }}>
-                                        <div style={{ fontSize: '15px', fontWeight: 700, color: '#e2e8f0', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                        <div style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                                             <Sparkles size={16} color="#a78bfa" /> AI Insights
                                         </div>
-                                        <p style={{ fontSize: '13px', color: '#94a3b8', lineHeight: 1.7, marginBottom: '16px' }}>
+                                        <p style={{ fontSize: '13px', color: '#475569', lineHeight: 1.7, marginBottom: '16px' }}>
                                             {results[selectedIndex].ai_analysis.detailed_insights}
                                         </p>
                                         <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -495,11 +495,11 @@ const Scanner: React.FC = () => {
                                                         style={{
                                                             display: 'flex', alignItems: 'flex-start', gap: '10px',
                                                             padding: '10px 14px', borderRadius: '8px',
-                                                            background: 'rgba(15,23,42,0.4)', border: '1px solid rgba(51,65,85,0.2)',
+                                                            background: 'rgba(241,245,249,0.8)', border: '1px solid rgba(226,232,240,0.6)',
                                                         }}
                                                     >
                                                         <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'rgba(167,139,250,0.15)', border: '1px solid rgba(167,139,250,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: '11px', fontWeight: 700, color: '#a78bfa' }}>{i + 1}</div>
-                                                        <span style={{ fontSize: '13px', color: '#94a3b8', lineHeight: 1.5 }}>{rec}</span>
+                                                        <span style={{ fontSize: '13px', color: '#475569', lineHeight: 1.5 }}>{rec}</span>
                                                     </motion.div>
                                                 ))}
                                             </div>

@@ -23,9 +23,9 @@ const Sidebar: React.FC = () => {
                 width: '240px',
                 minWidth: '240px',
                 height: '100vh',
-                background: 'rgba(15, 23, 42, 0.95)',
+                background: '#ffffff',
                 backdropFilter: 'blur(20px)',
-                borderRight: '1px solid rgba(51, 65, 85, 0.4)',
+                borderRight: '1px solid rgba(226, 232, 240, 0.9)',
                 display: 'flex',
                 flexDirection: 'column',
                 padding: '0',
@@ -38,7 +38,7 @@ const Sidebar: React.FC = () => {
             {/* Brand */}
             <div style={{
                 padding: '24px 20px 20px',
-                borderBottom: '1px solid rgba(51, 65, 85, 0.3)',
+                borderBottom: '1px solid rgba(226, 232, 240, 0.8)',
                 display: 'flex',
                 alignItems: 'center',
                 gap: '10px',
@@ -56,10 +56,10 @@ const Sidebar: React.FC = () => {
                     <ShieldCheck size={20} color="white" />
                 </div>
                 <div>
-                    <div style={{ fontSize: '15px', fontWeight: 700, color: '#e2e8f0', letterSpacing: '-0.3px' }}>
+                    <div style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', letterSpacing: '-0.3px' }}>
                         ComplianceAI
                     </div>
-                    <div style={{ fontSize: '11px', color: '#64748b', letterSpacing: '0.5px' }}>
+                    <div style={{ fontSize: '11px', color: '#94a3b8', letterSpacing: '0.5px' }}>
                         QUICK COMMERCE
                     </div>
                 </div>
@@ -67,7 +67,7 @@ const Sidebar: React.FC = () => {
 
             {/* Navigation */}
             <nav style={{ padding: '16px 12px', flex: 1 }}>
-                <div style={{ fontSize: '11px', fontWeight: 600, color: '#475569', letterSpacing: '0.8px', marginBottom: '8px', paddingLeft: '8px' }}>
+                <div style={{ fontSize: '11px', fontWeight: 600, color: '#94a3b8', letterSpacing: '0.8px', marginBottom: '8px', paddingLeft: '8px' }}>
                     MAIN MENU
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
@@ -88,10 +88,10 @@ const Sidebar: React.FC = () => {
             {/* Bottom Status */}
             <div style={{
                 padding: '16px 12px',
-                borderTop: '1px solid rgba(51, 65, 85, 0.3)',
+                borderTop: '1px solid rgba(226, 232, 240, 0.8)',
             }}>
                 <div style={{
-                    background: 'rgba(16, 185, 129, 0.08)',
+                    background: 'rgba(16, 185, 129, 0.07)',
                     border: '1px solid rgba(16, 185, 129, 0.2)',
                     borderRadius: '8px',
                     padding: '12px',
@@ -102,7 +102,7 @@ const Sidebar: React.FC = () => {
                     <Zap size={14} color="#10b981" />
                     <div>
                         <div style={{ fontSize: '12px', fontWeight: 600, color: '#10b981' }}>AI Engine Active</div>
-                        <div style={{ fontSize: '11px', color: '#475569' }}>Gemini 1.5 Pro</div>
+                        <div style={{ fontSize: '11px', color: '#64748b' }}>Gemini 1.5 Pro</div>
                     </div>
                 </div>
             </div>

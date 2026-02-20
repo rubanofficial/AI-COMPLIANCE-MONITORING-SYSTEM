@@ -25,10 +25,10 @@ const isDifferent = (a: unknown, b: unknown) =>
     a !== undefined && b !== undefined && String(a).trim() !== String(b).trim();
 
 const SkeletonRow: React.FC = () => (
-    <div style={{ display: 'flex', gap: '8px', padding: '10px 0', borderBottom: '1px solid rgba(51,65,85,0.2)' }}>
-        <div style={{ width: '120px', height: '14px', borderRadius: '4px', background: 'rgba(51,65,85,0.4)', animation: 'shimmer 1.5s infinite' }} />
-        <div style={{ flex: 1, height: '14px', borderRadius: '4px', background: 'rgba(51,65,85,0.3)', animation: 'shimmer 1.5s infinite' }} />
-        <div style={{ flex: 1, height: '14px', borderRadius: '4px', background: 'rgba(51,65,85,0.3)', animation: 'shimmer 1.5s infinite' }} />
+    <div style={{ display: 'flex', gap: '8px', padding: '10px 0', borderBottom: '1px solid rgba(226,232,240,0.6)' }}>
+        <div style={{ width: '120px', height: '14px', borderRadius: '4px', background: 'rgba(226,232,240,0.6)', animation: 'shimmer 1.5s infinite' }} />
+        <div style={{ flex: 1, height: '14px', borderRadius: '4px', background: 'rgba(226,232,240,0.5)', animation: 'shimmer 1.5s infinite' }} />
+        <div style={{ flex: 1, height: '14px', borderRadius: '4px', background: 'rgba(226,232,240,0.5)', animation: 'shimmer 1.5s infinite' }} />
     </div>
 );
 
@@ -37,8 +37,8 @@ const DualViewScraperData: React.FC<DualViewScraperDataProps> = ({
 }) => {
     if (loading) {
         return (
-            <div style={{ background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)', border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '20px 24px' }}>
-                <div style={{ width: '200px', height: '18px', borderRadius: '5px', background: 'rgba(51,65,85,0.4)', marginBottom: '20px', animation: 'shimmer 1.5s infinite' }} />
+            <div style={{ background: '#ffffff', backdropFilter: 'blur(16px)', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '20px 24px' }}>
+                <div style={{ width: '200px', height: '18px', borderRadius: '5px', background: 'rgba(226,232,240,0.6)', marginBottom: '20px', animation: 'shimmer 1.5s infinite' }} />
                 {[1, 2, 3, 4, 5].map(i => <SkeletonRow key={i} />)}
             </div>
         );
@@ -47,10 +47,10 @@ const DualViewScraperData: React.FC<DualViewScraperDataProps> = ({
     const mismatchCount = fieldLabels.filter(({ key }) => isDifferent(sourceAData[key], sourceBData[key])).length;
 
     return (
-        <div style={{ background: 'rgba(30,41,59,0.6)', backdropFilter: 'blur(16px)', border: '1px solid rgba(71,85,105,0.3)', borderRadius: '12px', padding: '20px 24px' }}>
+        <div style={{ background: '#ffffff', backdropFilter: 'blur(16px)', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '20px 24px' }}>
             {/* Header */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px' }}>
-                <div style={{ fontSize: '15px', fontWeight: 700, color: '#e2e8f0', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <div style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '8px' }}>
                     <GitCompare size={16} color="#94a3b8" />
                     Dual-Source Comparison
                 </div>
@@ -63,7 +63,7 @@ const DualViewScraperData: React.FC<DualViewScraperDataProps> = ({
             </div>
 
             {/* Column Headers */}
-            <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr 1fr', gap: '8px', marginBottom: '8px', padding: '0 0 8px', borderBottom: '1px solid rgba(51,65,85,0.4)' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '140px 1fr 1fr', gap: '8px', marginBottom: '8px', padding: '0 0 8px', borderBottom: '1px solid rgba(226,232,240,0.8)' }}>
                 <div style={{ fontSize: '11px', fontWeight: 600, color: '#475569', letterSpacing: '0.5px', textTransform: 'uppercase' }}>Field</div>
                 {[sourceALabel, sourceBLabel].map((label, idx) => (
                     <div key={idx} style={{
@@ -93,7 +93,7 @@ const DualViewScraperData: React.FC<DualViewScraperDataProps> = ({
                         style={{
                             display: 'grid', gridTemplateColumns: '140px 1fr 1fr', gap: '8px',
                             padding: '10px 0',
-                            borderBottom: i < fieldLabels.length - 1 ? '1px solid rgba(51,65,85,0.2)' : 'none',
+                            borderBottom: i < fieldLabels.length - 1 ? '1px solid rgba(226,232,240,0.6)' : 'none',
                             background: mismatch ? 'rgba(245,158,11,0.03)' : 'transparent',
                             borderRadius: '4px',
                         }}
@@ -105,7 +105,7 @@ const DualViewScraperData: React.FC<DualViewScraperDataProps> = ({
                         {[aVal, bVal].map((val, idx) => (
                             <div key={idx} style={{
                                 fontSize: '12px',
-                                color: mismatch ? (idx === 0 ? '#10b981' : '#a78bfa') : '#cbd5e1',
+                                color: mismatch ? (idx === 0 ? '#10b981' : '#a78bfa') : '#475569',
                                 fontWeight: mismatch ? 600 : 400,
                                 background: mismatch ? (idx === 0 ? 'rgba(16,185,129,0.06)' : 'rgba(167,139,250,0.06)') : 'transparent',
                                 border: mismatch ? `1px solid ${idx === 0 ? 'rgba(16,185,129,0.15)' : 'rgba(167,139,250,0.15)'}` : '1px solid transparent',
