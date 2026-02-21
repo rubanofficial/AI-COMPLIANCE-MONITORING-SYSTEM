@@ -47,6 +47,25 @@ const ComplianceTrendChart: React.FC<ComplianceTrendChartProps> = ({ data, loadi
         );
     }
 
+    if (!data || data.length === 0) {
+        return (
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                style={{ background: '#ffffff', backdropFilter: 'blur(16px)', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px', padding: '20px 24px' }}
+            >
+                <div style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
+                    <TrendingUp size={16} color="#10b981" />
+                    30-Day Compliance Trend
+                </div>
+                <div style={{ textAlign: 'center', padding: '40px 20px', color: '#94a3b8', fontSize: '13px' }}>
+                    No trend data yet. Scan some products to see the chart.
+                </div>
+            </motion.div>
+        );
+    }
+
     const avgScore = Math.round(data.reduce((a, d) => a + d.score, 0) / data.length);
 
     return (

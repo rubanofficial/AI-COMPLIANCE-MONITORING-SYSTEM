@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Variant = 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW' | 'PASSED' | 'FAILED' | 'WARNING' | 'ONLINE' | 'OFFLINE';
+type Variant = 'CRITICAL' | 'HIGH' | 'MEDIUM' | 'LOW' | 'PASSED' | 'FAILED' | 'WARNING' | 'ONLINE' | 'OFFLINE' | 'INFO';
 
 interface StatusBadgeProps {
     variant: Variant;
@@ -18,6 +18,7 @@ const variantStyles: Record<Variant, { bg: string; border: string; text: string;
     PASSED: { bg: 'rgba(16, 185, 129, 0.1)', border: 'rgba(16, 185, 129, 0.25)', text: '#10b981', dot: '#10b981' },
     ONLINE: { bg: 'rgba(16, 185, 129, 0.1)', border: 'rgba(16, 185, 129, 0.25)', text: '#10b981', dot: '#10b981' },
     OFFLINE: { bg: 'rgba(244, 63, 94, 0.1)', border: 'rgba(244, 63, 94, 0.25)', text: '#f43f5e', dot: '#f43f5e' },
+    INFO: { bg: 'rgba(56, 189, 248, 0.08)', border: 'rgba(56, 189, 248, 0.25)', text: '#38bdf8', dot: '#38bdf8' },
 };
 
 const StatusBadge: React.FC<StatusBadgeProps> = ({ variant, label, size = 'md' }) => {

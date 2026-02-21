@@ -14,7 +14,7 @@ def combine_scores(rule_result, ai_result):
         
         # Ensure severity is uppercase and valid
         severity = str(v.get("severity", "MEDIUM")).upper()
-        if severity not in ["CRITICAL", "HIGH", "MEDIUM", "LOW"]:
+        if severity not in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFO"]:
             severity = "MEDIUM"
             
         return {
@@ -41,9 +41,11 @@ def combine_scores(rule_result, ai_result):
     return {
         "score": final_score,
         "rule_score": rule_result["rule_score"],
+        "ai_score": ai_result["ai_score"],
         "risk": risk,
         "violations": normalized_violations,
         "passed_rules": rule_result["passed_rules"],
         "total_rules": rule_result["total_rules"],
-        "ai_analysis_status": ai_result.get("ai_status", "Success")
+        "ai_analysis_status": ai_result.get("ai_status", "Success"),
+        "deep_scrape_available": rule_result.get("deep_scrape_available", True),
     }

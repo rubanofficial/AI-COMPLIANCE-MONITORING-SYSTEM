@@ -7,6 +7,5 @@ easyocr
 opencv-python
 numpy
 
-# AI Integration (Uncomment when implementing)
-# openai
-# google-generativeai
+# AI Integration
+google-generativeai

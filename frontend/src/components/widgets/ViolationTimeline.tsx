@@ -14,6 +14,7 @@ const severityConfig = {
     HIGH: { icon: AlertTriangle, color: '#fb7185', bg: 'rgba(244,63,94,0.05)', borderColor: 'rgba(244,63,94,0.2)' },
     MEDIUM: { icon: ShieldAlert, color: '#f59e0b', bg: 'rgba(245,158,11,0.05)', borderColor: 'rgba(245,158,11,0.2)' },
     LOW: { icon: Info, color: '#94a3b8', bg: 'rgba(100,116,139,0.05)', borderColor: 'rgba(100,116,139,0.2)' },
+    INFO: { icon: Info, color: '#38bdf8', bg: 'rgba(56,189,248,0.06)', borderColor: 'rgba(56,189,248,0.2)' },
 };
 
 const SkeletonItem: React.FC = () => (

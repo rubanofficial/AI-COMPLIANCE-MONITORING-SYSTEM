@@ -1,10 +1,11 @@
 from utils.data_cleaner import clean_price, clean_discount
 import re
 
-def validate_product(product):
+def validate_product(product, deep_scrape_available: bool = True):
     """
-    Enhanced validation for deep compliance fields
-    Checks 14+ compliance rules including regulatory requirements
+    Enhanced validation for compliance fields.
+    When deep_scrape_available=False, regulatory rules are advisory-only
+    (no score penalty) since those fields couldn't be fetched.
     """
     violations = []
     passed_rules = []
@@ -21,6 +22,16 @@ def validate_product(product):
         })
         return penalty
 
+    def add_advisory(rule_id, rule_name, message, field=None):
+        """Advisory violation — informational, no score penalty."""
+        violations.append({
+            "id": rule_id,
+            "rule": rule_name,
+            "message": message + " (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": field
+        })
+
     # Extract fields
     price = clean_price(product.get("price"))
     mrp = clean_price(product.get("mrp"))
@@ -36,7 +47,7 @@ def validate_product(product):
     # OCR Data
     fssai_ocr = product.get("fssai_from_ocr", "N/A")
 
-    # === BASIC VALIDATIONS ===
+    # === BASIC VALIDATIONS (always checked) ===
     
     total_rules += 1
     if not name or str(name).strip() in ("", "N/A"):
@@ -61,11 +72,15 @@ def validate_product(product):
         score -= add_violation("VAL004", "MRP Compliance", "MRP lower than selling price (illegal)", "CRITICAL", "mrp", 40)
     
     # === REGULATORY COMPLIANCE VALIDATIONS ===
+    # When deep scrape is unavailable, these become advisory-only (no penalty)
     
     total_rules += 1
     effective_fssai = fssai_ocr if fssai_ocr != "N/A" else fssai_number
     if effective_fssai == "N/A" or not effective_fssai:
-        score -= add_violation("REG001", "FSSAI License", "Missing FSSAI license number (required for food products)", "CRITICAL", "fssai_number", 35)
+        if deep_scrape_available:
+            score -= add_violation("REG001", "FSSAI License", "Missing FSSAI license number (required for food products)", "CRITICAL", "fssai_number", 35)
+        else:
+            add_advisory("REG001", "FSSAI License", "FSSAI license number not found on listing", "fssai_number")
     elif len(str(effective_fssai).strip()) != 14:
         score -= add_violation("REG001", "FSSAI Format", f"Invalid FSSAI number format (must be 14 digits)", "HIGH", "fssai_number", 25)
     else:
@@ -73,25 +88,37 @@ def validate_product(product):
     
     total_rules += 1
     if manufacturer_name == "N/A" or not manufacturer_name:
-        score -= add_violation("REG002", "Manufacturer Name", "Missing manufacturer name (legally required)", "HIGH", "manufacturer_name", 30)
+        if deep_scrape_available:
+            score -= add_violation("REG002", "Manufacturer Name", "Missing manufacturer name (legally required)", "HIGH", "manufacturer_name", 30)
+        else:
+            add_advisory("REG002", "Manufacturer Name", "Manufacturer name not found on listing", "manufacturer_name")
     else:
         passed_rules.append("REG002")
     
     total_rules += 1
     if manufacturer_address == "N/A" or not manufacturer_address:
-        score -= add_violation("REG003", "Manufacturer Address", "Missing manufacturer address (legally required)", "MEDIUM", "manufacturer_address", 25)
+        if deep_scrape_available:
+            score -= add_violation("REG003", "Manufacturer Address", "Missing manufacturer address (legally required)", "MEDIUM", "manufacturer_address", 25)
+        else:
+            add_advisory("REG003", "Manufacturer Address", "Manufacturer address not found on listing", "manufacturer_address")
     else:
         passed_rules.append("REG003")
     
     total_rules += 1
     if ingredients == "N/A" or not ingredients or len(ingredients.strip()) < 5:
-        score -= add_violation("REG004", "Ingredients List", "Missing or incomplete ingredient list", "HIGH", "ingredients", 20)
+        if deep_scrape_available:
+            score -= add_violation("REG004", "Ingredients List", "Missing or incomplete ingredient list", "HIGH", "ingredients", 20)
+        else:
+            add_advisory("REG004", "Ingredients List", "Ingredient list not found on listing", "ingredients")
     else:
         passed_rules.append("REG004")
     
     total_rules += 1
     if expiry_date == "N/A" or not expiry_date:
-        score -= add_violation("REG005", "Expiry Date", "Missing expiry/best before date", "MEDIUM", "expiry_date", 15)
+        if deep_scrape_available:
+            score -= add_violation("REG005", "Expiry Date", "Missing expiry/best before date", "MEDIUM", "expiry_date", 15)
+        else:
+            add_advisory("REG005", "Expiry Date", "Expiry date not found on listing", "expiry_date")
     else:
         passed_rules.append("REG005")
 
@@ -102,5 +129,6 @@ def validate_product(product):
         "rule_score": score,
         "violations": violations,
         "passed_rules": passed_rules,
-        "total_rules": total_rules
+        "total_rules": total_rules,
+        "deep_scrape_available": deep_scrape_available,
     }
