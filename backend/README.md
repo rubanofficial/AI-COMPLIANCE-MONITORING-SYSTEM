@@ -62,4 +62,10 @@ The system leverages **Google Gemini Pro** to:
    ```
 
 ---
+
+## 🔌 GitHub Integration Test
+
+This section was added through the connected GitHub integration to verify that repository files can be modified and committed programmatically.
+
+---
 **Note**: This project was developed for a high-stakes compliance environment to bridge the gap between e-commerce speed and legal rigor.
