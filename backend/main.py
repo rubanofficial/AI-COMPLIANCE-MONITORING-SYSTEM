@@ -76,30 +76,30 @@ async def evaluate_stream_generator(product_name: str):
     print(f"🚀 PHASE 1: Quick Scraping for '{product_name}'")
     print(f"{'='*60}")
 
-    yield sse_event("status", {"message": f"Searching for '{product_name}' on Blinkit & Zepto...", "phase": "scraping"})
+    yield sse_event("status", {"message": f"Searching for '{product_name}' on Zepto & Blinkit...", "phase": "scraping"})
 
-    # Run both live scrapers in parallel
-    print(f"  📡 Launching parallel scrapers (Blinkit + Zepto)...")
-    blinkit_task = scrape_blinkit_live(product_name)
+    # Run both live scrapers in parallel (Zepto first)
+    print(f"  📡 Launching parallel scrapers (Zepto + Blinkit)...")
     zepto_task = scrape_zepto_live(product_name)
+    blinkit_task = scrape_blinkit_live(product_name)
 
-    blinkit_results, zepto_results = await asyncio.gather(
-        blinkit_task, zepto_task, return_exceptions=True
+    zepto_results, blinkit_results = await asyncio.gather(
+        zepto_task, blinkit_task, return_exceptions=True
     )
 
-    # Combine results
+    # Combine results — Zepto first, then Blinkit
     scraped = []
-    if isinstance(blinkit_results, list):
-        scraped.extend(blinkit_results[:5])
-        print(f"  ✅ Blinkit: Found {len(blinkit_results)} products (using top {min(5, len(blinkit_results))})")
-    else:
-        print(f"  ⚠️ Blinkit scraping failed: {blinkit_results}")
-
     if isinstance(zepto_results, list):
         scraped.extend(zepto_results[:5])
         print(f"  ✅ Zepto: Found {len(zepto_results)} products (using top {min(5, len(zepto_results))})")
     else:
         print(f"  ⚠️ Zepto scraping failed: {zepto_results}")
+
+    if isinstance(blinkit_results, list):
+        scraped.extend(blinkit_results[:5])
+        print(f"  ✅ Blinkit: Found {len(blinkit_results)} products (using top {min(5, len(blinkit_results))})")
+    else:
+        print(f"  ⚠️ Blinkit scraping failed: {blinkit_results}")
 
     phase1_time = time.time() - start_time
     print(f"\n  ⏱ Phase 1 completed in {phase1_time:.1f}s — {len(scraped)} products found")

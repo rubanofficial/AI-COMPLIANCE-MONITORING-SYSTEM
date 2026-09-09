@@ -154,38 +154,57 @@ def get_dashboard_stats() -> Dict:
     }
 
 def get_trend_data(days: int = 7) -> List[Dict]:
-    """Generate trend data from scan history"""
-    if not scan_history:
-        return []
+    """Generate trend data from scan history, filling gaps so the chart always has a full date range."""
+    today = datetime.now().date()
     
-    trends = {}
+    # Build a map of actual scan data keyed by date string
+    scan_map: Dict[str, Dict] = {}
     for scan in scan_history:
-        timestamp = datetime.fromisoformat(scan["timestamp"])
+        try:
+            timestamp = datetime.fromisoformat(scan["timestamp"])
+        except (ValueError, KeyError):
+            continue
         date_key = timestamp.strftime("%b %d")
+        date_obj = timestamp.date()
         
-        if date_key not in trends:
-            trends[date_key] = {
-                "date": date_key,
-                "compliance_score": [],
+        if date_key not in scan_map:
+            scan_map[date_key] = {
+                "date_obj": date_obj,
+                "scores": [],
                 "violations": [],
                 "products_scanned": 0,
             }
         
-        trends[date_key]["compliance_score"].append(scan["score"])
-        violations = max(0, (100 - scan["score"]) // 10)
-        trends[date_key]["violations"].append(violations)
-        trends[date_key]["products_scanned"] += 1
+        scan_map[date_key]["scores"].append(scan.get("score", 0))
+        violations = max(0, (100 - scan.get("score", 0)) // 10)
+        scan_map[date_key]["violations"].append(violations)
+        scan_map[date_key]["products_scanned"] += 1
     
+    # Generate a full range of dates (last N days) so chart always has multiple points
     trend_data = []
-    for date_key, data in trends.items():
-        trend_data.append({
-            "date": date_key,
-            "score": sum(data["compliance_score"]) // len(data["compliance_score"]),
-            "violations": sum(data["violations"]),
-            "products_scanned": data["products_scanned"],
-        })
+    for i in range(days - 1, -1, -1):  # oldest → newest
+        d = today - timedelta(days=i)
+        date_key = d.strftime("%b %d")
+        
+        if date_key in scan_map:
+            entry = scan_map[date_key]
+            avg_score = sum(entry["scores"]) // len(entry["scores"])
+            trend_data.append({
+                "date": date_key,
+                "score": avg_score,
+                "violations": sum(entry["violations"]),
+                "products_scanned": entry["products_scanned"],
+            })
+        else:
+            # Fill gap — no scans on this day
+            trend_data.append({
+                "date": date_key,
+                "score": None,      # null so Recharts skips the point
+                "violations": None,
+                "products_scanned": 0,
+            })
     
-    return trend_data[-days:]
+    return trend_data
 
 def initialize_sample_data():
     """Load persisted data from output.json on startup (no more fake sample data)"""

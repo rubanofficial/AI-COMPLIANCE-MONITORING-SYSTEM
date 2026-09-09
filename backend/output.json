@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-02-21T09:14:19.737955",
-  "total_products": 30,
+  "last_updated": "2026-02-21T11:17:28.949791",
+  "total_products": 65,
   "scan_history": [
     {
       "name": "Britannia Little Hearts Classic Crunch Biscuit",
@@ -241,6 +241,286 @@
       "risk": "MEDIUM",
       "timestamp": "2026-02-21T09:14:19.727683",
       "time": "09:14 AM"
+    },
+    {
+      "name": "Parle-G Original Gluco Biscuit",
+      "platform": "blinkit",
+      "score": 35,
+      "risk": "HIGH",
+      "timestamp": "2026-02-21T09:35:09.085683",
+      "time": "09:35 AM"
+    },
+    {
+      "name": "Akshayakalpa Organic High Protein Cow Fresh Milk | 25g Protein | Gable Top Pack | Combo",
+      "platform": "zepto",
+      "score": 7,
+      "risk": "HIGH",
+      "timestamp": "2026-02-21T09:36:18.508746",
+      "time": "09:36 AM"
+    },
+    {
+      "name": "Nandini Standardized Fresh Milk | Pouch",
+      "platform": "zepto",
+      "score": 70,
+      "risk": "MEDIUM",
+      "timestamp": "2026-02-21T09:36:42.549150",
+      "time": "09:36 AM"
+    },
+    {
+      "name": "Nandini Toned Fresh Milk | Pouch",
+      "platform": "zepto",
+      "score": 75,
+      "risk": "MEDIUM",
+      "timestamp": "2026-02-21T09:37:07.788986",
+      "time": "09:37 AM"
+    },
+    {
+      "name": "Nandini Goodlife Toned UHT Milk (Fino Pouch)",
+      "platform": "zepto",
+      "score": 52,
+      "risk": "MEDIUM",
+      "timestamp": "2026-02-21T09:37:24.099665",
+      "time": "09:37 AM"
+    },
+    {
+      "name": "Heritage Toned Fresh Milk | Pouch",
+      "platform": "zepto",
+      "score": 65,
+      "risk": "MEDIUM",
+      "timestamp": "2026-02-21T09:37:44.936531",
+      "time": "09:37 AM"
+    },
+    {
+      "name": "Mother Dairy Cow Milk",
+      "platform": "blinkit",
+      "score": 45,
+      "risk": "HIGH",
+      "timestamp": "2026-02-21T09:38:07.813765",
+      "time": "09:38 AM"
+    },
+    {
+      "name": "Amul Taaza Toned Milk",
+      "platform": "blinkit",
+      "score": 45,
+      "risk": "HIGH",
+      "timestamp": "2026-02-21T09:38:29.051494",
+      "time": "09:38 AM"
+    },
+    {
+      "name": "Amul Gold Full Cream Milk",
+      "platform": "blinkit",
+      "score": 45,
+      "risk": "HIGH",
+      "timestamp": "2026-02-21T09:38:50.228333",
+      "time": "09:38 AM"
+    },
+    {
+      "name": "Mother Dairy Toned Milk",
+      "platform": "blinkit",
+      "score": 100,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:38:58.343937",
+      "time": "09:38 AM"
+    },
+    {
+      "name": "Country Delight Buffalo Fresh Milk",
+      "platform": "blinkit",
+      "score": 75,
+      "risk": "MEDIUM",
+      "timestamp": "2026-02-21T09:39:05.737570",
+      "time": "09:39 AM"
+    },
+    {
+      "name": "Zebronics ZEB-USB150WF1 Mini Wi-Fi USB Adapter",
+      "platform": "blinkit",
+      "score": 95,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:46:14.686622",
+      "time": "09:46 AM"
+    },
+    {
+      "name": "Zebronics UTS100 USB Adapter",
+      "platform": "blinkit",
+      "score": 95,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:46:22.285880",
+      "time": "09:46 AM"
+    },
+    {
+      "name": "Ashtagandha Chandan Powder by Paraayan.com",
+      "platform": "blinkit",
+      "score": 95,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:46:51.614821",
+      "time": "09:46 AM"
+    },
+    {
+      "name": "Bhimseni Camphor / Kapur by Paraayan.com",
+      "platform": "blinkit",
+      "score": 95,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:46:59.500453",
+      "time": "09:46 AM"
+    },
+    {
+      "name": "Daily Good Sona Masoori Raw Rice",
+      "platform": "zepto",
+      "score": 82,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:52:20.758100",
+      "time": "09:52 AM"
+    },
+    {
+      "name": "Daawat Rozana Basmati Rice Gold | Medium Grain",
+      "platform": "zepto",
+      "score": 100,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:52:28.239592",
+      "time": "09:52 AM"
+    },
+    {
+      "name": "Daawat Rozana Super Basmati Rice | Medium Grain",
+      "platform": "zepto",
+      "score": 100,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:52:35.857675",
+      "time": "09:52 AM"
+    },
+    {
+      "name": "Shree Akshara Premium Sona Masoori Rice | Steam",
+      "platform": "zepto",
+      "score": 87,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:52:43.984806",
+      "time": "09:52 AM"
+    },
+    {
+      "name": "GTS Original Kolam Rice",
+      "platform": "zepto",
+      "score": 87,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:52:51.540425",
+      "time": "09:52 AM"
+    },
+    {
+      "name": "Organic Shastra Basmati Rice",
+      "platform": "blinkit",
+      "score": 95,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:52:58.906643",
+      "time": "09:52 AM"
+    },
+    {
+      "name": "Daawat Rozana Super Basmati Rice - 1 kg (Medium Grain)",
+      "platform": "blinkit",
+      "score": 82,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:53:06.608879",
+      "time": "09:53 AM"
+    },
+    {
+      "name": "Whole Farm Premium Parmal Rice",
+      "platform": "blinkit",
+      "score": 82,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:53:14.258519",
+      "time": "09:53 AM"
+    },
+    {
+      "name": "Fortune Rozana-Gold Basmati Rice (Long Grain)",
+      "platform": "blinkit",
+      "score": 82,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:53:21.863945",
+      "time": "09:53 AM"
+    },
+    {
+      "name": "Daawat Rozana Gold Basmati Rice Tibar (Extra Long Grain)",
+      "platform": "blinkit",
+      "score": 95,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T09:53:29.239674",
+      "time": "09:53 AM"
+    },
+    {
+      "name": "Daily Good Sona Masoori Raw Rice",
+      "platform": "zepto",
+      "score": 55,
+      "risk": "MEDIUM",
+      "timestamp": "2026-02-21T11:15:53.595795",
+      "time": "11:15 AM"
+    },
+    {
+      "name": "India Gate All Rounder Feast Rozzana Basmati Rice | Aged Rice | Fluffy and Non-Sticky",
+      "platform": "zepto",
+      "score": 100,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T11:16:02.004497",
+      "time": "11:16 AM"
+    },
+    {
+      "name": "Daawat Rozana Super Basmati Rice | Medium Grain",
+      "platform": "zepto",
+      "score": 82,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T11:16:19.756982",
+      "time": "11:16 AM"
+    },
+    {
+      "name": "Daawat Biryani Basmati Rice | Long Grain",
+      "platform": "zepto",
+      "score": 100,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T11:16:27.696833",
+      "time": "11:16 AM"
+    },
+    {
+      "name": "GTS Original Kolam Rice",
+      "platform": "zepto",
+      "score": 87,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T11:16:35.678353",
+      "time": "11:16 AM"
+    },
+    {
+      "name": "Daawat Rozana Gold Basmati Rice Tibar (Extra Long Grain)",
+      "platform": "blinkit",
+      "score": 52,
+      "risk": "MEDIUM",
+      "timestamp": "2026-02-21T11:16:56.149753",
+      "time": "11:16 AM"
+    },
+    {
+      "name": "Daawat Rozana Super Basmati Rice - 1 kg (Medium Grain)",
+      "platform": "blinkit",
+      "score": 82,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T11:17:04.542103",
+      "time": "11:17 AM"
+    },
+    {
+      "name": "Whole Farm Premium Parmal Rice",
+      "platform": "blinkit",
+      "score": 82,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T11:17:12.246973",
+      "time": "11:17 AM"
+    },
+    {
+      "name": "Fortune Rozana-Gold Basmati Rice (Long Grain)",
+      "platform": "blinkit",
+      "score": 82,
+      "risk": "LOW",
+      "timestamp": "2026-02-21T11:17:21.347798",
+      "time": "11:17 AM"
+    },
+    {
+      "name": "Daawat Rozana Gold Basmati Rice (Medium Grain)",
+      "platform": "blinkit",
+      "score": 75,
+      "risk": "MEDIUM",
+      "timestamp": "2026-02-21T11:17:28.936803",
+      "time": "11:17 AM"
     }
   ],
   "evaluated_products": [
@@ -2929,6 +3209,3156 @@
       },
       "platform": "zepto",
       "evaluated_at": "2026-02-21T09:14:19.737955"
+    },
+    {
+      "product": {
+        "name": "Parle-G Original Gluco Biscuit",
+        "price": "800 g",
+        "mrp": "90",
+        "discount": "6%",
+        "weight": "800 g",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/26ac5f6a-2b93-4633-8e6d-1d50904c11d3.png",
+        "product_url": "https://blinkit.com/prn/-/prid/60749"
+      },
+      "compliance": {
+        "score": 35,
+        "rule_score": 60,
+        "risk": "High",
+        "violations": [
+          {
+            "id": "VAL004",
+            "rule": "MRP Compliance",
+            "message": "MRP lower than selling price (illegal)",
+            "severity": "CRITICAL",
+            "field": "mrp"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "FSSAI_001",
+            "rule": "FSSAI License Number Declaration",
+            "message": "FSSAI License Number is mandatory for all food products and is missing from the listing.",
+            "severity": "CRITICAL",
+            "field": "FSSAI License Number"
+          },
+          {
+            "id": "FSSAI_002",
+            "rule": "Ingredients List Declaration",
+            "message": "Complete ingredients list is mandatory for packaged food products and is missing.",
+            "severity": "CRITICAL",
+            "field": "Ingredients"
+          },
+          {
+            "id": "FSSAI_003",
+            "rule": "Allergen Information Declaration",
+            "message": "Mandatory allergen information is missing, posing a health risk to sensitive consumers.",
+            "severity": "HIGH",
+            "field": "Ingredients"
+          },
+          {
+            "id": "FSSAI_004",
+            "rule": "Nutritional Information Declaration",
+            "message": "Mandatory nutritional information (e.g., energy, protein, fat, carbohydrates) is missing.",
+            "severity": "HIGH",
+            "field": "Description"
+          },
+          {
+            "id": "FSSAI_005",
+            "rule": "Manufacturer Details Declaration",
+            "message": "Manufacturer's name and full address are mandatory for traceability and consumer contact.",
+            "severity": "HIGH",
+            "field": "Manufacturer, Manufacturer Address"
+          },
+          {
+            "id": "FSSAI_006",
+            "rule": "Expiry/Best Before Date Declaration",
+            "message": "Expiry or Best Before date is mandatory for food products to ensure consumer safety and product quality.",
+            "severity": "CRITICAL",
+            "field": "Expiry/Best Before"
+          },
+          {
+            "id": "LMPCR_001",
+            "rule": "Price Declaration Format",
+            "message": "The declared selling price '₹800 g' is in an invalid format, preventing proper MRP comparison.",
+            "severity": "MEDIUM",
+            "field": "Price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 9
+      },
+      "ai_analysis": {
+        "ai_score": 10,
+        "summary": "Compliance score: 35/100 — 8 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "HIGH",
+        "detailed_insights": "The listing for 'Parle-G Original Gluco Biscuit' on blinkit is severely deficient in mandatory information required under FSSAI regulations and Legal Metrology (Packaged Commodities) Rules. The absence of an FSSAI License Number is a fundamental violation, as no food product can be legally sold without it. Critical consumer information like the full ingredients list (including allergen declarations), nutritional information, and the 'Best Before' or 'Use By' date are completely missing, which prevents consumers from making informed and safe purchasing decisions. Furthermore, the manufacturer's name and address, essential for traceability and accountability, are also absent. The listed 'Price: ₹800 g' is an invalid format and cannot be accurately compared against the MRP of ₹90, though the MRP itself is declared. These omissions collectively represent a high risk of non-compliance and potential harm to consumers.",
+        "recommendations": [
+          "Immediately update the product listing to include a valid 14-digit FSSAI License Number.",
+          "Add the complete ingredients list, including allergen information, as per FSSAI (Labelling and Display) Regulations.",
+          "Include the 'Best Before' or 'Use By' date to ensure product safety and shelf life transparency.",
+          "Provide full manufacturer name and address for traceability and consumer redressal.",
+          "Correct the 'Price' format to a valid numerical value and ensure it does not exceed the declared MRP.",
+          "Add mandatory nutritional information as per FSSAI regulations."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 35,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:35:09.093686"
+    },
+    {
+      "product": {
+        "name": "Akshayakalpa Organic High Protein Cow Fresh Milk | 25g Protein | Gable Top Pack | Combo",
+        "price": "190",
+        "mrp": "200",
+        "discount": "0%",
+        "weight": "N/A",
+        "ingredients": "N/A",
+        "fssai_number": "11521998000248",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/72ac2425-b173-46c8-800d-b40c565c2d60.jpg",
+        "product_url": "https://www.zeptonow.com/pn/akshayakalpa-organic-high-protein-cow-fresh-milk-25g-protein-gable-top-pack-combo/pvid/715198bc-4e28-40cd-b80d-aaaf6c4c24e8"
+      },
+      "compliance": {
+        "score": 7,
+        "rule_score": 0,
+        "risk": "High",
+        "violations": [
+          {
+            "id": "VAL003",
+            "rule": "Weight Check",
+            "message": "Missing weight/quantity information",
+            "severity": "MEDIUM",
+            "field": "weight"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Missing manufacturer name (legally required)",
+            "severity": "HIGH",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Missing manufacturer address (legally required)",
+            "severity": "MEDIUM",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Missing or incomplete ingredient list",
+            "severity": "HIGH",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Missing expiry/best before date",
+            "severity": "MEDIUM",
+            "field": "expiry_date"
+          },
+          {
+            "id": "V001_MissingIngredients",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Regulation 2.2.1 (Declaration of Ingredients)",
+            "message": "The product listing is missing the complete list of ingredients, which is a mandatory declaration for all packaged food products.",
+            "severity": "CRITICAL",
+            "field": "Ingredients"
+          },
+          {
+            "id": "V002_MissingAllergenInfo",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Regulation 2.2.1 (Declaration of Ingredients, Allergen Information)",
+            "message": "Allergen information (e.g., milk) is not declared, posing a significant health risk to consumers with allergies.",
+            "severity": "CRITICAL",
+            "field": "Ingredients"
+          },
+          {
+            "id": "V003_MissingNutritionalInfo",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Regulation 2.2.2 (Nutritional Information)",
+            "message": "Mandatory nutritional information is absent, making it impossible for consumers to make informed dietary choices and to verify claims like '25g Protein'.",
+            "severity": "HIGH",
+            "field": "Nutritional Info"
+          },
+          {
+            "id": "V004_MissingNetQuantity",
+            "rule": "Legal Metrology (Packaged Commodities) Rules, 2011 - Rule 6(1)(c); FSS (Packaging and Labelling) Regulations, 2011 - Regulation 2.2.1 (Net Quantity)",
+            "message": "The net weight or volume of the product is not declared, which is a fundamental requirement for packaged commodities.",
+            "severity": "CRITICAL",
+            "field": "Weight/Quantity"
+          },
+          {
+            "id": "V005_MissingManufacturerDetails",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Regulation 2.2.1 (Name and complete address of the manufacturer/packer/importer)",
+            "message": "The name and complete address of the manufacturer or packer are missing, hindering traceability and accountability.",
+            "severity": "HIGH",
+            "field": "Manufacturer/Manufacturer Address"
+          },
+          {
+            "id": "V006_MissingExpiryDate",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Regulation 2.2.1 (Date of manufacturing or packing and Best Before or Use By Date)",
+            "message": "The 'Best Before' or 'Use By' date is not provided, which is critical for food safety and consumer health.",
+            "severity": "CRITICAL",
+            "field": "Expiry/Best Before"
+          },
+          {
+            "id": "V007_UnsubstantiatedOrganicClaim",
+            "rule": "FSS (Organic Foods) Regulations, 2017; FSS (Advertising and Claims) Regulations, 2018",
+            "message": "The 'Organic' claim is made without any supporting information about certification or compliance with organic food regulations.",
+            "severity": "HIGH",
+            "field": "Description/Claims"
+          },
+          {
+            "id": "V008_UnsubstantiatedProteinClaim",
+            "rule": "FSS (Advertising and Claims) Regulations, 2018; FSS (Packaging and Labelling) Regulations, 2011 - Regulation 2.2.2 (Nutritional Information)",
+            "message": "The claim '25g Protein' is not quantified (e.g., per serving, per 100ml) and lacks substantiation through a nutritional information panel.",
+            "severity": "HIGH",
+            "field": "Description/Claims"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "REG001"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 15,
+        "summary": "Compliance score: 7/100 — 13 issue(s) found.",
+        "risk_level": "HIGH",
+        "detailed_insights": "The FSSAI license number provided (11521998000248) is 14 digits, which is the correct format. However, the listing is critically deficient in almost all other mandatory declarations required for packaged food products on an e-commerce platform. Key missing information includes the complete list of ingredients, allergen declarations (especially crucial for milk products), comprehensive nutritional information (which is essential to substantiate the '25g Protein' claim), the net weight or volume of the product, the name and full address of the manufacturer/packer, and the 'Best Before' or 'Use By' date. The 'Organic' claim also lacks any indication of certification or compliance with FSS (Organic Foods) Regulations, 2017. These omissions pose significant risks to consumer safety, informed purchasing decisions, and traceability.",
+        "recommendations": [
+          "Immediately update the product listing to include a complete list of ingredients, clearly highlighting any allergens.",
+          "Add comprehensive nutritional information, including the protein content per serving and per 100g/ml, to substantiate claims.",
+          "Clearly declare the net weight or volume of the product (e.g., in ml or litres).",
+          "Provide the full name and address of the manufacturer or packer.",
+          "Display the 'Best Before' or 'Use By' date prominently.",
+          "For the 'Organic' claim, provide details of the certifying agency and display the Jaivik Bharat logo as per FSS (Organic Foods) Regulations, 2017.",
+          "Ensure all claims ('High Protein', '25g Protein') are accurately quantified and substantiated by the nutritional panel."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 7,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T09:36:18.516770"
+    },
+    {
+      "product": {
+        "name": "Nandini Standardized Fresh Milk | Pouch",
+        "price": "27",
+        "mrp": null,
+        "discount": "0%",
+        "weight": "1 pack (500 ml)",
+        "ingredients": "Milk Solids, Added Vitamin A, and Vitamin D",
+        "fssai_number": "11521998000248",
+        "manufacturer_name": "Karnataka Co-Operative Milk Producer's Federation Limited",
+        "manufacturer_address": "Karnataka Co-Operative Milk Producer's Federation Limited, KMF Complex, D.R.College Post, Dr.M.H.Marigowda Road, Bengaluru-560 029.",
+        "expiry_date": "3 days",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1785-1785,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/25eae0b3-9735-4769-9d2a-a718c7301b54.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/nandini-standardized-fresh-milk-pouch/pvid/0cfdcd21-abb4-4151-bd80-f833942fa524"
+      },
+      "compliance": {
+        "score": 70,
+        "rule_score": 100,
+        "risk": "Medium",
+        "violations": [
+          {
+            "id": "V001",
+            "rule": "Legal Metrology (Packaged Commodities) Rules, 2011 - Rule 6(1)(e)",
+            "message": "The Maximum Retail Price (MRP) is not declared. This is a critical violation for all pre-packaged commodities.",
+            "severity": "CRITICAL",
+            "field": "MRP"
+          },
+          {
+            "id": "V002",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Section 2.2.2",
+            "message": "Mandatory nutritional information (Nutritional Facts) is missing from the product listing.",
+            "severity": "HIGH",
+            "field": "Nutritional Info"
+          },
+          {
+            "id": "V003",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Section 2.2.1(11)",
+            "message": "The mandatory vegetarian (green dot) logo is missing from the product listing.",
+            "severity": "HIGH",
+            "field": "Veg/Non-Veg Logo"
+          },
+          {
+            "id": "V004",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Schedule IV, Section 2.2.1(10)",
+            "message": "An explicit allergen declaration (e.g., 'Contains Milk') is missing, despite 'Milk Solids' being listed in ingredients.",
+            "severity": "MEDIUM",
+            "field": "Allergens"
+          },
+          {
+            "id": "V005",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Section 2.2.1(13)",
+            "message": "Customer care details (name and address of the person to be contacted in case of consumer complaints) are missing.",
+            "severity": "MEDIUM",
+            "field": "Customer Care Details"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 40,
+        "summary": "Compliance score: 70/100 — 5 issue(s) found.",
+        "risk_level": "MEDIUM",
+        "detailed_insights": "The FSSAI license number (11521998000248) is 14 digits and appears valid. Manufacturer details and address are complete, and the weight/quantity (500 ml) and shelf life (3 days) are clearly stated. However, the listing critically lacks the Maximum Retail Price (MRP), which is a mandatory declaration for all pre-packaged commodities under the Legal Metrology (Packaged Commodities) Rules, 2011. This omission makes it impossible to verify pricing compliance and is a major violation. Furthermore, essential nutritional information, a mandatory requirement under FSS (Packaging and Labelling) Regulations, 2011, is entirely absent. The vegetarian (green dot) logo, crucial for dietary identification, is also missing. While 'Milk Solids' implies milk, an explicit allergen declaration ('Contains Milk') is a best practice and often required. Lastly, customer care details for consumer grievances are not provided in the listing.",
+        "recommendations": [
+          "Immediately update the product listing to include the Maximum Retail Price (MRP) as per Legal Metrology rules.",
+          "Add comprehensive nutritional information, including energy, protein, carbohydrates, fat, and sodium, as per FSSAI labelling regulations.",
+          "Include the mandatory vegetarian (green dot) logo prominently in the product image or description.",
+          "Add an explicit allergen declaration, such as 'Contains Milk', to ensure consumer safety.",
+          "Provide customer care contact details (name, address, and contact information of the person to be contacted in case of consumer complaints) in the product listing."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 70,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T09:36:42.558142"
+    },
+    {
+      "product": {
+        "name": "Nandini Toned Fresh Milk | Pouch",
+        "price": "24",
+        "mrp": null,
+        "discount": "0%",
+        "weight": "1 pack (500 ml)",
+        "ingredients": "Milk Solids, Added Vitamin A, and Vitamin D",
+        "fssai_number": "11521998000248",
+        "manufacturer_name": "Karnataka Co-Operative Milk Producer's Federation Limited",
+        "manufacturer_address": "Karnataka Co-Operative Milk Producer's Federation Limited, KMF Complex, D.R.College Post, Dr.M.H.Marigowda Road, Bengaluru-560 029.",
+        "expiry_date": "3 days",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/5d7be35e-9747-4630-836c-731984f41be6.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/nandini-toned-fresh-milk-pouch/pvid/25eb526c-9c26-48cd-95a3-8e4058910f8a"
+      },
+      "compliance": {
+        "score": 75,
+        "rule_score": 100,
+        "risk": "Medium",
+        "violations": [
+          {
+            "id": "FSSAI_PL_001",
+            "rule": "FSSAI (Packaging and Labelling) Regulations, 2011, 2.2.2 (Nutritional Information)",
+            "message": "Mandatory nutritional information (e.g., energy, protein, fat, carbohydrates) is missing from the product listing.",
+            "severity": "CRITICAL",
+            "field": null
+          },
+          {
+            "id": "LM_PC_001",
+            "rule": "Legal Metrology (Packaged Commodities) Rules, 2011, Rule 6(1)(e) (Declaration of MRP)",
+            "message": "The Maximum Retail Price (MRP) is not declared, which is a mandatory requirement for pre-packaged commodities.",
+            "severity": "CRITICAL",
+            "field": "MRP"
+          },
+          {
+            "id": "FSSAI_PL_002",
+            "rule": "FSSAI (Packaging and Labelling) Regulations, 2011, 2.2.1 (Declaration of Vegetarian/Non-Vegetarian Food)",
+            "message": "The mandatory green vegetarian logo is missing from the product listing.",
+            "severity": "CRITICAL",
+            "field": null
+          },
+          {
+            "id": "FSSAI_PL_003",
+            "rule": "FSSAI (Packaging and Labelling) Regulations, 2011, 2.2.1 (Declaration of Date of Manufacturing or Packing)",
+            "message": "The date of manufacturing or packing is not explicitly declared.",
+            "severity": "HIGH",
+            "field": null
+          },
+          {
+            "id": "LM_PC_002",
+            "rule": "Legal Metrology (Packaged Commodities) Rules, 2011, Rule 6(1)(e) (Declaration of Consumer Care Details)",
+            "message": "Customer care details (e.g., email, phone number) for consumer grievances are missing.",
+            "severity": "HIGH",
+            "field": null
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 50,
+        "summary": "Compliance score: 75/100 — 5 issue(s) found.",
+        "risk_level": "MEDIUM",
+        "detailed_insights": "The FSSAI license number is 14 digits long, indicating validity in format. Ingredients, weight, manufacturer details, and shelf life are adequately provided. However, the listing critically lacks the Maximum Retail Price (MRP), which is a mandatory declaration under Legal Metrology rules, making it impossible to verify price compliance and is a violation in itself. Nutritional information, a key requirement under FSSAI (Packaging and Labelling) Regulations, 2011, is entirely absent. The mandatory green vegetarian logo is also missing. Furthermore, the date of manufacturing/packaging and customer care contact details (email/phone) are not provided, which are essential for consumer information and grievance redressal. While 'Milk Solids' indicates the presence of milk, an explicit allergen declaration would enhance clarity. These omissions collectively represent a high level of non-compliance with Indian food safety and consumer protection regulations.",
+        "recommendations": [
+          "Immediately add the Maximum Retail Price (MRP) to the product listing as per Legal Metrology (Packaged Commodities) Rules, 2011.",
+          "Include comprehensive nutritional information (per 100g/ml) as mandated by FSSAI (Packaging and Labelling) Regulations, 2011.",
+          "Display the mandatory green vegetarian logo prominently.",
+          "Add the date of manufacturing or packaging.",
+          "Provide customer care contact details (e.g., email, phone number) for consumer queries and grievances.",
+          "Consider adding an explicit allergen declaration like \"Contains Milk\" for enhanced clarity, even though \"Milk Solids\" is listed."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 75,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T09:37:07.795565"
+    },
+    {
+      "product": {
+        "name": "Nandini Goodlife Toned UHT Milk (Fino Pouch)",
+        "price": "31",
+        "mrp": null,
+        "discount": "0%",
+        "weight": "1 pack (500 ml)",
+        "ingredients": "N/A",
+        "fssai_number": "11521998000248",
+        "manufacturer_name": "Karnataka Co-Operative Milk Producer's Federation Limited",
+        "manufacturer_address": "Karnataka Co-Operative Milk Producer's Federation Limited, KMF Complex, D.R.College Post, Dr.M.H.Marigowda Road, Bengaluru-560 029.",
+        "expiry_date": "90 days",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/a663afb2-3aa7-4b89-9b3c-68f0828a712a.jpg",
+        "product_url": "https://www.zeptonow.com/pn/nandini-goodlife-toned-uht-milk-fino-pouch/pvid/b01c94d5-7fa9-4119-b157-5e401def1280"
+      },
+      "compliance": {
+        "score": 52,
+        "rule_score": 80,
+        "risk": "Medium",
+        "violations": [
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Missing or incomplete ingredient list",
+            "severity": "HIGH",
+            "field": "ingredients"
+          },
+          {
+            "id": "FSSAI_PL_001",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Declaration of Ingredients",
+            "message": "The product listing is missing the mandatory declaration of ingredients. 'Ingredients: N/A' is unacceptable for a packaged food product.",
+            "severity": "CRITICAL",
+            "field": "Ingredients"
+          },
+          {
+            "id": "FSSAI_PL_002",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Nutritional Information",
+            "message": "The product listing lacks mandatory nutritional information, which must be provided for all packaged food products.",
+            "severity": "HIGH",
+            "field": null
+          },
+          {
+            "id": "FSSAI_PL_003",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Allergen Declaration",
+            "message": "The product listing does not explicitly declare 'Milk' as an allergen, which is mandatory for common allergens.",
+            "severity": "HIGH",
+            "field": null
+          },
+          {
+            "id": "LM_PC_001",
+            "rule": "Legal Metrology (Packaged Commodities) Rules, 2011 - Declaration of MRP",
+            "message": "The Maximum Retail Price (MRP) is not declared ('MRP: None'), which is a mandatory requirement for all pre-packaged commodities.",
+            "severity": "CRITICAL",
+            "field": "MRP"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 25,
+        "summary": "Compliance score: 52/100 — 5 issue(s) found.",
+        "risk_level": "MEDIUM",
+        "detailed_insights": "The FSSAI license number provided (11521998000248) is 14 digits, indicating a valid format. The manufacturer details and quantity declaration (500 ml) appear complete and accurate. However, the listing critically fails on several mandatory declarations. The 'Ingredients: N/A' is a major violation, as all packaged food products must declare their ingredients. Similarly, the absence of nutritional information and allergen declaration (milk is a common allergen) is a significant non-compliance. Furthermore, the 'MRP: None' is a direct violation of the Legal Metrology (Packaged Commodities) Rules, 2011, which mandates the declaration of Maximum Retail Price on all pre-packaged commodities. The selling price cannot be assessed for compliance without a declared MRP. The 'Expiry/Best Before: 90 days' indicates shelf life, which is acceptable for an e-commerce listing, but the actual date must be on the physical product.",
+        "recommendations": [
+          "Immediately update the product listing to include a complete and accurate ingredients list as per FSS (Packaging and Labelling) Regulations, 2011.",
+          "Add comprehensive nutritional information, including energy, protein, carbohydrates, fat, and other relevant nutrients.",
+          "Ensure the Maximum Retail Price (MRP) is clearly declared on the listing, compliant with Legal Metrology (Packaged Commodities) Rules, 2011.",
+          "Explicitly declare 'Milk' as an allergen, as required for common allergens under FSSAI regulations."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 52,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T09:37:24.106681"
+    },
+    {
+      "product": {
+        "name": "Heritage Toned Fresh Milk | Pouch",
+        "price": "26",
+        "mrp": null,
+        "discount": "0%",
+        "weight": "1 pack (500 ml)",
+        "ingredients": "Milk solids (Toned Milk), Vitamin A (Palmitate), and Vitamin D (Ergocalciferol)",
+        "fssai_number": "11521998000248",
+        "manufacturer_name": "Heritage Foods Ltd",
+        "manufacturer_address": "Heritage Foods Ltd, 6-3-541/C, Panjagutta, Hyderabad-82.",
+        "expiry_date": "3 days",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-2400-2400,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/58207565-7da6-44ce-bed6-860ecd56ba23.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/heritage-toned-fresh-milk-pouch/pvid/fdf82a8b-a576-417f-b6df-a40d37e25634"
+      },
+      "compliance": {
+        "score": 65,
+        "rule_score": 100,
+        "risk": "Medium",
+        "violations": [
+          {
+            "id": "FSSAI_LIC_INVALID_LENGTH",
+            "rule": "FSS (Licensing and Registration of Food Businesses) Regulations, 2011",
+            "message": "The FSSAI License Number provided is 12 digits, whereas a valid FSSAI license number for a Food Business Operator (FBO) must be 14 digits. This indicates an invalid or incomplete license number.",
+            "severity": "CRITICAL",
+            "field": "FSSAI License Number"
+          },
+          {
+            "id": "LMPC_MRP_MISSING",
+            "rule": "Legal Metrology (Packaged Commodities) Rules, 2011, Rule 6(1)(e)",
+            "message": "The Maximum Retail Price (MRP) is not declared. Declaration of MRP is mandatory for all pre-packaged commodities as per Legal Metrology rules.",
+            "severity": "CRITICAL",
+            "field": "MRP"
+          },
+          {
+            "id": "FSSAI_NUTRITION_MISSING",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011, Clause 2.2.2",
+            "message": "Mandatory nutritional information (e.g., energy, protein, carbohydrate, fat) is not provided in the product listing.",
+            "severity": "HIGH",
+            "field": "Nutritional Info"
+          },
+          {
+            "id": "FSSAI_ALLERGEN_IMPLICIT",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011, Clause 2.2.1(10)",
+            "message": "An explicit allergen declaration for milk, a common allergen, is missing. While implied by ingredients, a clear 'Contains Milk' statement is recommended for compliance.",
+            "severity": "MEDIUM",
+            "field": "Ingredients"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 30,
+        "summary": "Compliance score: 65/100 — 4 issue(s) found.",
+        "risk_level": "MEDIUM",
+        "detailed_insights": "The FSSAI license number provided (11521998000248) is 12 digits, which is incorrect as a valid FSSAI license number for a Food Business Operator (FBO) must be 14 digits, raising serious concerns about the product's regulatory approval status. A critical violation is the absence of the Maximum Retail Price (MRP), which is mandatory for all pre-packaged commodities under the Legal Metrology (Packaged Commodities) Rules, 2011, making it impossible to assess pricing compliance. Furthermore, the listing lacks mandatory nutritional information and an explicit allergen declaration for milk, both required as per FSS (Packaging and Labelling) Regulations, 2011. While ingredients, manufacturer details, and shelf life are present, these fundamental regulatory and consumer information gaps pose a high compliance risk.",
+        "recommendations": [
+          "Immediately verify and update the FSSAI License Number to a valid 14-digit number.",
+          "Ensure the Maximum Retail Price (MRP) is clearly declared for the product as per Legal Metrology (Packaged Commodities) Rules, 2011.",
+          "Add comprehensive nutritional information (e.g., energy, protein, carbohydrates, fat) to the product listing as per FSSAI regulations.",
+          "Include an explicit allergen declaration, such as 'Contains Milk', for clarity and compliance with FSSAI labelling requirements.",
+          "Conduct a thorough review of all product listings to ensure full compliance with FSSAI and Legal Metrology regulations."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 65,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T09:37:44.943113"
+    },
+    {
+      "product": {
+        "name": "Mother Dairy Cow Milk",
+        "price": "Select Unit",
+        "mrp": "59",
+        "discount": "0%",
+        "weight": "500 ml",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/60065a08-2486-4f67-b2ae-e03670b2c8f3.png",
+        "product_url": "https://blinkit.com/prn/-/prid/339309"
+      },
+      "compliance": {
+        "score": 45,
+        "rule_score": 75,
+        "risk": "High",
+        "violations": [
+          {
+            "id": "VAL002",
+            "rule": "Price Check",
+            "message": "Missing or invalid price",
+            "severity": "HIGH",
+            "field": "price"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "FSSAI_LICENSE_MISSING",
+            "rule": "FSS (Licensing and Registration of Food Businesses) Regulations, 2011 & FSS (Labelling and Display) Regulations, 2020",
+            "message": "The mandatory 14-digit FSSAI License Number is missing from the product listing.",
+            "severity": "CRITICAL",
+            "field": "FSSAI License Number"
+          },
+          {
+            "id": "INGREDIENTS_MISSING",
+            "rule": "FSS (Labelling and Display) Regulations, 2020, Regulation 5(1)(a)",
+            "message": "The complete list of ingredients is a mandatory declaration and is missing from the listing.",
+            "severity": "CRITICAL",
+            "field": "Ingredients"
+          },
+          {
+            "id": "MANUFACTURER_DETAILS_MISSING",
+            "rule": "FSS (Labelling and Display) Regulations, 2020, Regulation 5(1)(c)",
+            "message": "The name and complete address of the manufacturer/packer/bottler are mandatory and missing.",
+            "severity": "CRITICAL",
+            "field": "Manufacturer, Manufacturer Address"
+          },
+          {
+            "id": "EXPIRY_DATE_MISSING",
+            "rule": "FSS (Labelling and Display) Regulations, 2020, Regulation 5(1)(d)",
+            "message": "The 'Best Before' or 'Use By' date is mandatory for perishable food products like milk and is missing.",
+            "severity": "CRITICAL",
+            "field": "Expiry/Best Before"
+          },
+          {
+            "id": "NUTRITIONAL_INFO_MISSING",
+            "rule": "FSS (Labelling and Display) Regulations, 2020, Regulation 5(1)(b)",
+            "message": "Nutritional information (Nutritional Facts) is a mandatory declaration for packaged food products and is missing.",
+            "severity": "HIGH",
+            "field": "Ingredients (implied)"
+          },
+          {
+            "id": "ALLERGEN_INFO_MISSING",
+            "rule": "FSS (Labelling and Display) Regulations, 2020, Regulation 5(1)(a) & Schedule II",
+            "message": "Declaration of allergens (e.g., milk) is mandatory and is missing from the listing.",
+            "severity": "HIGH",
+            "field": "Ingredients (implied)"
+          },
+          {
+            "id": "SELLING_PRICE_AMBIGUITY",
+            "rule": "Legal Metrology (Packaged Commodities) Rules, 2011",
+            "message": "The selling price '₹Select Unit' is ambiguous and should be a clear, definitive price, ensuring it does not exceed the declared MRP.",
+            "severity": "MEDIUM",
+            "field": "Price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 15,
+        "summary": "Compliance score: 45/100 — 8 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "HIGH",
+        "detailed_insights": "The product listing exhibits multiple critical violations of FSSAI (Food Safety and Standards Authority of India) regulations. The absence of a 14-digit FSSAI license number is a fundamental breach, making the product illegal for sale. Crucially, the ingredients list, manufacturer's name and address, and the expiry/best before date are all missing, which are mandatory declarations for consumer safety, traceability, and informed purchasing decisions. While the MRP is stated, the selling price 'Select Unit' is ambiguous, though not directly violating the MRP rule at this stage. The lack of these essential details renders the listing highly non-compliant and potentially hazardous to consumers, as it prevents consumers from making informed choices and hinders regulatory oversight.",
+        "recommendations": [
+          "Immediately update the listing to include the valid 14-digit FSSAI License Number.",
+          "Add the complete ingredients list, including allergen information and nutritional facts, as per FSS (Labelling and Display) Regulations, 2020.",
+          "Provide the full name and address of the manufacturer or packer, as mandated by FSSAI.",
+          "Clearly display the 'Best Before' or 'Use By' date, which is crucial for perishable products like milk.",
+          "Ensure the selling price is clearly displayed and does not exceed the declared MRP."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 45,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:38:07.820752"
+    },
+    {
+      "product": {
+        "name": "Amul Taaza Toned Milk",
+        "price": "Select Unit",
+        "mrp": "48",
+        "discount": "0%",
+        "weight": "500 ml",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/5734b087-3ad9-485f-bbe2-52079cd9e35d.png",
+        "product_url": "https://blinkit.com/prn/-/prid/19512"
+      },
+      "compliance": {
+        "score": 45,
+        "rule_score": 75,
+        "risk": "High",
+        "violations": [
+          {
+            "id": "VAL002",
+            "rule": "Price Check",
+            "message": "Missing or invalid price",
+            "severity": "HIGH",
+            "field": "price"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "FSSAI_LIC_MISSING",
+            "rule": "FSSAI License Number Declaration",
+            "message": "The mandatory 14-digit FSSAI License Number is missing from the product listing.",
+            "severity": "CRITICAL",
+            "field": "FSSAI License Number"
+          },
+          {
+            "id": "INGREDIENTS_MISSING",
+            "rule": "Mandatory Ingredients Declaration",
+            "message": "The complete list of ingredients is missing, which is mandatory for all packaged food products.",
+            "severity": "CRITICAL",
+            "field": "Ingredients"
+          },
+          {
+            "id": "MANUFACTURER_DETAILS_MISSING",
+            "rule": "Manufacturer Details Declaration",
+            "message": "The manufacturer's name and full address are missing, which are mandatory details.",
+            "severity": "CRITICAL",
+            "field": "Manufacturer/Manufacturer Address"
+          },
+          {
+            "id": "EXPIRY_DATE_MISSING",
+            "rule": "Best Before/Expiry Date Declaration",
+            "message": "The 'Best Before' or 'Expiry Date' is missing, which is critical for perishable food products like milk.",
+            "severity": "CRITICAL",
+            "field": "Expiry/Best Before"
+          },
+          {
+            "id": "NUTRITIONAL_INFO_MISSING",
+            "rule": "Mandatory Nutritional Information",
+            "message": "Nutritional information, including energy, protein, carbohydrate, sugar, and fat content, is likely missing and is mandatory for packaged food.",
+            "severity": "HIGH",
+            "field": null
+          },
+          {
+            "id": "VAGUE_SELLING_PRICE",
+            "rule": "Selling Price Clarity",
+            "message": "The selling price is indicated as '₹Select Unit', which lacks clarity on the actual price for the 500 ml unit at the time of listing.",
+            "severity": "LOW",
+            "field": "Price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 15,
+        "summary": "Compliance score: 45/100 — 7 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "HIGH",
+        "detailed_insights": "The product listing severely lacks crucial information mandated by the FSSAI (Packaging and Labelling) Regulations, 2011, and the Consumer Protection (E-commerce) Rules, 2020. The absence of a valid 14-digit FSSAI license number is a fundamental breach. Similarly, the complete omission of the ingredients list, manufacturer's name, and full address are major non-compliances. For a perishable food item like milk, the lack of a 'Best Before' or 'Expiry Date' is a critical safety concern. While the weight/quantity is correctly declared as 500 ml, the sheer volume of missing mandatory details renders this listing highly non-compliant. The 'Price: ₹Select Unit' is vague and does not provide immediate clarity on the final selling price for the specified unit, though it doesn't directly violate the MRP rule based on the provided data.",
+        "recommendations": [
+          "Immediately update the listing to include the valid 14-digit FSSAI License Number.",
+          "Add the complete list of ingredients as per FSSAI (Packaging and Labelling) Regulations, 2011.",
+          "Provide the full name and address of the manufacturer.",
+          "Clearly state the 'Best Before' or 'Expiry Date' for the product.",
+          "Include all mandatory nutritional information as required for packaged food products.",
+          "Clarify the selling price for the 500 ml unit to ensure transparency and compliance with MRP."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 45,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:38:29.060502"
+    },
+    {
+      "product": {
+        "name": "Amul Gold Full Cream Milk",
+        "price": "Select Unit",
+        "mrp": "48",
+        "discount": "0%",
+        "weight": "1 ltr",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/74b0d3be-111c-4342-ac27-43fd7bb54793.png",
+        "product_url": "https://blinkit.com/prn/-/prid/561268"
+      },
+      "compliance": {
+        "score": 45,
+        "rule_score": 75,
+        "risk": "High",
+        "violations": [
+          {
+            "id": "VAL002",
+            "rule": "Price Check",
+            "message": "Missing or invalid price",
+            "severity": "HIGH",
+            "field": "price"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "FSSAI_001",
+            "rule": "FSSAI (Licensing and Registration of Food Businesses) Regulations, 2011",
+            "message": "FSSAI License Number is mandatory for all food products and must be 14 digits. It is currently missing from the listing.",
+            "severity": "CRITICAL",
+            "field": "FSSAI License Number"
+          },
+          {
+            "id": "FSSAI_002",
+            "rule": "Food Safety and Standards (Labelling and Display) Regulations, 2020 - Regulation 5(1)(a)",
+            "message": "Declaration of ingredients in descending order of their composition by weight or volume is mandatory for packaged food. This information is missing.",
+            "severity": "CRITICAL",
+            "field": "Ingredients"
+          },
+          {
+            "id": "FSSAI_003",
+            "rule": "Food Safety and Standards (Labelling and Display) Regulations, 2020 - Regulation 5(1)(b)",
+            "message": "Nutritional information per 100g or 100ml or per serving is mandatory for packaged food. This information is missing.",
+            "severity": "HIGH",
+            "field": "Nutritional Info"
+          },
+          {
+            "id": "FSSAI_004",
+            "rule": "Food Safety and Standards (Labelling and Display) Regulations, 2020 - Regulation 5(1)(c)",
+            "message": "Declaration of allergen information is mandatory for products containing common allergens. This information is missing, implied by the absence of an ingredients list.",
+            "severity": "HIGH",
+            "field": "Allergens"
+          },
+          {
+            "id": "FSSAI_005",
+            "rule": "Food Safety and Standards (Labelling and Display) Regulations, 2020 - Regulation 5(1)(e)",
+            "message": "Name and complete address of the manufacturer/packer/bottler are mandatory. This information is missing.",
+            "severity": "CRITICAL",
+            "field": "Manufacturer"
+          },
+          {
+            "id": "FSSAI_006",
+            "rule": "Food Safety and Standards (Labelling and Display) Regulations, 2020 - Regulation 5(1)(f)",
+            "message": "Date of manufacture/packaging and Best Before/Use By/Expiry Date are mandatory for food products. This critical information is missing.",
+            "severity": "CRITICAL",
+            "field": "Expiry/Best Before"
+          },
+          {
+            "id": "LMP_001",
+            "rule": "Legal Metrology (Packaged Commodities) Rules, 2011 - Rule 6(1)(e)",
+            "message": "The selling price is ambiguous ('Select Unit') and does not clearly indicate compliance with the declared MRP. A fixed selling price should be displayed to allow verification against MRP.",
+            "severity": "MEDIUM",
+            "field": "Price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 15,
+        "summary": "Compliance score: 45/100 — 8 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "HIGH",
+        "detailed_insights": "The product listing is critically deficient in several mandatory declarations required under Indian food safety and packaging laws. The absence of a 14-digit FSSAI License Number, a complete ingredients list (including allergen information), nutritional information, and manufacturer's name and address are major violations. Furthermore, the lack of an expiry or best before date makes the product unsafe for consumers. While the MRP is stated, the selling price is ambiguous ('Select Unit'), making it impossible to verify compliance with pricing regulations. The cumulative effect of these missing details indicates a high risk of non-compliance and potential consumer harm.",
+        "recommendations": [
+          "Immediately update the product listing to include the valid 14-digit FSSAI License Number.",
+          "Add a comprehensive ingredients list, including allergen declarations, in descending order of proportion.",
+          "Provide complete nutritional information per 100g/ml or per serving.",
+          "Clearly state the full name and address of the manufacturer or packer.",
+          "Display the date of manufacture/packaging and the Best Before/Expiry Date prominently.",
+          "Ensure the selling price is clearly displayed and does not exceed the declared MRP."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 45,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:38:50.240333"
+    },
+    {
+      "product": {
+        "name": "Mother Dairy Toned Milk",
+        "price": "29",
+        "mrp": null,
+        "discount": "0%",
+        "weight": "500 ml",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/a538dae1-f4a3-49c9-aaf0-586b2855f825.png",
+        "product_url": "https://blinkit.com/prn/-/prid/19925"
+      },
+      "compliance": {
+        "score": 100,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 100,
+        "summary": "Compliance score: 100/100 — 0 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 0 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 100,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:38:58.350948"
+    },
+    {
+      "product": {
+        "name": "Country Delight Buffalo Fresh Milk",
+        "price": "450 ml",
+        "mrp": "59",
+        "discount": "13%",
+        "weight": "450 ml",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/6e7eba87-a136-409a-9aab-7022ca4051be.png",
+        "product_url": "https://blinkit.com/prn/-/prid/637879"
+      },
+      "compliance": {
+        "score": 75,
+        "rule_score": 60,
+        "risk": "Medium",
+        "violations": [
+          {
+            "id": "VAL004",
+            "rule": "MRP Compliance",
+            "message": "MRP lower than selling price (illegal)",
+            "severity": "CRITICAL",
+            "field": "mrp"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 9
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 75/100 — 2 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "MEDIUM",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 75,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:39:05.747567"
+    },
+    {
+      "product": {
+        "name": "Zebronics ZEB-USB150WF1 Mini Wi-Fi USB Adapter",
+        "price": "1 unit",
+        "mrp": "499",
+        "discount": "54%",
+        "weight": "1 unit",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/5e2a3a3a-8700-4ef6-a9a8-c18796ed4725.png",
+        "product_url": "https://blinkit.com/prn/-/prid/701263"
+      },
+      "compliance": {
+        "score": 95,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 95/100 — 1 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 95,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:46:14.699029"
+    },
+    {
+      "product": {
+        "name": "Zebronics UTS100 USB Adapter",
+        "price": "1 unit",
+        "mrp": "999",
+        "discount": "73%",
+        "weight": "1 unit",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/0624b778-a5f2-4835-82fc-46de6d22f8a6.png",
+        "product_url": "https://blinkit.com/prn/-/prid/701258"
+      },
+      "compliance": {
+        "score": 95,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 95/100 — 1 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 95,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:46:22.294897"
+    },
+    {
+      "product": {
+        "name": "Ashtagandha Chandan Powder by Paraayan.com",
+        "price": "50 g",
+        "mrp": "249",
+        "discount": "20%",
+        "weight": "50 g",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/8030aa4b-867d-43a1-931f-a9d70ab2580a.png",
+        "product_url": "https://blinkit.com/prn/-/prid/699764"
+      },
+      "compliance": {
+        "score": 95,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 95/100 — 1 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 95,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:46:51.624830"
+    },
+    {
+      "product": {
+        "name": "Bhimseni Camphor / Kapur by Paraayan.com",
+        "price": "100 g",
+        "mrp": "699",
+        "discount": "57%",
+        "weight": "100 g",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/00884cc6-b8cc-43dd-a00f-ef9a369d2067.png",
+        "product_url": "https://blinkit.com/prn/-/prid/713356"
+      },
+      "compliance": {
+        "score": 95,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 95/100 — 1 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 95,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:46:59.510468"
+    },
+    {
+      "product": {
+        "name": "Daily Good Sona Masoori Raw Rice",
+        "price": "69",
+        "mrp": "100",
+        "discount": "0%",
+        "weight": "1 pack (1 kg)",
+        "ingredients": "N/A",
+        "fssai_number": "11523998001406",
+        "manufacturer_name": "Zepto Limited (Formerly known as Zepto Private Limited and Kiranakart Technologies Private Limited)",
+        "manufacturer_address": "Second Floor, 773, Sarjapur Main Road, Kaikondarahalli, Bellandur, Bangalore South, Bangalore Urban, Karnataka - 560103",
+        "expiry_date": "9 months",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/bf4f32ed-f962-498e-80ff-948405d833af.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/daily-good-sona-masoori-raw-rice/pvid/bfe98cad-c52c-4c3f-9f99-ee9f0f71118f"
+      },
+      "compliance": {
+        "score": 82,
+        "rule_score": 80,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Missing or incomplete ingredient list",
+            "severity": "HIGH",
+            "field": "ingredients"
+          },
+          {
+            "id": "AI_ING_001",
+            "rule": "Ingredient Declaration",
+            "message": "Ingredient list is missing or incomplete - required under FSSAI regulations",
+            "severity": "HIGH",
+            "field": "ingredients"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 85,
+        "summary": "Compliance score: 82/100 — 2 issue(s) found.",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified.",
+        "recommendations": [
+          "Complete ingredient list with allergen information must be provided"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 82,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T09:52:20.769115"
+    },
+    {
+      "product": {
+        "name": "Daawat Rozana Basmati Rice Gold | Medium Grain",
+        "price": "393",
+        "mrp": "600",
+        "discount": "0%",
+        "weight": "1 pack (5 kg)",
+        "ingredients": "Basmati Rice",
+        "fssai_number": "12822999000310",
+        "manufacturer_name": "L T Foods Limited",
+        "manufacturer_address": "L T Foods Limited, 43 milestone, GT road, Nahalgarh, Sonipat, Haryana. 131021.",
+        "expiry_date": "24 months",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/4fca667e-7ef0-4a44-a279-d04fc15a08ef.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/daawat-rozana-basmati-rice-gold-medium-grain/pvid/43e7fb9a-67eb-4447-998f-7853d8aac77c"
+      },
+      "compliance": {
+        "score": 100,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 100,
+        "summary": "Compliance score: 100/100 — 0 issue(s) found.",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 0 potential compliance issues were identified.",
+        "recommendations": [
+          "Continue maintaining good compliance practices",
+          "Regularly verify FSSAI license renewal dates",
+          "Ensure allergen warnings are prominently displayed"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 100,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T09:52:28.247602"
+    },
+    {
+      "product": {
+        "name": "Daawat Rozana Super Basmati Rice | Medium Grain",
+        "price": "80",
+        "mrp": "100",
+        "discount": "0%",
+        "weight": "1 pack (1 kg)",
+        "ingredients": "Basmati Rice",
+        "fssai_number": "11521998000248",
+        "manufacturer_name": "L T Foods Limited",
+        "manufacturer_address": "L T Foods Limited, 43 milestone, GT road, Nahalgarh, Sonipat, Haryana. 131021.",
+        "expiry_date": "24 months",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/ae77ca37-418b-4b8c-9e12-7bfb0a6c320b.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/daawat-rozana-super-basmati-rice-medium-grain/pvid/6b78d070-ba4c-459c-9d4d-fe058f71d5cf"
+      },
+      "compliance": {
+        "score": 100,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 100,
+        "summary": "Compliance score: 100/100 — 0 issue(s) found.",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 0 potential compliance issues were identified.",
+        "recommendations": [
+          "Continue maintaining good compliance practices",
+          "Regularly verify FSSAI license renewal dates",
+          "Ensure allergen warnings are prominently displayed"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 100,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T09:52:35.866680"
+    },
+    {
+      "product": {
+        "name": "Shree Akshara Premium Sona Masoori Rice | Steam",
+        "price": "227",
+        "mrp": "390",
+        "discount": "0%",
+        "weight": "1 pack (5 kg)",
+        "ingredients": "Sona Masoori Rice",
+        "fssai_number": "11521998000248",
+        "manufacturer_name": "Shree Akshara",
+        "manufacturer_address": "N/A",
+        "expiry_date": "6 months",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/660d627f-a594-4c2d-a1ef-0ffac29db842.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/shree-akshara-premium-sona-masoori-rice-steam/pvid/eeb16c5d-8a67-48f2-b4de-1794d2bbf484"
+      },
+      "compliance": {
+        "score": 87,
+        "rule_score": 75,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Missing manufacturer address (legally required)",
+            "severity": "MEDIUM",
+            "field": "manufacturer_address"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 100,
+        "summary": "Compliance score: 87/100 — 1 issue(s) found.",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 0 potential compliance issues were identified.",
+        "recommendations": [
+          "Continue maintaining good compliance practices",
+          "Regularly verify FSSAI license renewal dates",
+          "Ensure allergen warnings are prominently displayed"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 87,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T09:52:43.995042"
+    },
+    {
+      "product": {
+        "name": "GTS Original Kolam Rice",
+        "price": "439",
+        "mrp": "625",
+        "discount": "0%",
+        "weight": "1 pack (5 kg)",
+        "ingredients": "Kolam Rice",
+        "fssai_number": "11524060000194",
+        "manufacturer_name": "GTS Original",
+        "manufacturer_address": "N/A",
+        "expiry_date": "24 months",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/fa6228e7-4f2b-4ca6-9762-25e493d8d70a.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/gts-original-kolam-rice/pvid/e48a9dce-f3bb-469f-939e-272eb64752a3"
+      },
+      "compliance": {
+        "score": 87,
+        "rule_score": 75,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Missing manufacturer address (legally required)",
+            "severity": "MEDIUM",
+            "field": "manufacturer_address"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 100,
+        "summary": "Compliance score: 87/100 — 1 issue(s) found.",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 0 potential compliance issues were identified.",
+        "recommendations": [
+          "Continue maintaining good compliance practices",
+          "Regularly verify FSSAI license renewal dates",
+          "Ensure allergen warnings are prominently displayed"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 87,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T09:52:51.550425"
+    },
+    {
+      "product": {
+        "name": "Organic Shastra Basmati Rice",
+        "price": "1 kg",
+        "mrp": "280",
+        "discount": "51%",
+        "weight": "1 kg",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/908b27aa-22f8-4a07-8f6f-b0193c50b3b5.png",
+        "product_url": "https://blinkit.com/prn/-/prid/708784"
+      },
+      "compliance": {
+        "score": 95,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 95/100 — 1 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 95,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:52:58.915635"
+    },
+    {
+      "product": {
+        "name": "Daawat Rozana Super Basmati Rice - 1 kg (Medium Grain)",
+        "price": "Select Unit",
+        "mrp": "100",
+        "discount": "18%",
+        "weight": "1 kg",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/381e1978-2bbf-4aa4-9251-9111fad05e9b.png",
+        "product_url": "https://blinkit.com/prn/-/prid/60660"
+      },
+      "compliance": {
+        "score": 82,
+        "rule_score": 75,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "VAL002",
+            "rule": "Price Check",
+            "message": "Missing or invalid price",
+            "severity": "HIGH",
+            "field": "price"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 82/100 — 2 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 82,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:53:06.619168"
+    },
+    {
+      "product": {
+        "name": "Whole Farm Premium Parmal Rice",
+        "price": "Select Unit",
+        "mrp": "590",
+        "discount": "51%",
+        "weight": "1 kg",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/4a74408a-b177-44e0-9b57-e774b26fef95.png",
+        "product_url": "https://blinkit.com/prn/-/prid/528010"
+      },
+      "compliance": {
+        "score": 82,
+        "rule_score": 75,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "VAL002",
+            "rule": "Price Check",
+            "message": "Missing or invalid price",
+            "severity": "HIGH",
+            "field": "price"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 82/100 — 2 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 82,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:53:14.268531"
+    },
+    {
+      "product": {
+        "name": "Fortune Rozana-Gold Basmati Rice (Long Grain)",
+        "price": "Select Unit",
+        "mrp": "130",
+        "discount": "31%",
+        "weight": "1 kg",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/a36272bb-1bfd-49c7-94e2-cc784b9a11c2.png",
+        "product_url": "https://blinkit.com/prn/-/prid/73577"
+      },
+      "compliance": {
+        "score": 82,
+        "rule_score": 75,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "VAL002",
+            "rule": "Price Check",
+            "message": "Missing or invalid price",
+            "severity": "HIGH",
+            "field": "price"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 82/100 — 2 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 82,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:53:21.874052"
+    },
+    {
+      "product": {
+        "name": "Daawat Rozana Gold Basmati Rice Tibar (Extra Long Grain)",
+        "price": "5 kg",
+        "mrp": "550",
+        "discount": "28%",
+        "weight": "5 kg",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/a715b94b-0131-40ee-8355-d0608dd8850c.png",
+        "product_url": "https://blinkit.com/prn/-/prid/10973"
+      },
+      "compliance": {
+        "score": 95,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 95/100 — 1 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 95,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T09:53:29.250693"
+    },
+    {
+      "product": {
+        "name": "Daily Good Sona Masoori Raw Rice",
+        "price": "69",
+        "mrp": "100",
+        "discount": "0%",
+        "weight": "1 pack (1 kg)",
+        "ingredients": "N/A",
+        "fssai_number": "11523998001406",
+        "manufacturer_name": "Zepto Limited (Formerly known as Zepto Private Limited and Kiranakart Technologies Private Limited)",
+        "manufacturer_address": "Second Floor, 773, Sarjapur Main Road, Kaikondarahalli, Bellandur, Bangalore South, Bangalore Urban, Karnataka - 560103",
+        "expiry_date": "9 months",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/bf4f32ed-f962-498e-80ff-948405d833af.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/daily-good-sona-masoori-raw-rice/pvid/bfe98cad-c52c-4c3f-9f99-ee9f0f71118f"
+      },
+      "compliance": {
+        "score": 55,
+        "rule_score": 80,
+        "risk": "Medium",
+        "violations": [
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Missing or incomplete ingredient list",
+            "severity": "HIGH",
+            "field": "ingredients"
+          },
+          {
+            "id": "FSSAI-PL-2.2.2-1",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Declaration of Ingredients",
+            "message": "The product listing is missing the mandatory declaration of ingredients. Even for a single-ingredient product like rice, the ingredient must be explicitly stated.",
+            "severity": "CRITICAL",
+            "field": "Ingredients"
+          },
+          {
+            "id": "FSSAI-PL-2.2.2-2",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Nutritional Information",
+            "message": "The product listing lacks the mandatory 'Nutritional Information' panel, which is required for most pre-packaged food products.",
+            "severity": "HIGH",
+            "field": "Nutritional Info"
+          },
+          {
+            "id": "FSSAI-PL-2.2.2-3",
+            "rule": "FSS (Packaging and Labelling) Regulations, 2011 - Allergen Information",
+            "message": "The product listing does not include 'Allergen Information'. While plain rice is generally not a common allergen, the absence of an ingredient list means this declaration is also implicitly missing and required for full compliance.",
+            "severity": "MEDIUM",
+            "field": "Allergens"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 30,
+        "summary": "Compliance score: 55/100 — 4 issue(s) found.",
+        "risk_level": "MEDIUM",
+        "detailed_insights": "The FSSAI license number (11523998001406) is 14 digits long, which is correct for food products. The selling price (₹69) is below the MRP (₹100), indicating compliance with pricing regulations. Manufacturer details and quantity declaration are also complete. However, the listing critically fails to provide the mandatory 'Ingredients' list, 'Nutritional Information', and 'Allergen Information' as required by FSS (Packaging and Labelling) Regulations, 2011. Even for a single-ingredient product like rice, the ingredient must be declared. The absence of these details prevents consumers from making informed choices and constitutes a major violation of food safety and labelling laws in India.",
+        "recommendations": [
+          "Immediately update the product listing to include a clear and accurate 'Ingredients' list.",
+          "Add comprehensive 'Nutritional Information' as per FSSAI guidelines.",
+          "Include 'Allergen Information', even if it's to state 'Contains no known allergens' or 'May contain traces of...' if applicable, or simply covered by the ingredient declaration.",
+          "Ensure all future product listings adhere strictly to FSSAI (Packaging and Labelling) Regulations, 2011, for all mandatory declarations."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 55,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T11:15:53.631391"
+    },
+    {
+      "product": {
+        "name": "India Gate All Rounder Feast Rozzana Basmati Rice | Aged Rice | Fluffy and Non-Sticky",
+        "price": "89",
+        "mrp": "122",
+        "discount": "0%",
+        "weight": "1 pack (1 kg)",
+        "ingredients": "Raw and Aged Rice",
+        "fssai_number": "11521998000248",
+        "manufacturer_name": "KRBL Ltd",
+        "manufacturer_address": "KRBL Ltd, C-32, 5th Floor, Sector-62, Noida, Uttar Pradesh-201301",
+        "expiry_date": "36 months",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1746-1746,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/6f5888a8-609e-4afd-94f8-259326642350.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/india-gate-all-rounder-feast-rozzana-basmati-rice-aged-rice-fluffy-and-non-sticky/pvid/7a91e366-3ec1-410b-8d41-83d011eb3a86"
+      },
+      "compliance": {
+        "score": 100,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 100,
+        "summary": "Compliance score: 100/100 — 0 issue(s) found.",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 0 potential compliance issues were identified.",
+        "recommendations": [
+          "Continue maintaining good compliance practices",
+          "Regularly verify FSSAI license renewal dates",
+          "Ensure allergen warnings are prominently displayed"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 100,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T11:16:02.025534"
+    },
+    {
+      "product": {
+        "name": "Daawat Rozana Super Basmati Rice | Medium Grain",
+        "price": "80",
+        "mrp": "100",
+        "discount": "0%",
+        "weight": "1 pack (1 kg)",
+        "ingredients": "Basmati Rice",
+        "fssai_number": "11521998000248",
+        "manufacturer_name": "L T Foods Limited",
+        "manufacturer_address": "L T Foods Limited, 43 milestone, GT road, Nahalgarh, Sonipat, Haryana. 131021.",
+        "expiry_date": "24 months",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/ae77ca37-418b-4b8c-9e12-7bfb0a6c320b.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/daawat-rozana-super-basmati-rice-medium-grain/pvid/6b78d070-ba4c-459c-9d4d-fe058f71d5cf"
+      },
+      "compliance": {
+        "score": 82,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "FSSAI_LABEL_001",
+            "rule": "Food Safety and Standards (Labelling and Display) Regulations, 2020 - Regulation 5(1)(c) - Nutritional Information",
+            "message": "Mandatory nutritional information (e.g., energy, protein, carbohydrate, fat) is missing from the product listing. This is a critical requirement for packaged food products.",
+            "severity": "CRITICAL",
+            "field": null
+          },
+          {
+            "id": "FSSAI_LABEL_002",
+            "rule": "Food Safety and Standards (Labelling and Display) Regulations, 2020 - Regulation 5(1)(e) - Allergen Declaration",
+            "message": "Explicit allergen declaration is not present. While Basmati Rice is a single ingredient, for comprehensive compliance and consumer safety, an explicit statement regarding allergens (or absence thereof) is recommended, especially if processed in a facility handling common allergens.",
+            "severity": "MEDIUM",
+            "field": null
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 65,
+        "summary": "Compliance score: 82/100 — 2 issue(s) found.",
+        "risk_level": "LOW",
+        "detailed_insights": "The product listing for Daawat Rozana Super Basmati Rice shows good adherence to several FSSAI and legal requirements. The FSSAI license number is 14 digits and valid. The selling price is below the MRP, which is compliant. The weight/quantity and manufacturer details (name, address, PIN code) are clearly provided and complete. The shelf life of 24 months is also stated. However, a significant violation is the absence of mandatory nutritional information (energy, protein, carbohydrate, fat, etc.), which is required for most packaged food products under the FSSAI (Food Safety and Standards (Labelling and Display) Regulations, 2020). Additionally, while Basmati Rice is a single ingredient, an explicit allergen declaration (e.g., 'contains no common allergens' or 'processed in a facility that also processes...') is recommended for comprehensive consumer information and compliance, especially if there's any risk of cross-contamination.",
+        "recommendations": [
+          "Immediately update the product listing to include comprehensive nutritional information as per FSSAI (Food Safety and Standards (Labelling and Display) Regulations, 2020).",
+          "Ensure that the physical product label also contains all mandatory declarations, including nutritional information and an explicit allergen statement.",
+          "Consider adding an explicit allergen declaration (e.g., 'Contains no common allergens' or 'Processed in a facility that also processes...') to enhance transparency and consumer safety."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 82,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T11:16:19.777982"
+    },
+    {
+      "product": {
+        "name": "Daawat Biryani Basmati Rice | Long Grain",
+        "price": "199",
+        "mrp": "250",
+        "discount": "0%",
+        "weight": "1 pack (1 kg)",
+        "ingredients": "Basmati Rice",
+        "fssai_number": "11522998001570",
+        "manufacturer_name": "L T Foods Limited",
+        "manufacturer_address": "L T Foods Limited, 43 milestone, GT road, Nahalgarh, Sonipat, Haryana. 131021.",
+        "expiry_date": "24 months",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/41483b0c-a928-4faf-bed3-dc8530f992a9.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/daawat-biryani-basmati-rice-long-grain/pvid/3e01e4c1-b31d-4305-810f-5c3a03a7401f"
+      },
+      "compliance": {
+        "score": 100,
+        "rule_score": 100,
+        "risk": "Low",
+        "violations": [],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG003",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 100,
+        "summary": "Compliance score: 100/100 — 0 issue(s) found.",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 0 potential compliance issues were identified.",
+        "recommendations": [
+          "Continue maintaining good compliance practices",
+          "Regularly verify FSSAI license renewal dates",
+          "Ensure allergen warnings are prominently displayed"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 100,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T11:16:27.713834"
+    },
+    {
+      "product": {
+        "name": "GTS Original Kolam Rice",
+        "price": "439",
+        "mrp": "625",
+        "discount": "0%",
+        "weight": "1 pack (5 kg)",
+        "ingredients": "Kolam Rice",
+        "fssai_number": "11524060000194",
+        "manufacturer_name": "GTS Original",
+        "manufacturer_address": "N/A",
+        "expiry_date": "24 months",
+        "platform": "zepto",
+        "store_name": "Zepto",
+        "product_image": "https://cdn.zeptonow.com/production/tr:w-403,ar-1200-1200,pr-true,f-auto,,q-40,dpr-2/cms/product_variant/fa6228e7-4f2b-4ca6-9762-25e493d8d70a.jpeg",
+        "product_url": "https://www.zeptonow.com/pn/gts-original-kolam-rice/pvid/e48a9dce-f3bb-469f-939e-272eb64752a3"
+      },
+      "compliance": {
+        "score": 87,
+        "rule_score": 75,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Missing manufacturer address (legally required)",
+            "severity": "MEDIUM",
+            "field": "manufacturer_address"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003",
+          "REG001",
+          "REG002",
+          "REG004",
+          "REG005"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 100,
+        "summary": "Compliance score: 87/100 — 1 issue(s) found.",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 0 potential compliance issues were identified.",
+        "recommendations": [
+          "Continue maintaining good compliance practices",
+          "Regularly verify FSSAI license renewal dates",
+          "Ensure allergen warnings are prominently displayed"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 87,
+        "deep_scrape_available": true
+      },
+      "platform": "zepto",
+      "evaluated_at": "2026-02-21T11:16:35.696352"
+    },
+    {
+      "product": {
+        "name": "Daawat Rozana Gold Basmati Rice Tibar (Extra Long Grain)",
+        "price": "5 kg",
+        "mrp": "550",
+        "discount": "28%",
+        "weight": "5 kg",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/a715b94b-0131-40ee-8355-d0608dd8850c.png",
+        "product_url": "https://blinkit.com/prn/-/prid/10973"
+      },
+      "compliance": {
+        "score": 52,
+        "rule_score": 100,
+        "risk": "Medium",
+        "violations": [
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "V001",
+            "rule": "FSSAI (Licensing and Registration of Food Businesses) Regulations, 2011 & FSSAI (Packaging and Labelling) Regulations, 2018",
+            "message": "The FSSAI License Number, mandatory for all food products, is missing from the listing.",
+            "severity": "CRITICAL",
+            "field": "FSSAI License Number"
+          },
+          {
+            "id": "V002",
+            "rule": "FSSAI (Packaging and Labelling) Regulations, 2018, Regulation 2.2.1(1)",
+            "message": "The complete list of ingredients, required to be declared in descending order of their composition by weight or volume, is absent.",
+            "severity": "CRITICAL",
+            "field": "Ingredients"
+          },
+          {
+            "id": "V003",
+            "rule": "FSSAI (Packaging and Labelling) Regulations, 2018, Regulation 2.2.2",
+            "message": "Mandatory nutritional information (e.g., energy, protein, carbohydrates, fat) is not provided.",
+            "severity": "HIGH",
+            "field": null
+          },
+          {
+            "id": "V004",
+            "rule": "FSSAI (Packaging and Labelling) Regulations, 2018, Regulation 2.2.1(7)",
+            "message": "The name and complete address of the manufacturer or packer are not declared.",
+            "severity": "CRITICAL",
+            "field": "Manufacturer, Manufacturer Address"
+          },
+          {
+            "id": "V005",
+            "rule": "FSSAI (Packaging and Labelling) Regulations, 2018, Regulation 2.2.1(9)",
+            "message": "The 'Best Before' or 'Expiry Date' is a mandatory declaration for food products and is missing.",
+            "severity": "CRITICAL",
+            "field": "Expiry/Best Before"
+          },
+          {
+            "id": "V006",
+            "rule": "Consumer Protection Act, 2019; FSSAI (Packaging and Labelling) Regulations, 2018 (General Principles of Labelling)",
+            "message": "The selling price of ₹5 for 5 kg of Basmati rice is unrealistically low compared to the MRP of ₹550, potentially misleading consumers or indicating a data entry error.",
+            "severity": "MEDIUM",
+            "field": "Price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 5,
+        "summary": "Compliance score: 52/100 — 6 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "MEDIUM",
+        "detailed_insights": "The product listing for Daawat Rozana Gold Basmati Rice Tibar exhibits severe non-compliance with FSSAI (Food Safety and Standards Authority of India) regulations and general e-commerce legal requirements. Critical information such as the FSSAI License Number, complete ingredients list, nutritional information, manufacturer's name and address, and the mandatory 'Best Before' or 'Expiry Date' are entirely absent. These omissions are fundamental violations of the Food Safety and Standards (Packaging and Labelling) Regulations, 2018, making the product untraceable and potentially unsafe for consumers. Furthermore, while the selling price of ₹5 for 5 kg of Basmati rice does not exceed the MRP of ₹550, it is highly unrealistic and suggests a potential data entry error or a misleading claim that could confuse consumers.",
+        "recommendations": [
+          "Immediately update the product listing to include a valid 14-digit FSSAI License Number.",
+          "Add a comprehensive list of ingredients as per FSSAI (Packaging and Labelling) Regulations, 2018.",
+          "Provide detailed nutritional information, including energy, protein, carbohydrates, sugar, and fat content.",
+          "Include the full name and address of the manufacturer or packer.",
+          "Clearly state the 'Best Before' or 'Expiry Date' on the listing.",
+          "Verify and correct the selling price to accurately reflect the product's value and avoid misleading consumers."
+        ],
+        "status": "Gemini Analysis Complete",
+        "final_score": 52,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T11:16:56.171766"
+    },
+    {
+      "product": {
+        "name": "Daawat Rozana Super Basmati Rice - 1 kg (Medium Grain)",
+        "price": "Select Unit",
+        "mrp": "100",
+        "discount": "18%",
+        "weight": "1 kg",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/381e1978-2bbf-4aa4-9251-9111fad05e9b.png",
+        "product_url": "https://blinkit.com/prn/-/prid/60660"
+      },
+      "compliance": {
+        "score": 82,
+        "rule_score": 75,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "VAL002",
+            "rule": "Price Check",
+            "message": "Missing or invalid price",
+            "severity": "HIGH",
+            "field": "price"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 82/100 — 2 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 82,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T11:17:04.557120"
+    },
+    {
+      "product": {
+        "name": "Whole Farm Premium Parmal Rice",
+        "price": "Select Unit",
+        "mrp": "590",
+        "discount": "51%",
+        "weight": "1 kg",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/4a74408a-b177-44e0-9b57-e774b26fef95.png",
+        "product_url": "https://blinkit.com/prn/-/prid/528010"
+      },
+      "compliance": {
+        "score": 82,
+        "rule_score": 75,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "VAL002",
+            "rule": "Price Check",
+            "message": "Missing or invalid price",
+            "severity": "HIGH",
+            "field": "price"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 82/100 — 2 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 82,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T11:17:12.266176"
+    },
+    {
+      "product": {
+        "name": "Fortune Rozana-Gold Basmati Rice (Long Grain)",
+        "price": "Select Unit",
+        "mrp": "130",
+        "discount": "31%",
+        "weight": "1 kg",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/a36272bb-1bfd-49c7-94e2-cc784b9a11c2.png",
+        "product_url": "https://blinkit.com/prn/-/prid/73577"
+      },
+      "compliance": {
+        "score": 82,
+        "rule_score": 75,
+        "risk": "Low",
+        "violations": [
+          {
+            "id": "VAL002",
+            "rule": "Price Check",
+            "message": "Missing or invalid price",
+            "severity": "HIGH",
+            "field": "price"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL003"
+        ],
+        "total_rules": 8
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 82/100 — 2 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "LOW",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 82,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T11:17:21.365819"
+    },
+    {
+      "product": {
+        "name": "Daawat Rozana Gold Basmati Rice (Medium Grain)",
+        "price": "4000 g",
+        "mrp": "550",
+        "discount": "38%",
+        "weight": "4000 g",
+        "ingredients": "N/A",
+        "fssai_number": "N/A",
+        "manufacturer_name": "N/A",
+        "manufacturer_address": "N/A",
+        "expiry_date": "N/A",
+        "platform": "blinkit",
+        "store_name": "Blinkit",
+        "product_image": "https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=70,metadata=none,w=270/da/cms-assets/cms/product/92a0cc4e-b8f6-4ba5-9c77-d4e9248b25d6.png",
+        "product_url": "https://blinkit.com/prn/-/prid/701388"
+      },
+      "compliance": {
+        "score": 75,
+        "rule_score": 60,
+        "risk": "Medium",
+        "violations": [
+          {
+            "id": "VAL004",
+            "rule": "MRP Compliance",
+            "message": "MRP lower than selling price (illegal)",
+            "severity": "CRITICAL",
+            "field": "mrp"
+          },
+          {
+            "id": "REG001",
+            "rule": "FSSAI License",
+            "message": "FSSAI license number not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "fssai_number"
+          },
+          {
+            "id": "REG002",
+            "rule": "Manufacturer Name",
+            "message": "Manufacturer name not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_name"
+          },
+          {
+            "id": "REG003",
+            "rule": "Manufacturer Address",
+            "message": "Manufacturer address not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "manufacturer_address"
+          },
+          {
+            "id": "REG004",
+            "rule": "Ingredients List",
+            "message": "Ingredient list not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "ingredients"
+          },
+          {
+            "id": "REG005",
+            "rule": "Expiry Date",
+            "message": "Expiry date not found on listing (could not verify — deep scrape unavailable)",
+            "severity": "INFO",
+            "field": "expiry_date"
+          },
+          {
+            "id": "AI_PRICE_001",
+            "rule": "Price Verification",
+            "message": "Price information is missing or invalid on listing",
+            "severity": "MEDIUM",
+            "field": "price"
+          }
+        ],
+        "passed_rules": [
+          "VAL001",
+          "VAL002",
+          "VAL003"
+        ],
+        "total_rules": 9
+      },
+      "ai_analysis": {
+        "ai_score": 90,
+        "summary": "Compliance score: 75/100 — 2 issue(s) found. Based on listing data only (product detail page was not accessible).",
+        "risk_level": "MEDIUM",
+        "detailed_insights": "The product was evaluated against Indian food safety regulations. 1 potential compliance issues were identified. Based on listing data only (product detail page was not accessible).",
+        "recommendations": [
+          "FSSAI license could not be verified (detail page unavailable) — check product packaging",
+          "Ingredients could not be verified (detail page unavailable) — check product label",
+          "Manufacturer info could not be verified (detail page unavailable)",
+          "Expiry date could not be verified (detail page unavailable)"
+        ],
+        "status": "Fallback Analysis (Gemini Unavailable)",
+        "final_score": 75,
+        "deep_scrape_available": false
+      },
+      "platform": "blinkit",
+      "evaluated_at": "2026-02-21T11:17:28.949791"
     }
   ]
 }
