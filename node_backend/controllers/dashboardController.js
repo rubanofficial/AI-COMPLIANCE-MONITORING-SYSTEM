@@ -1,5 +1,6 @@
 /**
  * Dashboard Controller — equivalent to /dashboard/* endpoints.
+ * Reads are served from PostgreSQL via the dashboard service.
  */
 const {
   getDashboardStats,
@@ -8,27 +9,28 @@ const {
   getLatestScanData,
   getEvaluatedProducts,
 } = require('../services/dashboardService');
+const { asyncHandler } = require('../utils/asyncHandler');
 
-function getStats(req, res) {
-  res.json(getDashboardStats());
-}
+const getStats = asyncHandler(async (req, res) => {
+  res.json(await getDashboardStats());
+});
 
-function getRecent(req, res) {
+const getRecent = asyncHandler(async (req, res) => {
   const limit = parseInt(req.query.limit, 10) || 10;
-  res.json({ scans: getRecentScans(limit) });
-}
+  res.json({ scans: await getRecentScans(limit) });
+});
 
-function getTrends(req, res) {
+const getTrends = asyncHandler(async (req, res) => {
   const days = parseInt(req.query.days, 10) || 7;
-  res.json({ trends: getTrendData(days) });
-}
+  res.json({ trends: await getTrendData(days) });
+});
 
-function getLiveData(req, res) {
-  res.json(getLatestScanData());
-}
+const getLiveData = asyncHandler(async (req, res) => {
+  res.json(await getLatestScanData());
+});
 
-function getAllEvaluated(req, res) {
-  res.json({ products: getEvaluatedProducts() });
-}
+const getAllEvaluated = asyncHandler(async (req, res) => {
+  res.json({ products: await getEvaluatedProducts() });
+});
 
 module.exports = { getStats, getRecent, getTrends, getLiveData, getAllEvaluated };

@@ -1,6 +1,9 @@
 /**
  * Evaluation Controller — equivalent to /evaluate/stream and /product/details endpoints.
  * Handles SSE streaming for two-phase product evaluation.
+ *
+ * Results are persisted to PostgreSQL: one `scan_runs` row per request and one
+ * append-only `product_evaluations` row per product.
  */
 const { scrapeBlinkitLive } = require('../services/scraper/blinkitLive');
 const { scrapeZeptoLive } = require('../services/scraper/zeptoLive');
@@ -9,10 +12,16 @@ const { scrapeZeptoDetail } = require('../services/scraper/zeptoDetail');
 const { validateProduct } = require('../services/ruleEngine');
 const { analyzeWithGemini } = require('../services/aiService');
 const { combineScores } = require('../services/scoringEngine');
-const { addScanToHistory, addEvaluatedProduct } = require('../services/dashboardService');
+const { addEvaluatedProduct } = require('../services/dashboardService');
+const scanRunRepository = require('../repositories/scanRunRepository');
 
 function sseEvent(eventType, data) {
   return `event: ${eventType}\ndata: ${JSON.stringify(data)}\n\n`;
+}
+
+/** Database failures must abort the stream rather than silently dropping results. */
+function isDatabaseError(err) {
+  return Boolean(err) && (err.code === 'DB_UNAVAILABLE' || err.name === 'DatabaseUnavailableError');
 }
 
 /**
@@ -24,6 +33,20 @@ async function evaluateStream(req, res) {
     return res.status(400).json({ error: 'product_name is required' });
   }
 
+  // Create the scan run before streaming so DB problems fail loudly up-front
+  // (a normal 503) instead of mid-stream.
+  let scanRun;
+  try {
+    scanRun = await scanRunRepository.startScanRun({ query: productName });
+  } catch (err) {
+    console.error(`❌ Could not start scan run: ${err.message}`);
+    return res.status(503).json({
+      error: 'Database unavailable',
+      detail: 'Could not create a scan run. Check DATABASE_URL and PostgreSQL connectivity.',
+      message: err.message,
+    });
+  }
+
   // Set SSE headers
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
@@ -32,6 +55,8 @@ async function evaluateStream(req, res) {
   res.flushHeaders();
 
   const startTime = Date.now();
+  let productsFound = 0;
+  let evaluatedCount = 0;
 
   try {
     // ═══ PHASE 1: Quick Scrape ═══
@@ -65,12 +90,21 @@ async function evaluateStream(req, res) {
     }
 
     const phase1Time = (Date.now() - startTime) / 1000;
+    productsFound = scraped.length;
     console.log(`\n  ⏱ Phase 1 completed in ${phase1Time.toFixed(1)}s — ${scraped.length} products found`);
+
+    await scanRunRepository.updateScanRunProgress(scanRun.id, { products_found: productsFound });
 
     if (scraped.length === 0) {
       console.log(`  ❌ No products found!`);
       res.write(sseEvent('error', { message: 'No products found. Try a different search term.' }));
       res.write(sseEvent('complete', { total: 0, time: Math.round(phase1Time * 10) / 10 }));
+      await scanRunRepository.finishScanRun(scanRun.id, {
+        status: 'completed',
+        duration_ms: Date.now() - startTime,
+        products_found: 0,
+        products_evaluated: 0,
+      });
       res.end();
       return;
     }
@@ -179,10 +213,6 @@ async function evaluateStream(req, res) {
         console.log(`  │  🏁 Final Score: ${final.score}/100, Risk: ${final.risk}`);
         console.log(`  └─ Completed in ${productTime.toFixed(1)}s`);
 
-        // Add to scan history
-        const riskLevel = final.score >= 80 ? 'LOW' : final.score >= 50 ? 'MEDIUM' : 'HIGH';
-        addScanToHistory(productNameStr, platform, final.score, riskLevel);
-
         // Build output
         const productOut = {
           name: deepData.product_name || deepData.name || 'Unknown',
@@ -223,7 +253,13 @@ async function evaluateStream(req, res) {
           deep_scrape_available: deepScrapeSuccess,
         };
 
-        addEvaluatedProduct(productOut, complianceOut, aiOut, platform);
+        // Persist to PostgreSQL (product identity + listing + append-only evaluation)
+        await addEvaluatedProduct(productOut, complianceOut, aiOut, platform, {
+          scanRunId: scanRun.id,
+          deepProduct: deepData,
+          deepScrapeAvailable: deepScrapeSuccess,
+        });
+        evaluatedCount++;
 
         res.write(sseEvent('product_evaluated', {
           index: i,
@@ -236,6 +272,9 @@ async function evaluateStream(req, res) {
         const productTime = (Date.now() - productStart) / 1000;
         console.log(`  │  ❌ Error: ${productErr.message}`);
         console.log(`  └─ Failed after ${productTime.toFixed(1)}s`);
+
+        // A database outage must not be swallowed — abort the whole stream.
+        if (isDatabaseError(productErr)) throw productErr;
 
         res.write(sseEvent('product_error', {
           index: i,
@@ -250,6 +289,13 @@ async function evaluateStream(req, res) {
     console.log(`✅ ALL DONE — ${scraped.length} products processed in ${totalTime.toFixed(1)}s`);
     console.log(`${'='.repeat(60)}\n`);
 
+    await scanRunRepository.finishScanRun(scanRun.id, {
+      status: 'completed',
+      duration_ms: Date.now() - startTime,
+      products_found: productsFound,
+      products_evaluated: evaluatedCount,
+    });
+
     res.write(sseEvent('complete', {
       total: scraped.length,
       time: Math.round(totalTime * 10) / 10,
@@ -258,7 +304,24 @@ async function evaluateStream(req, res) {
     res.end();
   } catch (err) {
     console.error('Stream error:', err);
-    res.write(sseEvent('error', { message: err.message }));
+
+    try {
+      await scanRunRepository.finishScanRun(scanRun.id, {
+        status: 'failed',
+        duration_ms: Date.now() - startTime,
+        products_found: productsFound,
+        products_evaluated: evaluatedCount,
+        error: err.message,
+      });
+    } catch (finishErr) {
+      console.error(`  ⚠️ Could not mark scan run ${scanRun.id} as failed: ${finishErr.message}`);
+    }
+
+    const message = isDatabaseError(err)
+      ? 'Database unavailable — evaluation results could not be stored. Please check the database connection.'
+      : err.message;
+
+    res.write(sseEvent('error', { message }));
     res.end();
   }
 }
