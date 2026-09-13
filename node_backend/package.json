@@ -9,7 +9,8 @@
     "db:migrate": "node db/migrate.js",
     "db:seed": "node db/seed.js",
     "db:setup": "node db/setup.js",
-    "db:import": "node db/importOutputJson.js"
+    "db:import": "node db/importOutputJson.js",
+    "db:status": "node db/status.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

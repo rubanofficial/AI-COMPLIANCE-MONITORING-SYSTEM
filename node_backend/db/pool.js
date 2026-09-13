@@ -7,8 +7,8 @@
  */
 const { Pool } = require('pg');
 
-const CONNECTION_STRING = process.env.DATABASE_URL || '';
-const HAS_DATABASE_URL = CONNECTION_STRING.trim().length > 0;
+const RAW_CONNECTION_STRING = (process.env.DATABASE_URL || '').trim();
+const HAS_DATABASE_URL = RAW_CONNECTION_STRING.length > 0;
 
 /**
  * Thrown whenever the database is missing or unreachable. Controllers and the
@@ -29,17 +29,37 @@ function isLocalHost(connectionString) {
 }
 
 /**
- * Hosted providers (Neon, Supabase, RDS, ...) require SSL. Honour an explicit
- * `sslmode=disable`, otherwise enable SSL for any non-local host.
+ * Pull `sslmode` out of the connection string and translate it into an explicit
+ * `ssl` option.
+ *
+ * pg-connection-string v3 changes the meaning of `require` (it will no longer
+ * imply verify-full), and passing `sslmode` through triggers a deprecation
+ * warning. Handling it here keeps behaviour stable across driver upgrades.
  */
-function resolveSsl(connectionString) {
-  if (/sslmode=disable/i.test(connectionString)) return false;
-  if (/sslmode=(require|prefer|verify-ca|verify-full)/i.test(connectionString)) {
-    return { rejectUnauthorized: false };
+function parseConnection(connectionString) {
+  try {
+    const url = new URL(connectionString);
+    const sslmode = url.searchParams.get('sslmode');
+    if (sslmode || url.searchParams.has('uselibpqcompat')) {
+      url.searchParams.delete('sslmode');
+      url.searchParams.delete('uselibpqcompat');
+    }
+    return { connectionString: url.toString(), sslmode };
+  } catch {
+    return { connectionString, sslmode: null };
   }
+}
+
+/** Hosted providers (Neon, Supabase, RDS, ...) require SSL. */
+function resolveSsl(connectionString, sslmode) {
+  if (sslmode && /disable/i.test(sslmode)) return false;
+  if (sslmode) return { rejectUnauthorized: false };
   if (isLocalHost(connectionString)) return false;
   return { rejectUnauthorized: false };
 }
+
+const { connectionString: CONNECTION_STRING, sslmode: SSL_MODE } =
+  parseConnection(RAW_CONNECTION_STRING);
 
 let pool = null;
 
@@ -49,7 +69,7 @@ if (HAS_DATABASE_URL) {
     max: Number(process.env.PG_POOL_MAX || 10),
     idleTimeoutMillis: 30_000,
     connectionTimeoutMillis: Number(process.env.PG_CONNECT_TIMEOUT_MS || 15_000),
-    ssl: resolveSsl(CONNECTION_STRING),
+    ssl: resolveSsl(CONNECTION_STRING, SSL_MODE),
   });
 
   // Idle clients can be dropped by the server/proxy; log instead of crashing.

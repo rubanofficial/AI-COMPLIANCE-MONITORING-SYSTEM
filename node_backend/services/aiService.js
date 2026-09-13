@@ -3,7 +3,6 @@
  * Uses Google Gemini REST API. Falls back to rule-based analysis if unavailable.
  */
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || '';
 const GEMINI_MODEL = 'gemini-2.5-flash';
 
 function buildCompliancePrompt(product) {
@@ -87,13 +86,14 @@ function parseGeminiResponse(rawText) {
 
 async function analyzeWithGemini(product, deepScrapeAvailable = true) {
   const productName = product.product_name || product.name || 'Unknown';
+  const apiKey = (process.env.GEMINI_API_KEY || '').trim();
 
-  if (GEMINI_API_KEY) {
+  if (apiKey) {
     try {
       console.log(`    🤖 [Gemini] Sending product for AI analysis: ${productName.slice(0, 50)}`);
 
       const prompt = buildCompliancePrompt(product);
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${GEMINI_API_KEY}`;
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${apiKey}`;
 
       const response = await fetch(url, {
         method: 'POST',
