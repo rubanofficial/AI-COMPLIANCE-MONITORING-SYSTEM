@@ -18,8 +18,8 @@ async function scrapeZeptoLive(productName) {
   const page = await context.newPage();
 
   try {
-    await page.goto(url, { timeout: 20000 });
-    await page.waitForSelector('a[href*="/pn/"]', { timeout: 10000 });
+    await page.goto(url, { timeout: 25000, waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('a[href*="/pn/"]', { timeout: 15000 });
 
     const productCandidates = await page.$$('a[href*="/pn/"]');
     const results = [];

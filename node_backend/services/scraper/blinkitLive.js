@@ -19,8 +19,8 @@ async function scrapeBlinkitLive(productName) {
   const page = await context.newPage();
 
   try {
-    await page.goto(url, { timeout: 20000 });
-    await page.waitForSelector('.tw-line-clamp-2', { timeout: 12000 });
+    await page.goto(url, { timeout: 25000, waitUntil: 'domcontentloaded' });
+    await page.waitForSelector('.tw-line-clamp-2', { timeout: 15000 });
     await page.waitForTimeout(2000);
 
     const results = await page.evaluate((maxProducts) => {
