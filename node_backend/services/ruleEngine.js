@@ -60,9 +60,13 @@ function validateProduct(product, deepScrapeAvailable = true) {
     passedRules.push('VAL003');
   }
 
-  if (mrp && price && mrp < price) {
+  if (mrp && price) {
     totalRules++;
-    score -= addViolation('VAL004', 'MRP Compliance', 'MRP lower than selling price (illegal)', 'CRITICAL', 'mrp', 40);
+    if (mrp < price) {
+      score -= addViolation('VAL004', 'MRP Compliance', 'MRP lower than selling price (illegal)', 'CRITICAL', 'mrp', 40);
+    } else {
+      passedRules.push('VAL004');
+    }
   }
 
   // === REGULATORY COMPLIANCE VALIDATIONS ===

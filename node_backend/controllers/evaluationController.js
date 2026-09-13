@@ -330,7 +330,8 @@ async function evaluateStream(req, res) {
  * POST /product/details — Scrape full product details
  */
 async function getProductDetails(req, res) {
-  const { product_url: productUrl, platform = 'blinkit' } = req.query;
+  const productUrl = req.query.product_url || req.body?.product_url;
+  const platform = req.query.platform || req.body?.platform || 'blinkit';
 
   if (!productUrl || !productUrl.startsWith('http')) {
     return res.json({ error: 'Invalid product URL' });
@@ -346,7 +347,7 @@ async function getProductDetails(req, res) {
       detail = await scrapeBlinkitDetail(productUrl);
     }
 
-    console.log(`✓ Product detail fetched: ${detail.product_name}`);
+    console.log(`✓ Product detail fetched: ${detail ? (detail.product_name || detail.name || 'success') : 'no detail'}`);
     res.json({ status: 'success', detail });
   } catch (e) {
     console.log(`✗ Product detail fetch failed: ${e.message}`);
