@@ -1,19 +1,19 @@
-/**
+﻿/**
  * Product repository — stable product identity (`products`) and per-platform
  * listing data (`product_listings`).
  *
  * Product identity is deliberately platform-independent: the same product
  * scraped from Zepto and Blinkit maps to one `products` row with two listings.
  */
-const crypto = require('crypto');
-const { query } = require('../db/pool');
+import crypto from 'crypto';
+import { query } from '../db/pool.js';
 
 function executor(client) {
   return client ? client.query.bind(client) : query;
 }
 
 /** Trim and collapse whitespace; treat placeholder values as null. */
-function normaliseText(value) {
+export function normaliseText(value) {
   if (value === null || value === undefined) return null;
   const text = String(value).replace(/\s+/g, ' ').trim();
   if (!text || ['n/a', 'na', 'null', 'undefined', 'unknown', '-'].includes(text.toLowerCase())) {
@@ -22,7 +22,7 @@ function normaliseText(value) {
   return text;
 }
 
-function toNumber(value) {
+export function toNumber(value) {
   if (value === null || value === undefined) return null;
   const text = String(value).replace(/[^0-9.-]/g, '');
   if (!text) return null;
@@ -34,14 +34,14 @@ function toNumber(value) {
  * Stable identity for a product across scans and platforms.
  * Based on normalised name + weight (weight is folded in only when known).
  */
-function computeIdentityHash({ name, weight } = {}) {
+export function computeIdentityHash({ name, weight } = {}) {
   const parts = [normaliseText(name) || '', normaliseText(weight) || ''];
   const key = parts.map((p) => p.toLowerCase()).join('|');
   return crypto.createHash('sha1').update(key).digest('hex');
 }
 
 /** Stable, platform-specific key for a listing (URL -> platform product id -> name). */
-function buildListingKey({ product_url: productUrl, platform_product_id: platformProductId, name } = {}) {
+export function buildListingKey({ product_url: productUrl, platform_product_id: platformProductId, name } = {}) {
   const url = normaliseText(productUrl);
   if (url) return url;
   const pid = normaliseText(platformProductId);
@@ -53,7 +53,7 @@ function buildListingKey({ product_url: productUrl, platform_product_id: platfor
  * Find the product with this identity or create it. Existing rows are refreshed
  * with any newly discovered fields (brand/weight/category/image).
  */
-async function findOrCreateProduct(product, client = null) {
+export async function findOrCreateProduct(product, client = null) {
   const name = normaliseText(product.name || product.product_name);
   if (!name) {
     throw new Error('Cannot persist a product without a name');
@@ -84,7 +84,7 @@ async function findOrCreateProduct(product, client = null) {
  * Insert or refresh a platform listing. `last_seen_at` moves forward on every
  * scan; richer fields discovered by a deep scrape are merged in.
  */
-async function upsertListing(listing, client = null) {
+export async function upsertListing(listing, client = null) {
   const { rows } = await executor(client)(
     `INSERT INTO product_listings (
         product_id, platform_id, listing_key, platform_product_id, product_url,
@@ -123,7 +123,7 @@ async function upsertListing(listing, client = null) {
 }
 
 /** Fetch a listing joined with its product and platform (used by the importer). */
-async function getListingById(listingId, client = null) {
+export async function getListingById(listingId, client = null) {
   const { rows } = await executor(client)(
     `SELECT pl.*, pf.slug AS platform_slug, p.name AS product_name
        FROM product_listings pl
@@ -135,12 +135,12 @@ async function getListingById(listingId, client = null) {
   return rows[0] || null;
 }
 
-async function countProducts(client = null) {
+export async function countProducts(client = null) {
   const { rows } = await executor(client)('SELECT count(*)::int AS count FROM products');
   return rows[0].count;
 }
 
-module.exports = {
+export default {
   normaliseText,
   toNumber,
   computeIdentityHash,

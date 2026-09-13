@@ -1,25 +1,24 @@
-/**
+﻿/**
  * Verification Test Suite for Node Backend Migration
  * Tests all 12 core capabilities.
  */
-require('dotenv').config();
-
-const assert = require('assert');
-const { validateProduct } = require('./services/ruleEngine');
-const { combineScores } = require('./services/scoringEngine');
-const { analyzeWithGemini, fallbackAnalysis } = require('./services/aiService');
-const { scrapeBlinkitLive } = require('./services/scraper/blinkitLive');
-const { scrapeZeptoLive } = require('./services/scraper/zeptoLive');
-const { scrapeBlinkitDetail } = require('./services/scraper/blinkitDetail');
-const { scrapeZeptoDetail } = require('./services/scraper/zeptoDetail');
-const {
+import 'dotenv/config';
+import assert from 'assert';
+import { validateProduct } from './services/ruleEngine.js';
+import { combineScores } from './services/scoringEngine.js';
+import { analyzeWithGemini, fallbackAnalysis } from './services/aiService.js';
+import { scrapeBlinkitLive } from './services/scraper/blinkitLive.js';
+import { scrapeZeptoLive } from './services/scraper/zeptoLive.js';
+import { scrapeBlinkitDetail } from './services/scraper/blinkitDetail.js';
+import { scrapeZeptoDetail } from './services/scraper/zeptoDetail.js';
+import {
   getDashboardStats,
   getRecentScans,
   getTrendData,
   getLatestScanData,
   getEvaluatedProducts,
-} = require('./services/dashboardService');
-const { testConnection, closePool } = require('./db/pool');
+} from './services/dashboardService.js';
+import { testConnection, closePool } from './db/pool.js';
 
 async function runTests() {
   console.log('====================================================');

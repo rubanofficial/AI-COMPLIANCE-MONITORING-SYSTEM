@@ -1,4 +1,4 @@
-/**
+﻿/**
  * One-time import of the legacy output.json into PostgreSQL.
  *
  * The old file stored `evaluated_products` (full evaluations) and `scan_history`
@@ -11,13 +11,16 @@
  *   node db/importOutputJson.js --force               # re-import even if done before
  *   node db/importOutputJson.js --dry-run
  */
-require('dotenv').config();
+import 'dotenv/config';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { query, hasDatabase, closePool } from './pool.js';
+import * as scanRunRepository from '../repositories/scanRunRepository.js';
+import * as evaluationRepository from '../repositories/evaluationRepository.js';
 
-const fs = require('fs');
-const path = require('path');
-const { query, hasDatabase, closePool } = require('./pool');
-const scanRunRepository = require('../repositories/scanRunRepository');
-const evaluationRepository = require('../repositories/evaluationRepository');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const IMPORT_QUERY = 'import:output.json';
 
@@ -32,7 +35,7 @@ function parseArgs(argv) {
   return args;
 }
 
-async function importOutputJson({ file, force = false, dryRun = false } = {}) {
+export async function importOutputJson({ file, force = false, dryRun = false } = {}) {
   if (!hasDatabase()) {
     throw new Error('DATABASE_URL is not set. Add it to node_backend/.env first.');
   }
@@ -129,8 +132,8 @@ async function main() {
   }
 }
 
-if (require.main === module) {
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   main();
 }
 
-module.exports = { importOutputJson };
+export default { importOutputJson };

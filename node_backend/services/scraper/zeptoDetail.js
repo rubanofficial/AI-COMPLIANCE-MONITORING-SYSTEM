@@ -1,10 +1,10 @@
-/**
+﻿/**
  * Zepto Product Detail Scraper — equivalent to services/scraper/zepto_detail.py
- * Scrapes the product detail page for compliance data.
+ * Scrapes full Zepto product page for compliance data.
  */
-async function scrapeZeptoDetail(productUrl) {
-  const { chromium } = require('playwright');
+import { chromium } from 'playwright';
 
+export async function scrapeZeptoDetail(productUrl) {
   const browser = await chromium.launch({
     headless: true,
     args: ['--disable-blink-features=AutomationControlled', '--no-sandbox'],
@@ -207,4 +207,4 @@ async function scrapeZeptoDetail(productUrl) {
   }
 }
 
-module.exports = { scrapeZeptoDetail };
+export default { scrapeZeptoDetail };

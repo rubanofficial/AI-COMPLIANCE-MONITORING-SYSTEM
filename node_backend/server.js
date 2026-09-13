@@ -1,15 +1,13 @@
-/**
+﻿/**
  * Server — equivalent to main.py (FastAPI → Express.js)
  * AI Compliance Monitoring System — Node.js Backend
  */
-require('dotenv').config();
-
-const express = require('express');
-const cors = require('cors');
-const { testConnection, hasDatabase, closePool } = require('./db/pool');
-
-const evaluationRoutes = require('./routes/evaluationRoutes');
-const dashboardRoutes = require('./routes/dashboardRoutes');
+import 'dotenv/config';
+import express from 'express';
+import cors from 'cors';
+import { testConnection, hasDatabase, closePool } from './db/pool.js';
+import evaluationRoutes from './routes/evaluationRoutes.js';
+import dashboardRoutes from './routes/dashboardRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 8006;
@@ -106,4 +104,4 @@ async function start() {
 
 start();
 
-module.exports = app;
+export default app;

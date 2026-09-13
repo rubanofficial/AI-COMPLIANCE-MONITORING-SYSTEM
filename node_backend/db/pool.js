@@ -1,11 +1,13 @@
-/**
+﻿/**
  * PostgreSQL connection pool.
  *
  * All database access in the Node backend goes through this module so that
  * connection handling, SSL, pooling and error reporting stay in one place.
  * SQL must never be written inside Express controllers — use the repositories.
  */
-const { Pool } = require('pg');
+import pg from 'pg';
+const { Pool } = pg;
+import 'dotenv/config';
 
 const RAW_CONNECTION_STRING = (process.env.DATABASE_URL || '').trim();
 const HAS_DATABASE_URL = RAW_CONNECTION_STRING.length > 0;
@@ -15,7 +17,7 @@ const HAS_DATABASE_URL = RAW_CONNECTION_STRING.length > 0;
  * Express error middleware translate this into a 503 response so failures are
  * loud instead of silently returning stale/empty data.
  */
-class DatabaseUnavailableError extends Error {
+export class DatabaseUnavailableError extends Error {
   constructor(message, cause) {
     super(message);
     this.name = 'DatabaseUnavailableError';
@@ -78,7 +80,7 @@ if (HAS_DATABASE_URL) {
   });
 }
 
-function hasDatabase() {
+export function hasDatabase() {
   return pool !== null;
 }
 
@@ -94,7 +96,7 @@ function assertDatabase() {
  * Run a parameterized query. Always pass values through `params` — never
  * interpolate user input into the SQL string.
  */
-async function query(text, params = []) {
+export async function query(text, params = []) {
   assertDatabase();
   try {
     return await pool.query(text, params);
@@ -112,7 +114,7 @@ async function query(text, params = []) {
  * Run a set of statements inside a transaction. The callback receives a
  * dedicated client so every statement shares the same connection.
  */
-async function withTransaction(fn) {
+export async function withTransaction(fn) {
   assertDatabase();
   let client;
   try {
@@ -141,7 +143,7 @@ async function withTransaction(fn) {
   }
 }
 
-function isConnectionError(err) {
+export function isConnectionError(err) {
   if (!err) return false;
   const code = String(err.code || '');
   if (['ECONNREFUSED', 'ENOTFOUND', 'ETIMEDOUT', 'ECONNRESET', 'EHOSTUNREACH', 'EPIPE'].includes(code)) {
@@ -156,7 +158,7 @@ function isConnectionError(err) {
  * Verify connectivity. Returns a status object instead of throwing so callers
  * can decide how loudly to fail (server startup logs it prominently).
  */
-async function testConnection() {
+export async function testConnection() {
   if (!pool) {
     return {
       connected: false,
@@ -180,14 +182,16 @@ async function testConnection() {
   }
 }
 
-async function closePool() {
+export async function closePool() {
   if (pool) {
     await pool.end();
     pool = null;
   }
 }
 
-module.exports = {
+export const getPool = () => pool;
+
+export default {
   hasDatabase,
   query,
   withTransaction,
@@ -195,5 +199,5 @@ module.exports = {
   closePool,
   DatabaseUnavailableError,
   isConnectionError,
-  getPool: () => pool,
+  getPool,
 };

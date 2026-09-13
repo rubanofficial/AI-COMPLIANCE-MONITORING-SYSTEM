@@ -1,16 +1,16 @@
-/**
+﻿/**
  * Scan run repository — one row per /evaluate/stream request.
  *
  * Scan runs give evaluations a query context (what was searched, when, how long
  * it took, how many products were found) without duplicating evaluation data.
  */
-const { query } = require('../db/pool');
+import { query } from '../db/pool.js';
 
 function executor(client) {
   return client ? client.query.bind(client) : query;
 }
 
-async function startScanRun({ query: scanQuery }, client = null) {
+export async function startScanRun({ query: scanQuery }, client = null) {
   const { rows } = await executor(client)(
     `INSERT INTO scan_runs (query, status) VALUES ($1, 'running') RETURNING *`,
     [String(scanQuery || '').trim()]
@@ -18,7 +18,7 @@ async function startScanRun({ query: scanQuery }, client = null) {
   return rows[0];
 }
 
-async function updateScanRunProgress(id, { products_found: productsFound, products_evaluated: productsEvaluated }, client = null) {
+export async function updateScanRunProgress(id, { products_found: productsFound, products_evaluated: productsEvaluated }, client = null) {
   const { rows } = await executor(client)(
     `UPDATE scan_runs SET
        products_found     = COALESCE($2, products_found),
@@ -30,7 +30,7 @@ async function updateScanRunProgress(id, { products_found: productsFound, produc
   return rows[0] || null;
 }
 
-async function finishScanRun(id, { status = 'completed', duration_ms: durationMs, products_found: productsFound, products_evaluated: productsEvaluated, error = null }, client = null) {
+export async function finishScanRun(id, { status = 'completed', duration_ms: durationMs, products_found: productsFound, products_evaluated: productsEvaluated, error = null }, client = null) {
   const { rows } = await executor(client)(
     `UPDATE scan_runs SET
        status             = $2,
@@ -46,12 +46,12 @@ async function finishScanRun(id, { status = 'completed', duration_ms: durationMs
   return rows[0] || null;
 }
 
-async function getById(id, client = null) {
+export async function getById(id, client = null) {
   const { rows } = await executor(client)('SELECT * FROM scan_runs WHERE id = $1', [id]);
   return rows[0] || null;
 }
 
-async function getRecent(limit = 10, client = null) {
+export async function getRecent(limit = 10, client = null) {
   const { rows } = await executor(client)(
     `SELECT * FROM scan_runs ORDER BY started_at DESC, id DESC LIMIT $1`,
     [limit]
@@ -59,4 +59,4 @@ async function getRecent(limit = 10, client = null) {
   return rows;
 }
 
-module.exports = { startScanRun, updateScanRunProgress, finishScanRun, getById, getRecent };
+export default { startScanRun, updateScanRunProgress, finishScanRun, getById, getRecent };

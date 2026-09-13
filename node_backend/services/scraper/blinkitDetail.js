@@ -1,10 +1,10 @@
-/**
+﻿/**
  * Blinkit Product Detail Scraper — equivalent to services/scraper/blinkit_detail.py
  * Scrapes the full product detail page for compliance data.
  */
-async function scrapeBlinkitDetail(productUrl) {
-  const { chromium } = require('playwright');
+import { chromium } from 'playwright';
 
+export async function scrapeBlinkitDetail(productUrl) {
   const browser = await chromium.launch({
     headless: true,
     args: ['--disable-blink-features=AutomationControlled', '--no-sandbox'],
@@ -203,4 +203,4 @@ async function scrapeBlinkitDetail(productUrl) {
   }
 }
 
-module.exports = { scrapeBlinkitDetail };
+export default { scrapeBlinkitDetail };

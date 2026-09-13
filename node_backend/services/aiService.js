@@ -1,11 +1,12 @@
-/**
+﻿/**
  * AI Service — equivalent to services/gemini_service.py + openai_service.py
  * Uses Google Gemini REST API. Falls back to rule-based analysis if unavailable.
  */
+import 'dotenv/config';
 
 const GEMINI_MODEL = 'gemini-2.5-flash';
 
-function buildCompliancePrompt(product) {
+export function buildCompliancePrompt(product) {
   const name = product.product_name || product.name || 'Unknown';
   const price = product.price || 'N/A';
   const mrp = product.mrp || 'N/A';
@@ -62,7 +63,7 @@ RESPOND IN THIS EXACT JSON FORMAT ONLY (no markdown, no code blocks, no extra te
 }`;
 }
 
-function parseGeminiResponse(rawText) {
+export function parseGeminiResponse(rawText) {
   let cleaned = rawText.trim();
 
   // Remove markdown code fences
@@ -84,7 +85,7 @@ function parseGeminiResponse(rawText) {
   }
 }
 
-async function analyzeWithGemini(product, deepScrapeAvailable = true) {
+export async function analyzeWithGemini(product, deepScrapeAvailable = true) {
   const productName = product.product_name || product.name || 'Unknown';
   const apiKey = (process.env.GEMINI_API_KEY || '').trim();
 
@@ -150,11 +151,11 @@ async function analyzeWithGemini(product, deepScrapeAvailable = true) {
   }
 
   // Fallback: rule-based analysis
-  console.log(`    🔧 [Fallback] Using rule-based AI analysis for: ${productName.slice(0, 50)}`);
+  console.log(`    🤖 [Fallback] Using rule-based AI analysis for: ${productName.slice(0, 50)}`);
   return fallbackAnalysis(product, deepScrapeAvailable);
 }
 
-function fallbackAnalysis(product, deepScrapeAvailable = true) {
+export function fallbackAnalysis(product, deepScrapeAvailable = true) {
   const violations = [];
   let score = 100;
   const recommendations = [];
@@ -281,4 +282,4 @@ function fallbackAnalysis(product, deepScrapeAvailable = true) {
   };
 }
 
-module.exports = { analyzeWithGemini, fallbackAnalysis };
+export default { analyzeWithGemini, fallbackAnalysis, buildCompliancePrompt, parseGeminiResponse };

@@ -1,16 +1,16 @@
-/**
+﻿/**
  * Seed data for platforms and the compliance rule catalogue.
  *
  * Rule codes/severities/penalties mirror services/ruleEngine.js so the rules
  * table stays in sync with the rules the engine actually enforces.
  */
 
-const PLATFORMS = [
+export const PLATFORMS = [
   { slug: 'blinkit', name: 'Blinkit' },
   { slug: 'zepto', name: 'Zepto' },
 ];
 
-const RULES = [
+export const RULES = [
   // --- Basic listing validations (always checked) ---
   {
     code: 'VAL001',
@@ -88,4 +88,4 @@ const RULES = [
   },
 ];
 
-module.exports = { PLATFORMS, RULES };
+export default { PLATFORMS, RULES };

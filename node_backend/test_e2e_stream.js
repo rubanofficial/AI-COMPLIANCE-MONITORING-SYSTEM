@@ -1,8 +1,8 @@
-/**
+﻿/**
  * Real End-to-End Test for Node Backend
  * Starts server (or connects to running server) and runs full SSE product evaluation.
  */
-const http = require('http');
+import http from 'http';
 
 const PORT = process.env.PORT || 8006;
 const BASE_URL = `http://127.0.0.1:${PORT}`;
@@ -63,9 +63,9 @@ async function testSSEEvaluationStream(query = 'butter') {
             try {
               const data = JSON.parse(matchData[1]);
               eventsReceived.push({ event: eventName, data });
-              console.log(`  📡 [SSE Event] ${eventName}:`, formatEventSummary(eventName, data));
+              console.log(`  📦 [SSE Event] ${eventName}:`, formatEventSummary(eventName, data));
             } catch (err) {
-              console.log(`  📡 [SSE Event Raw] ${eventName}: ${matchData[1].slice(0, 100)}`);
+              console.log(`  📦 [SSE Event Raw] ${eventName}: ${matchData[1].slice(0, 100)}`);
             }
           }
         }

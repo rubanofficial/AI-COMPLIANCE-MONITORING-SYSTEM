@@ -1,16 +1,19 @@
-/**
+﻿/**
  * Seed platforms and the compliance rule catalogue.
  *
  * Usage: node db/seed.js
  */
-require('dotenv').config();
+import 'dotenv/config';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { withTransaction, hasDatabase, closePool } from './pool.js';
+import { seedPlatforms } from '../repositories/platformRepository.js';
+import { seedRules } from '../repositories/ruleRepository.js';
+import { PLATFORMS, RULES } from './seedData.js';
 
-const { withTransaction, hasDatabase, closePool } = require('./pool');
-const { seedPlatforms } = require('../repositories/platformRepository');
-const { seedRules } = require('../repositories/ruleRepository');
-const { PLATFORMS, RULES } = require('./seedData');
+const __filename = fileURLToPath(import.meta.url);
 
-async function seed({ silent = false } = {}) {
+export async function seed({ silent = false } = {}) {
   if (!hasDatabase()) {
     throw new Error('DATABASE_URL is not set. Add it to node_backend/.env first.');
   }
@@ -36,8 +39,8 @@ async function main() {
   }
 }
 
-if (require.main === module) {
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   main();
 }
 
-module.exports = { seed };
+export default { seed };

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Dashboard Service — PostgreSQL-backed scan history, statistics and
  * evaluated-product reads.
  *
@@ -10,8 +10,8 @@
  * Scan history is derived from `product_evaluations` rather than a separate
  * table, so there is a single source of truth for scans.
  */
-const evaluationRepository = require('../repositories/evaluationRepository');
-const dashboardRepository = require('../repositories/dashboardRepository');
+import * as evaluationRepository from '../repositories/evaluationRepository.js';
+import * as dashboardRepository from '../repositories/dashboardRepository.js';
 
 /**
  * Persist an evaluated product.
@@ -22,7 +22,7 @@ const dashboardRepository = require('../repositories/dashboardRepository');
  * @param {string} platform         Platform slug (blinkit/zepto).
  * @param {object} [options]        { scanRunId, deepProduct, deepScrapeAvailable, evaluatedAt }
  */
-async function addEvaluatedProduct(productData, complianceData, aiAnalysis, platform, options = {}) {
+export async function addEvaluatedProduct(productData, complianceData, aiAnalysis, platform, options = {}) {
   const saved = await evaluationRepository.saveEvaluation({
     scanRunId: options.scanRunId ?? null,
     product: productData,
@@ -45,11 +45,11 @@ async function addEvaluatedProduct(productData, complianceData, aiAnalysis, plat
 }
 
 /** Newest evaluations first, in the frontend's expected shape. */
-async function getEvaluatedProducts() {
+export async function getEvaluatedProducts() {
   return evaluationRepository.getEvaluatedProducts();
 }
 
-async function getLatestScanData() {
+export async function getLatestScanData() {
   const [products, stats] = await Promise.all([
     evaluationRepository.getEvaluatedProducts({ limit: 20 }),
     getDashboardStats(),
@@ -62,13 +62,13 @@ async function getLatestScanData() {
  * `addEvaluatedProduct` writes. Calling this has no effect; it is retained so
  * the previous public API of this service does not break.
  */
-function addScanToHistory() {
+export function addScanToHistory() {
   console.warn('[dashboardService] addScanToHistory() is deprecated — scan history is derived from product_evaluations.');
   return null;
 }
 
 /** Recent scans, newest first, matching the previous response shape exactly. */
-async function getRecentScans(limit = 10) {
+export async function getRecentScans(limit = 10) {
   const rows = await dashboardRepository.getRecentScans(limit);
   return rows.map((row) => {
     const score = row.final_score;
@@ -84,7 +84,7 @@ async function getRecentScans(limit = 10) {
   });
 }
 
-async function getDashboardStats() {
+export async function getDashboardStats() {
   const row = await dashboardRepository.getStats();
   const productsScanned = row.products_scanned || 0;
 
@@ -117,7 +117,7 @@ async function getDashboardStats() {
 }
 
 /** Daily trend for the last `days` days, including empty days as nulls. */
-async function getTrendData(days = 7) {
+export async function getTrendData(days = 7) {
   const rows = await evaluationRepository.getEvaluationRowsForRange(days);
   const today = new Date();
 
@@ -170,13 +170,13 @@ async function getTrendData(days = 7) {
  * @deprecated Replaced by the database startup check in server.js. Retained so
  * existing callers of the previous service API do not break.
  */
-async function initializeSampleData() {
+export async function initializeSampleData() {
   const status = await evaluationRepository.countEvaluations();
-  console.log(`✓ Dashboard backing store: PostgreSQL (${status} evaluations)`);
+  console.log(`📦 Dashboard backing store: PostgreSQL (${status} evaluations)`);
   return status;
 }
 
-module.exports = {
+export default {
   addEvaluatedProduct,
   getEvaluatedProducts,
   getLatestScanData,

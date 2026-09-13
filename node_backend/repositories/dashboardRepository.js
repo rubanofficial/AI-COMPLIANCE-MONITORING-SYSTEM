@@ -1,13 +1,13 @@
-/**
+﻿/**
  * Dashboard repository — aggregate reads derived from product_evaluations.
  *
  * No scan_history table is required: recent scans, stats and trends are all
  * derived from the append-only evaluations, which keeps a single source of
  * truth for what was scanned and how it scored.
  */
-const { query } = require('../db/pool');
+import { query } from '../db/pool.js';
 
-async function getStats(client = null) {
+export async function getStats(client = null) {
   const exec = client ? client.query.bind(client) : query;
   const { rows } = await exec(
     `SELECT
@@ -29,7 +29,7 @@ async function getStats(client = null) {
   return rows[0];
 }
 
-async function getRecentScans(limit = 10, client = null) {
+export async function getRecentScans(limit = 10, client = null) {
   const exec = client ? client.query.bind(client) : query;
   const { rows } = await exec(
     `SELECT e.final_score, e.evaluated_at, p.name, pf.slug AS platform
@@ -44,4 +44,4 @@ async function getRecentScans(limit = 10, client = null) {
   return rows;
 }
 
-module.exports = { getStats, getRecentScans };
+export default { getStats, getRecentScans };

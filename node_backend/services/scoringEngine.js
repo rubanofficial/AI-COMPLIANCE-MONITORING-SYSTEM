@@ -1,9 +1,9 @@
-/**
+﻿/**
  * Scoring Engine — equivalent to services/scoring_engine.py
  * Combines rule-based and AI scores, normalizes violations.
  */
 
-function normalizeViolation(v) {
+export function normalizeViolation(v) {
   if (typeof v === 'string') {
     return {
       id: `MSG_${Math.abs(hashStr(v)) % 10000}`,
@@ -38,7 +38,7 @@ function hashStr(str) {
   return hash;
 }
 
-function combineScores(ruleResult, aiResult) {
+export function combineScores(ruleResult, aiResult) {
   const finalScore = Math.round((ruleResult.rule_score * 0.5) + (aiResult.ai_score * 0.5));
 
   let risk;
@@ -66,4 +66,4 @@ function combineScores(ruleResult, aiResult) {
   };
 }
 
-module.exports = { combineScores };
+export default { combineScores, normalizeViolation };

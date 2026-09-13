@@ -1,7 +1,8 @@
-{
+﻿{
   "name": "compliance-backend",
   "version": "1.0.0",
   "description": "AI Compliance Monitoring System - Node.js Backend",
+  "type": "module",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

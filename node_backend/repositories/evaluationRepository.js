@@ -1,13 +1,10 @@
-/**
- * Evaluation repository — append-only storage for compliance evaluations.
- *
- * The write path resolves platform -> product identity -> platform listing, then
- * inserts a new `product_evaluations` row. Existing evaluations are never
- * updated, so historical results are preserved.
+﻿/**
+ * Evaluation repository — append-only product evaluations, joined reads, and
+ * transactional writes covering product -> listing -> evaluation.
  */
-const { query, withTransaction } = require('../db/pool');
-const platformRepository = require('./platformRepository');
-const productRepository = require('./productRepository');
+import { withTransaction, query } from '../db/pool.js';
+import * as platformRepository from './platformRepository.js';
+import * as productRepository from './productRepository.js';
 
 function executor(client) {
   return client ? client.query.bind(client) : query;
@@ -26,7 +23,7 @@ function executor(client) {
  * @param {boolean} [input.deepScrapeAvailable]
  * @param {Date|string} [input.evaluatedAt]
  */
-async function saveEvaluation(input) {
+export async function saveEvaluation(input) {
   const {
     scanRunId = null,
     product,
@@ -108,7 +105,7 @@ async function saveEvaluation(input) {
 }
 
 /** Shared SELECT used by evaluated-product reads. */
-const EVALUATION_SELECT = `
+export const EVALUATION_SELECT = `
   SELECT e.id,
          e.final_score,
          e.rule_score,
@@ -131,7 +128,7 @@ const EVALUATION_SELECT = `
     JOIN products p         ON p.id = pl.product_id`;
 
 /** Convert a database row into the API shape the React frontend expects. */
-function rowToEvaluatedProduct(row) {
+export function rowToEvaluatedProduct(row) {
   return {
     product: row.raw_product,
     compliance: {
@@ -148,7 +145,7 @@ function rowToEvaluatedProduct(row) {
   };
 }
 
-async function getEvaluatedProducts({ limit = null, offset = 0 } = {}, client = null) {
+export async function getEvaluatedProducts({ limit = null, offset = 0 } = {}, client = null) {
   const params = [];
   let sql = EVALUATION_SELECT;
   if (limit !== null) {
@@ -161,13 +158,13 @@ async function getEvaluatedProducts({ limit = null, offset = 0 } = {}, client = 
   return rows.map(rowToEvaluatedProduct);
 }
 
-async function countEvaluations(client = null) {
+export async function countEvaluations(client = null) {
   const { rows } = await executor(client)('SELECT count(*)::int AS count FROM product_evaluations');
   return rows[0].count;
 }
 
 /** Scores per evaluation in the last `days` days — used to build the trend series. */
-async function getEvaluationRowsForRange(days, client = null) {
+export async function getEvaluationRowsForRange(days, client = null) {
   const { rows } = await executor(client)(
     `SELECT e.final_score, e.evaluated_at
        FROM product_evaluations e
@@ -178,10 +175,11 @@ async function getEvaluationRowsForRange(days, client = null) {
   return rows;
 }
 
-module.exports = {
+export default {
   saveEvaluation,
   getEvaluatedProducts,
   countEvaluations,
   getEvaluationRowsForRange,
   rowToEvaluatedProduct,
+  EVALUATION_SELECT,
 };

@@ -1,13 +1,16 @@
-/**
- * Read-only database status report.
+﻿/**
+ * Database health and statistics check.
  *
  * Usage: npm run db:status
  */
-require('dotenv').config();
+import 'dotenv/config';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { query, testConnection, closePool } from './pool.js';
 
-const { query, testConnection, closePool } = require('./pool');
+const __filename = fileURLToPath(import.meta.url);
 
-async function status() {
+export async function status() {
   const conn = await testConnection();
   if (!conn.connected) {
     console.error(`❌ Cannot reach PostgreSQL: ${conn.error}`);
@@ -103,8 +106,8 @@ async function main() {
   process.exitCode = code;
 }
 
-if (require.main === module) {
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   main();
 }
 
-module.exports = { status };
+export default { status };

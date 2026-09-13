@@ -1,11 +1,11 @@
-/**
+﻿/**
  * Blinkit Live Scraper — equivalent to services/scraper/blinkit_live.py
  * Quick scrape of Blinkit search results using Playwright.
  */
-const { MAX_PRODUCTS } = require('../../config/settings');
+import { chromium } from 'playwright';
+import { MAX_PRODUCTS } from '../../config/settings.js';
 
-async function scrapeBlinkitLive(productName) {
-  const { chromium } = require('playwright');
+export async function scrapeBlinkitLive(productName) {
   const url = `https://www.blinkit.com/s/?q=${encodeURIComponent(productName)}`;
   console.log(`    [Blinkit] Opening ${url}`);
 
@@ -89,4 +89,4 @@ async function scrapeBlinkitLive(productName) {
   }
 }
 
-module.exports = { scrapeBlinkitLive };
+export default { scrapeBlinkitLive };

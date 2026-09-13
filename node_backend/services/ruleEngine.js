@@ -1,10 +1,10 @@
-/**
+﻿/**
  * Rule Engine — equivalent to services/rule_engine.py
  * Validates product compliance against FSSAI and other Indian regulations.
  */
-const { cleanPrice, cleanDiscount } = require('../utils/dataCleaner');
+import { cleanPrice, cleanDiscount } from '../utils/dataCleaner.js';
 
-function validateProduct(product, deepScrapeAvailable = true) {
+export function validateProduct(product, deepScrapeAvailable = true) {
   const violations = [];
   const passedRules = [];
   let totalRules = 0;
@@ -141,4 +141,4 @@ function validateProduct(product, deepScrapeAvailable = true) {
   };
 }
 
-module.exports = { validateProduct };
+export default { validateProduct };

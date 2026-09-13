@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Migration runner — applies db/schema.sql.
  *
  * The schema file is idempotent (CREATE TABLE/INDEX IF NOT EXISTS) and is also
@@ -6,16 +6,19 @@
  *
  * Usage: node db/migrate.js
  */
-require('dotenv').config();
+import 'dotenv/config';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { query, withTransaction, hasDatabase, closePool } from './pool.js';
 
-const fs = require('fs');
-const path = require('path');
-const { query, withTransaction, hasDatabase, closePool } = require('./pool');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-const SCHEMA_VERSION = '001_initial_schema';
+export const SCHEMA_VERSION = '001_initial_schema';
 const SCHEMA_FILE = path.join(__dirname, 'schema.sql');
 
-async function migrate({ silent = false } = {}) {
+export async function migrate({ silent = false } = {}) {
   if (!hasDatabase()) {
     throw new Error('DATABASE_URL is not set. Add it to node_backend/.env first.');
   }
@@ -54,8 +57,8 @@ async function main() {
   }
 }
 
-if (require.main === module) {
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   main();
 }
 
-module.exports = { migrate, SCHEMA_VERSION };
+export default { migrate, SCHEMA_VERSION };

@@ -1,19 +1,19 @@
-/**
+﻿/**
  * Evaluation Controller — equivalent to /evaluate/stream and /product/details endpoints.
  * Handles SSE streaming for two-phase product evaluation.
  *
  * Results are persisted to PostgreSQL: one `scan_runs` row per request and one
  * append-only `product_evaluations` row per product.
  */
-const { scrapeBlinkitLive } = require('../services/scraper/blinkitLive');
-const { scrapeZeptoLive } = require('../services/scraper/zeptoLive');
-const { scrapeBlinkitDetail } = require('../services/scraper/blinkitDetail');
-const { scrapeZeptoDetail } = require('../services/scraper/zeptoDetail');
-const { validateProduct } = require('../services/ruleEngine');
-const { analyzeWithGemini } = require('../services/aiService');
-const { combineScores } = require('../services/scoringEngine');
-const { addEvaluatedProduct } = require('../services/dashboardService');
-const scanRunRepository = require('../repositories/scanRunRepository');
+import { scrapeBlinkitLive } from '../services/scraper/blinkitLive.js';
+import { scrapeZeptoLive } from '../services/scraper/zeptoLive.js';
+import { scrapeBlinkitDetail } from '../services/scraper/blinkitDetail.js';
+import { scrapeZeptoDetail } from '../services/scraper/zeptoDetail.js';
+import { validateProduct } from '../services/ruleEngine.js';
+import { analyzeWithGemini } from '../services/aiService.js';
+import { combineScores } from '../services/scoringEngine.js';
+import { addEvaluatedProduct } from '../services/dashboardService.js';
+import * as scanRunRepository from '../repositories/scanRunRepository.js';
 
 function sseEvent(eventType, data) {
   return `event: ${eventType}\ndata: ${JSON.stringify(data)}\n\n`;
@@ -27,7 +27,7 @@ function isDatabaseError(err) {
 /**
  * GET /evaluate/stream — SSE streaming endpoint
  */
-async function evaluateStream(req, res) {
+export async function evaluateStream(req, res) {
   const productName = req.query.product_name;
   if (!productName) {
     return res.status(400).json({ error: 'product_name is required' });
@@ -59,15 +59,15 @@ async function evaluateStream(req, res) {
   let evaluatedCount = 0;
 
   try {
-    // ═══ PHASE 1: Quick Scrape ═══
+    // ─── PHASE 1: Quick Scrape ───
     console.log(`\n${'='.repeat(60)}`);
-    console.log(`🚀 PHASE 1: Quick Scraping for '${productName}'`);
+    console.log(`🔍 PHASE 1: Quick Scraping for '${productName}'`);
     console.log(`${'='.repeat(60)}`);
 
     res.write(sseEvent('status', { message: `Searching for '${productName}' on Zepto & Blinkit...`, phase: 'scraping' }));
 
     // Run both live scrapers in parallel
-    console.log(`  📡 Launching parallel scrapers (Zepto + Blinkit)...`);
+    console.log(`  🚀 Launching parallel scrapers (Zepto + Blinkit)...`);
     const [zeptoResults, blinkitResults] = await Promise.allSettled([
       scrapeZeptoLive(productName),
       scrapeBlinkitLive(productName),
@@ -91,14 +91,13 @@ async function evaluateStream(req, res) {
 
     const phase1Time = (Date.now() - startTime) / 1000;
     productsFound = scraped.length;
-    console.log(`\n  ⏱ Phase 1 completed in ${phase1Time.toFixed(1)}s — ${scraped.length} products found`);
+    console.log(`\n  ⏱️ Phase 1 completed in ${phase1Time.toFixed(1)}s — ${scraped.length} products found`);
 
     await scanRunRepository.updateScanRunProgress(scanRun.id, { products_found: productsFound });
 
     if (scraped.length === 0) {
       console.log(`  ❌ No products found!`);
       res.write(sseEvent('error', { message: 'No products found. Try a different search term.' }));
-      res.write(sseEvent('complete', { total: 0, time: Math.round(phase1Time * 10) / 10 }));
       await scanRunRepository.finishScanRun(scanRun.id, {
         status: 'completed',
         duration_ms: Date.now() - startTime,
@@ -109,59 +108,50 @@ async function evaluateStream(req, res) {
       return;
     }
 
-    // Send basic product listings immediately
-    const basicProducts = scraped.map((product, i) => ({
-      index: i,
-      product: {
-        name: product.product_name || product.name || 'Unknown',
-        price: product.price || 'N/A',
-        mrp: product.mrp || 'N/A',
-        discount: product.discount || '0',
-        weight: product.weight || 'N/A',
-        platform: product.platform || 'unknown',
-        store_name: product.store_name || 'Unknown',
-        product_image: product.product_image || '',
-        product_url: product.product_url || '',
-      },
-      compliance: null,
-      status: 'pending',
-    }));
-
+    // Send phase 1 results
     res.write(sseEvent('products_found', {
-      count: basicProducts.length,
-      products: basicProducts,
+      count: scraped.length,
       phase1_time: Math.round(phase1Time * 10) / 10,
+      products: scraped.map((p, i) => ({
+        index: i,
+        name: p.product_name || p.name,
+        price: p.price,
+        mrp: p.mrp,
+        platform: p.platform,
+        image: p.product_image,
+        product_url: p.product_url,
+      })),
     }));
 
-    // ═══ PHASE 2: Deep Scraping + Compliance Analysis ═══
+    // ─── PHASE 2: Deep Evaluation ───
     console.log(`\n${'='.repeat(60)}`);
-    console.log(`🔬 PHASE 2: Deep Scraping & Compliance Analysis`);
+    console.log(`🛡️ PHASE 2: Deep Compliance Evaluation (${scraped.length} products)`);
     console.log(`${'='.repeat(60)}`);
 
     for (let i = 0; i < scraped.length; i++) {
       const product = scraped[i];
-      const productNameStr = product.product_name || product.name || 'Unknown';
-      const productUrl = product.product_url || '';
-      const platform = product.platform || 'unknown';
       const productStart = Date.now();
+      const productNameStr = product.product_name || product.name || `Product #${i + 1}`;
+      const platform = product.platform || 'unknown';
+      const productUrl = product.product_url || '';
 
-      console.log(`\n  ┌─ Product [${i + 1}/${scraped.length}]: ${productNameStr.slice(0, 50)}`);
-      console.log(`  │  Platform: ${platform}`);
+      console.log(`\n[${i + 1}/${scraped.length}] Evaluating: "${productNameStr.slice(0, 45)}" (${platform})`);
 
       res.write(sseEvent('product_evaluating', {
         index: i,
         product_name: productNameStr,
-        step: 'deep_scraping',
+        platform,
+        step: 'starting',
       }));
 
       try {
-        // Step 1: Deep scrape
+        // Step 1: Deep Scrape
         let deepData = { ...product };
         let deepScrapeSuccess = false;
 
         if (productUrl && productUrl.startsWith('http')) {
-          console.log(`  │  📄 Step 1: Deep scraping product page...`);
-          res.write(sseEvent('product_step', { index: i, step: 'deep_scraping', message: `Scraping full details for ${productNameStr.slice(0, 30)}...` }));
+          console.log(`  ├─  🔍 Step 1: Deep scraping product page...`);
+          res.write(sseEvent('product_step', { index: i, step: 'deep_scrape', message: 'Extracting product details...' }));
 
           try {
             let detail;
@@ -183,35 +173,35 @@ async function evaluateStream(req, res) {
                 }
               }
               deepScrapeSuccess = gotRegData;
-              console.log(`  │  ✅ Deep scrape ${gotRegData ? 'successful — got regulatory data' : 'partial — no regulatory data found'}`);
+              console.log(`  ├─  ✅ Deep scrape ${gotRegData ? 'successful — got regulatory data' : 'partial — no regulatory data found'}`);
             } else {
-              console.log(`  │  ⚠️ Deep scrape returned no data`);
+              console.log(`  ├─  ⚠️ Deep scrape returned no data`);
             }
           } catch (deepErr) {
-            console.log(`  │  ⚠️ Deep scrape failed: ${String(deepErr).slice(0, 80)}`);
+            console.log(`  ├─  ⚠️ Deep scrape failed: ${String(deepErr).slice(0, 80)}`);
           }
         } else {
-          console.log(`  │  ⚠️ No product URL — skipping deep scrape`);
+          console.log(`  ├─  ⚠️ No product URL — skipping deep scrape`);
         }
 
         // Step 2: Rule Engine
-        console.log(`  │  📋 Step 2: Running rule engine validation...`);
+        console.log(`  ├─  📋 Step 2: Running rule engine validation...`);
         res.write(sseEvent('product_step', { index: i, step: 'rule_engine', message: 'Validating compliance rules...' }));
         const ruleResult = validateProduct(deepData, deepScrapeSuccess);
-        console.log(`  │  ✅ Rule engine: Score=${ruleResult.rule_score}, Violations=${ruleResult.violations.length}`);
+        console.log(`  ├─  ✅ Rule engine: Score=${ruleResult.rule_score}, Violations=${ruleResult.violations.length}`);
 
         // Step 3: AI Analysis
-        console.log(`  │  🤖 Step 3: Running Gemini AI analysis...`);
+        console.log(`  ├─  🤖 Step 3: Running Gemini AI analysis...`);
         res.write(sseEvent('product_step', { index: i, step: 'ai_analysis', message: 'Analyzing with Gemini AI...' }));
         const aiResult = await analyzeWithGemini(deepData, deepScrapeSuccess);
-        console.log(`  │  ✅ AI analysis: Score=${aiResult.ai_score}, Risk=${aiResult.ai_risk}`);
+        console.log(`  ├─  ✅ AI analysis: Score=${aiResult.ai_score}, Risk=${aiResult.ai_risk}`);
 
         // Step 4: Combine scores
-        console.log(`  │  📊 Step 4: Combining scores...`);
+        console.log(`  ├─  📊 Step 4: Combining scores...`);
         const final = combineScores(ruleResult, aiResult);
         const productTime = (Date.now() - productStart) / 1000;
-        console.log(`  │  🏁 Final Score: ${final.score}/100, Risk: ${final.risk}`);
-        console.log(`  └─ Completed in ${productTime.toFixed(1)}s`);
+        console.log(`  ├─  🏁 Final Score: ${final.score}/100, Risk: ${final.risk}`);
+        console.log(`  └── Completed in ${productTime.toFixed(1)}s`);
 
         // Build output
         const productOut = {
@@ -270,8 +260,8 @@ async function evaluateStream(req, res) {
         }));
       } catch (productErr) {
         const productTime = (Date.now() - productStart) / 1000;
-        console.log(`  │  ❌ Error: ${productErr.message}`);
-        console.log(`  └─ Failed after ${productTime.toFixed(1)}s`);
+        console.log(`  ├─  ❌ Error: ${productErr.message}`);
+        console.log(`  └── Failed after ${productTime.toFixed(1)}s`);
 
         // A database outage must not be swallowed — abort the whole stream.
         if (isDatabaseError(productErr)) throw productErr;
@@ -329,7 +319,7 @@ async function evaluateStream(req, res) {
 /**
  * POST /product/details — Scrape full product details
  */
-async function getProductDetails(req, res) {
+export async function getProductDetails(req, res) {
   const productUrl = req.query.product_url || req.body?.product_url;
   const platform = req.query.platform || req.body?.platform || 'blinkit';
 
@@ -337,7 +327,7 @@ async function getProductDetails(req, res) {
     return res.json({ error: 'Invalid product URL' });
   }
 
-  console.log(`\n🔎 Fetching product details from ${platform}: ${productUrl}`);
+  console.log(`\n🔍 Fetching product details from ${platform}: ${productUrl}`);
 
   try {
     let detail;
@@ -347,12 +337,12 @@ async function getProductDetails(req, res) {
       detail = await scrapeBlinkitDetail(productUrl);
     }
 
-    console.log(`✓ Product detail fetched: ${detail ? (detail.product_name || detail.name || 'success') : 'no detail'}`);
+    console.log(`📦 Product detail fetched: ${detail ? (detail.product_name || detail.name || 'success') : 'no detail'}`);
     res.json({ status: 'success', detail });
   } catch (e) {
-    console.log(`✗ Product detail fetch failed: ${e.message}`);
+    console.log(`❌ Product detail fetch failed: ${e.message}`);
     res.json({ error: e.message, detail: null });
   }
 }
 
-module.exports = { evaluateStream, getProductDetails };
+export default { evaluateStream, getProductDetails };

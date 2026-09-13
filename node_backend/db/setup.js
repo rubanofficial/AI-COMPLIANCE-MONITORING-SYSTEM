@@ -1,13 +1,16 @@
-/**
+﻿/**
  * One-shot database setup: check connection, apply schema, seed data.
  *
  * Usage: npm run db:setup
  */
-require('dotenv').config();
+import 'dotenv/config';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { testConnection, closePool } from './pool.js';
+import { migrate } from './migrate.js';
+import { seed } from './seed.js';
 
-const { testConnection, closePool } = require('./pool');
-const { migrate } = require('./migrate');
-const { seed } = require('./seed');
+const __filename = fileURLToPath(import.meta.url);
 
 async function main() {
   const status = await testConnection();
@@ -26,7 +29,7 @@ async function main() {
   try {
     await migrate();
     await seed();
-    console.log('\n🎉 Database ready.\n');
+    console.log('\n🚀 Database ready.\n');
   } catch (err) {
     console.error(`\n❌ Setup failed: ${err.message}\n`);
     process.exitCode = 1;
@@ -35,6 +38,6 @@ async function main() {
   }
 }
 
-if (require.main === module) {
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
   main();
 }

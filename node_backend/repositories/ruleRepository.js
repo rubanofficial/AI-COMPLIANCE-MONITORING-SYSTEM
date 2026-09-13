@@ -1,13 +1,13 @@
-/**
+﻿/**
  * Rule repository — persistence for the compliance rule catalogue.
  */
-const { query } = require('../db/pool');
+import { query } from '../db/pool.js';
 
 function executor(client) {
   return client ? client.query.bind(client) : query;
 }
 
-async function getAll({ enabledOnly = false } = {}, client = null) {
+export async function getAll({ enabledOnly = false } = {}, client = null) {
   const where = enabledOnly ? 'WHERE enabled = true' : '';
   const { rows } = await executor(client)(
     `SELECT id, code, name, category, severity, penalty, regulatory_ref AS "regulatory_ref",
@@ -18,12 +18,12 @@ async function getAll({ enabledOnly = false } = {}, client = null) {
   return rows;
 }
 
-async function getByCode(code, client = null) {
+export async function getByCode(code, client = null) {
   const { rows } = await executor(client)('SELECT * FROM rules WHERE code = $1', [code]);
   return rows[0] || null;
 }
 
-async function upsertRule(rule, client = null) {
+export async function upsertRule(rule, client = null) {
   const { rows } = await executor(client)(
     `INSERT INTO rules (code, name, category, severity, penalty, regulatory_ref, enabled)
      VALUES ($1, $2, $3, $4, $5, $6, $7)
@@ -49,7 +49,7 @@ async function upsertRule(rule, client = null) {
   return rows[0];
 }
 
-async function seedRules(rules, client = null) {
+export async function seedRules(rules, client = null) {
   const seeded = [];
   for (const rule of rules) {
     seeded.push(await upsertRule(rule, client));
@@ -57,4 +57,4 @@ async function seedRules(rules, client = null) {
   return seeded;
 }
 
-module.exports = { getAll, getByCode, upsertRule, seedRules };
+export default { getAll, getByCode, upsertRule, seedRules };

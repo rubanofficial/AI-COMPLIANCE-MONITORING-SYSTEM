@@ -1,11 +1,11 @@
-/**
+﻿/**
  * Zepto Live Scraper — equivalent to services/scraper/zepto_live.py
  * Quick scrape of Zepto search results using Playwright.
  */
-const { MAX_PRODUCTS } = require('../../config/settings');
+import { chromium } from 'playwright';
+import { MAX_PRODUCTS } from '../../config/settings.js';
 
-async function scrapeZeptoLive(productName) {
-  const { chromium } = require('playwright');
+export async function scrapeZeptoLive(productName) {
   const url = `https://www.zeptonow.com/search?query=${encodeURIComponent(productName)}`;
 
   const browser = await chromium.launch({
@@ -85,4 +85,4 @@ async function scrapeZeptoLive(productName) {
   }
 }
 
-module.exports = { scrapeZeptoLive };
+export default { scrapeZeptoLive };
