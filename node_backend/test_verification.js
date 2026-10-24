@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Verification Test Suite for Node Backend Migration
  * Tests all 12 core capabilities.
  */
@@ -119,7 +119,7 @@ async function runTests() {
       ai_status: 'Complete',
     };
     const combined = combineScores(mockRule, mockAI);
-    record('Scoring Engine: Combines 50/50 rule and AI scores', combined.score === 85, `Score: ${combined.score}`);
+    record('Scoring Engine: Score derives from rule_score only', combined.score === 80, `Score: ${combined.score}`);
     record('Scoring Engine: Categorizes risk correctly', combined.risk === 'Low', `Risk: ${combined.risk}`);
     record('Scoring Engine: Normalizes violations from both engines', combined.violations.length === 2, `Violations: ${combined.violations.length}`);
   } catch (err) {
@@ -149,7 +149,7 @@ async function runTests() {
 
     // Fallback analysis test
     const fallbackRes = fallbackAnalysis(testProd, true);
-    record('AI Fallback: Fallback analysis produces score & risk', Boolean(fallbackRes && fallbackRes.ai_score > 0), `Fallback Score: ${fallbackRes?.ai_score}`);
+    record('AI Fallback: Honest fallback returns null score & empty violations', fallbackRes && fallbackRes.ai_score === null && fallbackRes.ai_violations.length === 0, `Fallback Status: ${fallbackRes?.ai_status}`);
   } catch (err) {
     record('Gemini AI tests', false, err.message);
   }

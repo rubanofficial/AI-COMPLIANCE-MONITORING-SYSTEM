@@ -231,9 +231,9 @@ const Dashboard = () => {
                             <div style={{ fontSize: '13px', color: '#64748b' }}>
                                 Final: <span style={{ fontWeight: 800, color: (selectedProduct.compliance?.score ?? 0) >= 80 ? '#10b981' : (selectedProduct.compliance?.score ?? 0) >= 50 ? '#f59e0b' : '#f43f5e' }}>{selectedProduct.compliance?.score ?? '—'}/100</span>
                             </div>
-                            {selectedProduct.ai_analysis.ai_score != null && (
+                            {selectedProduct.ai_analysis && (
                                 <div style={{ fontSize: '12px', color: '#94a3b8' }}>
-                                    AI: {selectedProduct.ai_analysis.ai_score}/100 · Rule: {selectedProduct.compliance?.rule_score ?? '—'}/100
+                                    AI: {selectedProduct.ai_analysis.ai_score != null ? `${selectedProduct.ai_analysis.ai_score}/100` : 'N/A'} · Rule: {selectedProduct.compliance?.rule_score ?? '—'}/100
                                 </div>
                             )}
                             {selectedProduct.ai_analysis.deep_scrape_available === false && (

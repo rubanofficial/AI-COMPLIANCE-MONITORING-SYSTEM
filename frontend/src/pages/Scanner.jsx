@@ -548,16 +548,18 @@ const Scanner = () => {
                                     }}>
                                         <div style={{ fontSize: '15px', fontWeight: 700, color: '#0f172a', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                                             <Sparkles size={16} color="#a78bfa" /> AI Insights
-                                            <span style={{
-                                                marginLeft: 'auto', fontSize: '11px', padding: '2px 8px',
-                                                background: selectedProduct.ai_analysis.risk_level === 'LOW' ? 'rgba(16,185,129,0.15)' :
-                                                    selectedProduct.ai_analysis.risk_level === 'MEDIUM' ? 'rgba(245,158,11,0.15)' : 'rgba(244,63,94,0.15)',
-                                                color: selectedProduct.ai_analysis.risk_level === 'LOW' ? '#10b981' :
-                                                    selectedProduct.ai_analysis.risk_level === 'MEDIUM' ? '#f59e0b' : '#f43f5e',
-                                                borderRadius: '4px', fontWeight: 600,
-                                            }}>
-                                                {selectedProduct.ai_analysis.risk_level} RISK
-                                            </span>
+                                            {selectedProduct.ai_analysis.risk_level && (
+                                                <span style={{
+                                                    marginLeft: 'auto', fontSize: '11px', padding: '2px 8px',
+                                                    background: selectedProduct.ai_analysis.risk_level === 'LOW' ? 'rgba(16,185,129,0.15)' :
+                                                        selectedProduct.ai_analysis.risk_level === 'MEDIUM' ? 'rgba(245,158,11,0.15)' : 'rgba(244,63,94,0.15)',
+                                                    color: selectedProduct.ai_analysis.risk_level === 'LOW' ? '#10b981' :
+                                                        selectedProduct.ai_analysis.risk_level === 'MEDIUM' ? '#f59e0b' : '#f43f5e',
+                                                    borderRadius: '4px', fontWeight: 600,
+                                                }}>
+                                                    {selectedProduct.ai_analysis.risk_level} RISK
+                                                </span>
+                                            )}
                                         </div>
                                         <p style={{ fontSize: '13px', color: '#475569', lineHeight: 1.7, marginBottom: '6px' }}>
                                             {selectedProduct.ai_analysis.summary}

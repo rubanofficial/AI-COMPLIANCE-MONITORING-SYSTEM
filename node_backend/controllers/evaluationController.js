@@ -313,7 +313,7 @@ export async function evaluateStream(req, res) {
         const deepNote = deepScrapeSuccess ? '' : ' Based on listing data only (product detail page was not accessible).';
         const violationCount = final.violations.filter(v => v.severity !== 'INFO').length;
         const aiOut = {
-          ai_score: aiResult.ai_score || 0,
+          ai_score: aiResult.ai_score ?? null,
           summary: `Compliance score: ${final.score}/100 — ${violationCount} issue(s) found.${deepNote}`,
           risk_level: final.risk.toUpperCase(),
           detailed_insights: aiResult.detailed_insights || '',
