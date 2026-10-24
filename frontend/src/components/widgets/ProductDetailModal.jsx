@@ -89,9 +89,11 @@ const ProductDetailModal = ({
     const validImages = images.filter((_, i) => !imgError[i]);
 
     const prevImg = useCallback(() => {
+        if (validImages.length <= 1) return;
         setImgIdx(i => (i - 1 + validImages.length) % validImages.length);
     }, [validImages.length]);
     const nextImg = useCallback(() => {
+        if (validImages.length <= 1) return;
         setImgIdx(i => (i + 1) % validImages.length);
     }, [validImages.length]);
 
@@ -368,7 +370,7 @@ const ProductDetailModal = ({
                                             {validImages.length > 0 ? (
                                                 <>
                                                     <img
-                                                        src={validImages[imgIdx] ?? ''}
+                                                        src={validImages[imgIdx % validImages.length] ?? validImages[0] ?? ''}
                                                         alt={detail.product_name}
                                                         style={{
                                                             width: '100%',

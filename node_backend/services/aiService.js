@@ -1,8 +1,9 @@
-﻿/**
+/**
  * AI Service — equivalent to services/gemini_service.py + openai_service.py
  * Uses Google Gemini REST API. Falls back to rule-based analysis if unavailable.
  */
 import 'dotenv/config';
+import { cleanPrice } from '../utils/dataCleaner.js';
 
 const GEMINI_MODEL = 'gemini-2.5-flash';
 
@@ -161,12 +162,16 @@ export function fallbackAnalysis(product, deepScrapeAvailable = true) {
   const recommendations = [];
 
   const name = product.product_name || product.name || 'N/A';
-  const price = product.price || 'N/A';
+  const rawPrice = product.price ?? 'N/A';
+  const rawMrp = product.mrp ?? 'N/A';
   const weight = product.weight || 'N/A';
   const fssai = product.fssai_number || 'N/A';
   const ingredients = product.ingredients || 'N/A';
   const manufacturer = product.manufacturer_name || 'N/A';
   const expiry = product.expiry_date || 'N/A';
+
+  const numPrice = cleanPrice(rawPrice);
+  const numMrp = cleanPrice(rawMrp);
 
   // Basic listing checks
   if (!name || String(name).trim() === '' || String(name).trim() === 'N/A') {
@@ -179,17 +184,33 @@ export function fallbackAnalysis(product, deepScrapeAvailable = true) {
   }
 
   // Check price is valid
-  let priceValid = false;
-  if (price && String(price).trim() !== '' && String(price).trim() !== 'N/A') {
-    try { parseFloat(String(price).replace(/,/g, '')); priceValid = true; } catch { /* ignore */ }
-  }
-  if (!priceValid) {
+  if (numPrice === null || numPrice <= 0) {
     violations.push({
       id: 'AI_PRICE_001', rule: 'Price Verification',
-      message: 'Price information is missing or invalid on listing',
-      severity: 'MEDIUM', field: 'price',
+      message: 'Selling price information is missing or invalid on listing',
+      severity: 'HIGH', field: 'price',
     });
-    score -= 10;
+    score -= 15;
+    recommendations.push('Ensure valid selling price in ₹ is declared');
+  }
+
+  // Check MRP & overcharging
+  if (numMrp === null || numMrp <= 0) {
+    violations.push({
+      id: 'AI_MRP_001', rule: 'MRP Declaration Compliance',
+      message: 'Maximum Retail Price (MRP) is missing or undeclared (Mandatory under Legal Metrology Act)',
+      severity: 'HIGH', field: 'mrp',
+    });
+    score -= 20;
+    recommendations.push('Ensure Maximum Retail Price (MRP) inclusive of all taxes is clearly displayed');
+  } else if (numPrice !== null && numPrice > 0 && numMrp < numPrice) {
+    violations.push({
+      id: 'AI_MRP_002', rule: 'Overcharging Above MRP',
+      message: `Selling price (₹${numPrice}) exceeds declared MRP (₹${numMrp}) — illegal under Legal Metrology Act`,
+      severity: 'CRITICAL', field: 'price',
+    });
+    score -= 35;
+    recommendations.push('Immediately adjust selling price to not exceed the declared Maximum Retail Price (MRP)');
   }
 
   if (!weight || String(weight).trim() === '' || String(weight).trim() === 'N/A') {

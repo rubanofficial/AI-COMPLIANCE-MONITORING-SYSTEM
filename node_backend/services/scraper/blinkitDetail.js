@@ -58,23 +58,69 @@ export async function scrapeBlinkitDetail(productUrl) {
       }
     }
 
-    // Price
+    // Price — validate numerically: on variant pages the first "price-classed"
+    // element can be the unit/weight picker ("500 ml", "Select Unit").
+    const isNumericPrice = (t) => /^\s*₹?\s*[\d,]+(?:\.\d+)?\s*$/.test(t);
     for (const sel of ['[class*="tw-text-300"][class*="tw-font-semibold"]', '[class*="Price"] [class*="tw-font-semibold"]']) {
-      const el = await page.$(sel);
-      if (el) {
+      const els = await page.$$(sel);
+      for (const el of els) {
         const txt = (await el.innerText()).trim().replace('₹', '').trim();
-        if (txt) { result.price = txt; break; }
+        if (txt && isNumericPrice(txt)) { result.price = txt; break; }
+      }
+      if (result.price !== 'N/A') break;
+    }
+    // Fallback: first ₹-bearing text on the page that is a pure number.
+    // Page text is cut at recommendation sections so prices from "similar
+    // products" rails can't be mistaken for this product's price.
+    if (result.price === 'N/A') {
+      const pageText = await page.evaluate(() => document.body.innerText);
+      const cut = pageText.search(/similar products|you might also like|frequently bought|customers also/i);
+      const scoped = cut > 0 ? pageText.slice(0, cut) : pageText;
+      const m = scoped.match(/₹\s*[\d,]+(?:\.\d+)?/);
+      if (m) {
+        const num = m[0].replace(/[₹,\s]/g, '');
+        if (num) result.price = num;
       }
     }
 
-    // MRP
-    for (const sel of ['.tw-line-through', '[class*="mrp"]', '[class*="Mrp"]']) {
-      const el = await page.$(sel);
-      if (el) {
-        const txt = (await el.innerText()).trim().replace('₹', '').trim();
-        if (txt) { result.mrp = txt; break; }
+    // MRP — must come from THIS product's buy box, not the "9 MINS" add-on
+    // rail or recommendation sections, whose cards also carry strikethrough
+    // prices (Banana ₹43, Davidoff ₹949, ...). Anchor at the element whose own
+    // text is the selling price, then climb a bounded ancestor chain; if the
+    // buy box has no strikethrough of its own, leave MRP as N/A (the listing
+    // value stands).
+    const mrpTxt = await page.evaluate((priceStr) => {
+      const isNum = (t) => /^\s*₹?\s*[\d,]+(?:\.\d+)?\s*$/.test(t);
+      const priceNum = parseFloat(String(priceStr).replace(/,/g, ''));
+
+      // Anchor: smallest element whose own text is the selling price.
+      let anchor = null;
+      if (!isNaN(priceNum)) {
+        for (const el of document.querySelectorAll('*')) {
+          const own = Array.from(el.childNodes).filter(n => n.nodeType === 3).map(n => n.textContent.trim()).join('').trim();
+          if (own && isNum(own) && Math.abs(parseFloat(own.replace(/[₹,]/g, '')) - priceNum) < 0.001) { anchor = el; break; }
+        }
       }
-    }
+      if (!anchor) return null;
+
+      // Climb from the price anchor; the first ancestor containing a valid
+      // numeric strikethrough ≥ price wins. Bail if the container grows to
+      // page scale (its innerText would then span the add-on rail).
+      let node = anchor;
+      for (let i = 0; i < 8 && node.parentElement; i++) {
+        node = node.parentElement;
+        if ((node.innerText || '').length > 5000) break;
+        for (const el of node.querySelectorAll('.tw-line-through, [class*="mrp"], [class*="Mrp"]')) {
+          const txt = (el.innerText || '').trim().replace('₹', '').trim();
+          if (!txt || !isNum(txt)) continue;
+          const n = parseFloat(txt.replace(/,/g, ''));
+          if (!isNaN(priceNum) && n < priceNum) continue;
+          return txt;
+        }
+      }
+      return null;
+    }, result.price);
+    if (mrpTxt) result.mrp = mrpTxt;
 
     // Discount
     for (const sel of ['[class*="tw-bg-brand-green"]', '[class*="DiscountBadge"]', '[class*="discount"]']) {

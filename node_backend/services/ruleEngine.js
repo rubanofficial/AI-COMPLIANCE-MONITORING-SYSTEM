@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Rule Engine — equivalent to services/rule_engine.py
  * Validates product compliance against FSSAI and other Indian regulations.
  */
@@ -60,13 +60,13 @@ export function validateProduct(product, deepScrapeAvailable = true) {
     passedRules.push('VAL003');
   }
 
-  if (mrp && price) {
-    totalRules++;
-    if (mrp < price) {
-      score -= addViolation('VAL004', 'MRP Compliance', 'MRP lower than selling price (illegal)', 'CRITICAL', 'mrp', 40);
-    } else {
-      passedRules.push('VAL004');
-    }
+  totalRules++;
+  if (!mrp || mrp <= 0) {
+    score -= addViolation('VAL004', 'MRP Compliance', 'Missing or undeclared Maximum Retail Price (MRP)', 'HIGH', 'mrp', 25);
+  } else if (price && price > 0 && mrp < price) {
+    score -= addViolation('VAL004', 'MRP Compliance', 'MRP lower than selling price (illegal)', 'CRITICAL', 'mrp', 40);
+  } else {
+    passedRules.push('VAL004');
   }
 
   // === REGULATORY COMPLIANCE VALIDATIONS ===

@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Scoring Engine — equivalent to services/scoring_engine.py
  * Combines rule-based and AI scores, normalizes violations.
  */
@@ -62,7 +62,7 @@ export function combineScores(ruleResult, aiResult) {
     passed_rules: ruleResult.passed_rules,
     total_rules: ruleResult.total_rules,
     ai_analysis_status: aiResult.ai_status || 'Success',
-    deep_scrape_available: ruleResult.deep_scrape_available || true,
+    deep_scrape_available: ruleResult.deep_scrape_available ?? true,
   };
 }
 

@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "compliance-backend",
   "version": "1.0.0",
   "description": "AI Compliance Monitoring System - Node.js Backend",
@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node --watch server.js",
+    "dev": "node --watch-path=controllers --watch-path=routes --watch-path=services --watch-path=repositories --watch-path=utils --watch server.js",
     "db:migrate": "node db/migrate.js",
     "db:seed": "node db/seed.js",
     "db:setup": "node db/setup.js",

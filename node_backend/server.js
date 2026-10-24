@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Server — equivalent to main.py (FastAPI → Express.js)
  * AI Compliance Monitoring System — Node.js Backend
  */
@@ -64,21 +64,18 @@ app.use((err, req, res, next) => {
 });
 
 async function start() {
-  // Verify the database connection before accepting traffic.
-  const dbStatus = await testConnection();
-  if (!dbStatus.connected) {
-    console.error('\n⚠️  DATABASE NOT AVAILABLE');
-    console.error(`   ${dbStatus.error}`);
-    console.error('   Set DATABASE_URL in node_backend/.env, then run: npm run db:setup');
-    console.error('   Data endpoints will respond with HTTP 503 until the database is reachable.\n');
-  } else {
-    console.log(`\n✅ PostgreSQL connected: ${dbStatus.database} (${dbStatus.latency_ms}ms)`);
-  }
+  // Prevent uncaught errors from crashing the Node.js process
+  process.on('uncaughtException', (err) => {
+    console.error('❌ [UncaughtException]', err);
+  });
+  process.on('unhandledRejection', (reason) => {
+    console.error('❌ [UnhandledRejection]', reason);
+  });
 
+  // Bind server immediately so port 8006 never refuses incoming connections
   const server = app.listen(PORT, () => {
     console.log(`\n✅ Server running on http://127.0.0.1:${PORT}`);
     console.log(`   Gemini API Key: ${process.env.GEMINI_API_KEY ? 'SET' : 'MISSING'}`);
-    console.log(`   Database: ${dbStatus.connected ? 'CONNECTED' : 'UNAVAILABLE'}`);
     console.log(`   Endpoints:`);
     console.log(`     GET  /evaluate/stream?product_name=...`);
     console.log(`     POST /product/details?product_url=...&platform=...`);
@@ -88,6 +85,20 @@ async function start() {
     console.log(`     GET  /dashboard/live-data`);
     console.log(`     GET  /dashboard/evaluated-products`);
     console.log(`     GET  /health/db\n`);
+  });
+
+  // Verify the database connection asynchronously
+  testConnection().then((dbStatus) => {
+    if (!dbStatus.connected) {
+      console.error('\n⚠️  DATABASE NOT AVAILABLE');
+      console.error(`   ${dbStatus.error}`);
+      console.error('   Set DATABASE_URL in node_backend/.env, then run: npm run db:setup');
+      console.error('   Data endpoints will respond with HTTP 503 until the database is reachable.\n');
+    } else {
+      console.log(`✅ PostgreSQL connected: ${dbStatus.database} (${dbStatus.latency_ms}ms)`);
+    }
+  }).catch((err) => {
+    console.error(`❌ Database check error: ${err.message}`);
   });
 
   const shutdown = async (signal) => {

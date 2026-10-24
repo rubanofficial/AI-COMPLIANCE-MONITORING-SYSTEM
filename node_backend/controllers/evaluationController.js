@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Evaluation Controller — equivalent to /evaluate/stream and /product/details endpoints.
  * Handles SSE streaming for two-phase product evaluation.
  *
@@ -14,9 +14,19 @@ import { analyzeWithGemini } from '../services/aiService.js';
 import { combineScores } from '../services/scoringEngine.js';
 import { addEvaluatedProduct } from '../services/dashboardService.js';
 import * as scanRunRepository from '../repositories/scanRunRepository.js';
+import { cleanPrice } from '../utils/dataCleaner.js';
 
 function sseEvent(eventType, data) {
   return `event: ${eventType}\ndata: ${JSON.stringify(data)}\n\n`;
+}
+
+/**
+ * Price/MRP fields must be numeric — listing scrapers can produce unit-picker
+ * text like "500 ml" or "Select Unit" when platform markup drifts, and those
+ * values must never overwrite a valid listing price during the deep-data merge.
+ */
+function isNumericPrice(value) {
+  return cleanPrice(value) !== null;
 }
 
 /** Database failures must abort the stream rather than silently dropping results. */
@@ -28,10 +38,53 @@ function isDatabaseError(err) {
  * GET /evaluate/stream — SSE streaming endpoint
  */
 export async function evaluateStream(req, res) {
-  const productName = req.query.product_name;
+  const rawProductName = req.query.product_name;
+  const productName = rawProductName ? String(rawProductName).trim() : '';
   if (!productName) {
     return res.status(400).json({ error: 'product_name is required' });
   }
+
+  // Track client disconnection to stop background scraping and LLM calls
+  let clientConnected = true;
+  req.on('close', () => {
+    if (!res.writableEnded) {
+      clientConnected = false;
+      console.log(`⚠️ [SSE] Client closed connection for '${productName}'`);
+    }
+  });
+  req.on('error', (err) => {
+    clientConnected = false;
+    console.warn(`⚠️ [SSE] Request error for '${productName}': ${err.message}`);
+  });
+  res.on('error', (err) => {
+    clientConnected = false;
+    console.warn(`⚠️ [SSE] Response socket error for '${productName}': ${err.message}`);
+  });
+
+  const safeWrite = (eventType, data) => {
+    if (!clientConnected || res.writableEnded || !res.writable) return;
+    try {
+      res.write(sseEvent(eventType, data), (err) => {
+        if (err) {
+          clientConnected = false;
+          console.warn(`[SSE] Write error (client disconnected): ${err.message}`);
+        }
+      });
+    } catch (writeErr) {
+      clientConnected = false;
+      console.warn(`[SSE] Write error (client disconnected): ${writeErr.message}`);
+    }
+  };
+
+  const safeEnd = () => {
+    if (clientConnected && !res.writableEnded && res.writable) {
+      try {
+        res.end();
+      } catch (endErr) {
+        console.warn(`[SSE] End error: ${endErr.message}`);
+      }
+    }
+  };
 
   // Create the scan run before streaming so DB problems fail loudly up-front
   // (a normal 503) instead of mid-stream.
@@ -64,7 +117,7 @@ export async function evaluateStream(req, res) {
     console.log(`🔍 PHASE 1: Quick Scraping for '${productName}'`);
     console.log(`${'='.repeat(60)}`);
 
-    res.write(sseEvent('status', { message: `Searching for '${productName}' on Zepto & Blinkit...`, phase: 'scraping' }));
+    safeWrite('status', { message: `Searching for '${productName}' on Zepto & Blinkit...`, phase: 'scraping' });
 
     // Run both live scrapers in parallel
     console.log(`  🚀 Launching parallel scrapers (Zepto + Blinkit)...`);
@@ -93,35 +146,57 @@ export async function evaluateStream(req, res) {
     productsFound = scraped.length;
     console.log(`\n  ⏱️ Phase 1 completed in ${phase1Time.toFixed(1)}s — ${scraped.length} products found`);
 
+    if (!clientConnected) {
+      console.log(`🛑 [SSE] Client disconnected after Phase 1 — aborting scan run.`);
+      await scanRunRepository.finishScanRun(scanRun.id, {
+        status: 'failed',
+        duration_ms: Date.now() - startTime,
+        products_found: productsFound,
+        products_evaluated: evaluatedCount,
+        error: 'Client disconnected',
+      });
+      return;
+    }
+
     await scanRunRepository.updateScanRunProgress(scanRun.id, { products_found: productsFound });
 
     if (scraped.length === 0) {
       console.log(`  ❌ No products found!`);
-      res.write(sseEvent('error', { message: 'No products found. Try a different search term.' }));
+      safeWrite('error', { message: 'No products found. Try a different search term.' });
       await scanRunRepository.finishScanRun(scanRun.id, {
         status: 'completed',
         duration_ms: Date.now() - startTime,
         products_found: 0,
         products_evaluated: 0,
       });
-      res.end();
+      safeEnd();
       return;
     }
 
     // Send phase 1 results
-    res.write(sseEvent('products_found', {
+    safeWrite('products_found', {
       count: scraped.length,
       phase1_time: Math.round(phase1Time * 10) / 10,
-      products: scraped.map((p, i) => ({
-        index: i,
-        name: p.product_name || p.name,
-        price: p.price,
-        mrp: p.mrp,
-        platform: p.platform,
-        image: p.product_image,
-        product_url: p.product_url,
-      })),
-    }));
+      products: scraped.map((p, i) => {
+        const prodData = {
+          name: p.product_name || p.name || 'Product',
+          product_name: p.product_name || p.name || 'Product',
+          price: p.price,
+          mrp: p.mrp,
+          weight: p.weight || 'N/A',
+          platform: p.platform,
+          image: p.product_image,
+          product_image: p.product_image,
+          product_url: p.product_url,
+          store_name: p.store_name || p.platform,
+        };
+        return {
+          index: i,
+          ...prodData,
+          product: prodData,
+        };
+      }),
+    });
 
     // ─── PHASE 2: Deep Evaluation ───
     console.log(`\n${'='.repeat(60)}`);
@@ -129,6 +204,10 @@ export async function evaluateStream(req, res) {
     console.log(`${'='.repeat(60)}`);
 
     for (let i = 0; i < scraped.length; i++) {
+      if (!clientConnected) {
+        console.log(`🛑 [SSE] Aborting Phase 2 loop at product ${i + 1}/${scraped.length}: client disconnected.`);
+        break;
+      }
       const product = scraped[i];
       const productStart = Date.now();
       const productNameStr = product.product_name || product.name || `Product #${i + 1}`;
@@ -137,12 +216,12 @@ export async function evaluateStream(req, res) {
 
       console.log(`\n[${i + 1}/${scraped.length}] Evaluating: "${productNameStr.slice(0, 45)}" (${platform})`);
 
-      res.write(sseEvent('product_evaluating', {
+      safeWrite('product_evaluating', {
         index: i,
         product_name: productNameStr,
         platform,
         step: 'starting',
-      }));
+      });
 
       try {
         // Step 1: Deep Scrape
@@ -151,7 +230,7 @@ export async function evaluateStream(req, res) {
 
         if (productUrl && productUrl.startsWith('http')) {
           console.log(`  ├─  🔍 Step 1: Deep scraping product page...`);
-          res.write(sseEvent('product_step', { index: i, step: 'deep_scrape', message: 'Extracting product details...' }));
+          safeWrite('product_step', { index: i, step: 'deep_scrape', message: 'Extracting product details...' });
 
           try {
             let detail;
@@ -166,11 +245,12 @@ export async function evaluateStream(req, res) {
               const gotRegData = regFields.some(f =>
                 detail[f] && String(detail[f]).trim() !== '' && String(detail[f]).trim() !== 'N/A' && String(detail[f]).trim() !== 'null'
               );
-              // Merge deep data
+              // Merge deep data — but only accept numeric price/mrp values,
+              // so detail-page unit-picker text can't poison clean listing prices.
               for (const [key, value] of Object.entries(detail)) {
-                if (value && String(value).trim() !== '' && String(value).trim() !== 'N/A' && String(value).trim() !== 'null') {
-                  deepData[key] = value;
-                }
+                if (!value || String(value).trim() === '' || String(value).trim() === 'N/A' || String(value).trim() === 'null') continue;
+                if ((key === 'price' || key === 'mrp') && !isNumericPrice(value)) continue;
+                deepData[key] = value;
               }
               deepScrapeSuccess = gotRegData;
               console.log(`  ├─  ✅ Deep scrape ${gotRegData ? 'successful — got regulatory data' : 'partial — no regulatory data found'}`);
@@ -186,13 +266,13 @@ export async function evaluateStream(req, res) {
 
         // Step 2: Rule Engine
         console.log(`  ├─  📋 Step 2: Running rule engine validation...`);
-        res.write(sseEvent('product_step', { index: i, step: 'rule_engine', message: 'Validating compliance rules...' }));
+        safeWrite('product_step', { index: i, step: 'rule_engine', message: 'Validating compliance rules...' });
         const ruleResult = validateProduct(deepData, deepScrapeSuccess);
         console.log(`  ├─  ✅ Rule engine: Score=${ruleResult.rule_score}, Violations=${ruleResult.violations.length}`);
 
         // Step 3: AI Analysis
         console.log(`  ├─  🤖 Step 3: Running Gemini AI analysis...`);
-        res.write(sseEvent('product_step', { index: i, step: 'ai_analysis', message: 'Analyzing with Gemini AI...' }));
+        safeWrite('product_step', { index: i, step: 'ai_analysis', message: 'Analyzing with Gemini AI...' });
         const aiResult = await analyzeWithGemini(deepData, deepScrapeSuccess);
         console.log(`  ├─  ✅ AI analysis: Score=${aiResult.ai_score}, Risk=${aiResult.ai_risk}`);
 
@@ -251,13 +331,13 @@ export async function evaluateStream(req, res) {
         });
         evaluatedCount++;
 
-        res.write(sseEvent('product_evaluated', {
+        safeWrite('product_evaluated', {
           index: i,
           product: productOut,
           compliance: complianceOut,
           ai_analysis: aiOut,
           time: Math.round(productTime * 10) / 10,
-        }));
+        });
       } catch (productErr) {
         const productTime = (Date.now() - productStart) / 1000;
         console.log(`  ├─  ❌ Error: ${productErr.message}`);
@@ -266,11 +346,11 @@ export async function evaluateStream(req, res) {
         // A database outage must not be swallowed — abort the whole stream.
         if (isDatabaseError(productErr)) throw productErr;
 
-        res.write(sseEvent('product_error', {
+        safeWrite('product_error', {
           index: i,
           product_name: productNameStr,
           error: productErr.message,
-        }));
+        });
       }
     }
 
@@ -286,12 +366,12 @@ export async function evaluateStream(req, res) {
       products_evaluated: evaluatedCount,
     });
 
-    res.write(sseEvent('complete', {
+    safeWrite('complete', {
       total: scraped.length,
       time: Math.round(totalTime * 10) / 10,
-    }));
+    });
 
-    res.end();
+    safeEnd();
   } catch (err) {
     console.error('Stream error:', err);
 
@@ -311,8 +391,8 @@ export async function evaluateStream(req, res) {
       ? 'Database unavailable — evaluation results could not be stored. Please check the database connection.'
       : err.message;
 
-    res.write(sseEvent('error', { message }));
-    res.end();
+    safeWrite('error', { message });
+    safeEnd();
   }
 }
 
@@ -324,7 +404,19 @@ export async function getProductDetails(req, res) {
   const platform = req.query.platform || req.body?.platform || 'blinkit';
 
   if (!productUrl || !productUrl.startsWith('http')) {
-    return res.json({ error: 'Invalid product URL' });
+    return res.status(400).json({ error: 'Invalid product URL' });
+  }
+
+  let parsedUrl;
+  try {
+    parsedUrl = new URL(productUrl);
+  } catch {
+    return res.status(400).json({ error: 'Invalid product URL format' });
+  }
+
+  const allowedHosts = ['blinkit.com', 'www.blinkit.com', 'zeptonow.com', 'www.zeptonow.com'];
+  if (!allowedHosts.some(h => parsedUrl.hostname.toLowerCase() === h || parsedUrl.hostname.toLowerCase().endsWith('.' + h))) {
+    return res.status(400).json({ error: 'Untrusted domain for product details' });
   }
 
   console.log(`\n🔍 Fetching product details from ${platform}: ${productUrl}`);

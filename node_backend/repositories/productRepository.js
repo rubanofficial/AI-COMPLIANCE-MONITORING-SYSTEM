@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Product repository — stable product identity (`products`) and per-platform
  * listing data (`product_listings`).
  *
@@ -7,6 +7,7 @@
  */
 import crypto from 'crypto';
 import { query } from '../db/pool.js';
+import { cleanPrice, cleanDiscount } from '../utils/dataCleaner.js';
 
 function executor(client) {
   return client ? client.query.bind(client) : query;
@@ -109,9 +110,9 @@ export async function upsertListing(listing, client = null) {
       listing.listing_key,
       normaliseText(listing.platform_product_id),
       normaliseText(listing.product_url),
-      toNumber(listing.price),
-      toNumber(listing.mrp),
-      toNumber(listing.discount),
+      cleanPrice(listing.price),
+      cleanPrice(listing.mrp),
+      cleanDiscount(listing.discount),
       normaliseText(listing.availability) || 'unknown',
       normaliseText(listing.weight),
       normaliseText(listing.store_name),

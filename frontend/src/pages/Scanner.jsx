@@ -9,6 +9,8 @@ import { evaluateProductStream, getProductDetails } from '../services/api';
 
 const statusConfig = {
     pending: { color: '#94a3b8', bg: 'rgba(148,163,184,0.1)', icon: Clock, label: 'Waiting...' },
+    starting: { color: '#3b82f6', bg: 'rgba(59,130,246,0.1)', icon: Clock, label: 'Starting...' },
+    deep_scrape: { color: '#3b82f6', bg: 'rgba(59,130,246,0.1)', icon: Zap, label: 'Deep Scraping' },
     deep_scraping: { color: '#3b82f6', bg: 'rgba(59,130,246,0.1)', icon: Zap, label: 'Deep Scraping' },
     rule_engine: { color: '#f59e0b', bg: 'rgba(245,158,11,0.1)', icon: ScanLine, label: 'Checking Rules' },
     ai_analysis: { color: '#a78bfa', bg: 'rgba(167,139,250,0.1)', icon: Sparkles, label: 'AI Analysis' },
@@ -86,11 +88,24 @@ const Scanner = () => {
                 setPhase('evaluating');
                 setPhase1Time(p1Time);
                 setStatusMessage(`Found ${foundProducts.length} products in ${p1Time}s. Starting deep analysis...`);
-                const mapped = foundProducts.map(p => ({
-                    index: p.index,
-                    product: p.product,
-                    status: 'pending',
-                }));
+                const mapped = foundProducts.map(p => {
+                    const prodObj = p.product || {
+                        name: p.name || p.product_name || 'Product',
+                        product_name: p.product_name || p.name || 'Product',
+                        price: p.price,
+                        mrp: p.mrp,
+                        platform: p.platform,
+                        product_image: p.product_image || p.image,
+                        product_url: p.product_url,
+                        store_name: p.store_name || p.platform,
+                        weight: p.weight || 'N/A',
+                    };
+                    return {
+                        index: p.index,
+                        product: prodObj,
+                        status: 'pending',
+                    };
+                });
                 setProducts(mapped);
                 if (mapped.length > 0) setSelectedIndex(0);
             },
@@ -297,8 +312,8 @@ const Scanner = () => {
                             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '12px' }}>
                                 {products.map((item, index) => {
                                     const isSelected = index === selectedIndex;
-                                    const cfg = statusConfig[item.status];
-                                    const StatusIcon = cfg.icon;
+                                    const cfg = statusConfig[item.status] || statusConfig.pending;
+                                    const StatusIcon = cfg.icon || Clock;
                                     const scoreColor = item.compliance
                                         ? (item.compliance.score >= 80 ? '#10b981' : item.compliance.score >= 50 ? '#f59e0b' : '#f43f5e')
                                         : cfg.color;
@@ -327,55 +342,67 @@ const Scanner = () => {
                                                 }} />
                                             )}
                                             {/* Image + Name */}
-                                            <div style={{ display: 'flex', gap: '10px', marginBottom: '8px', alignItems: 'flex-start' }}>
-                                                {item.product.product_image && (
-                                                    <img
-                                                        src={item.product.product_image}
-                                                        alt={item.product.name}
-                                                        style={{
-                                                            width: '44px', height: '44px', objectFit: 'contain',
-                                                            borderRadius: '6px', background: 'rgba(241,245,249,0.8)',
-                                                            border: '1px solid rgba(226,232,240,0.8)', flexShrink: 0, padding: '2px',
-                                                        }}
-                                                        onError={e => { e.target.style.display = 'none'; }}
-                                                    />
-                                                )}
-                                                <div style={{ flex: 1, minWidth: 0 }}>
-                                                    <div style={{
-                                                        fontSize: '13px', fontWeight: 600, color: '#0f172a',
-                                                        whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginBottom: '3px'
-                                                    }}>
-                                                        {item.product.name}
-                                                    </div>
-                                                    <div style={{ fontSize: '11px', color: '#64748b' }}>
-                                                        {item.product.store_name} · {item.product.platform}
-                                                    </div>
-                                                </div>
-                                                {/* Score or Status */}
-                                                {item.status === 'done' && item.compliance ? (
-                                                    <div style={{ fontSize: '18px', fontWeight: 800, color: scoreColor, flexShrink: 0 }}>
-                                                        {item.compliance.score}
-                                                    </div>
-                                                ) : (
-                                                    <StatusIcon size={18} color={cfg.color} style={
-                                                        item.status !== 'pending' && item.status !== 'done' && item.status !== 'error'
-                                                            ? { animation: 'spin 2s linear infinite' }
-                                                            : {}
-                                                    } />
-                                                )}
-                                            </div>
-                                            <div style={{ fontSize: '11px', color: '#475569' }}>
-                                                ₹{item.product.price} · {item.product.weight}
-                                            </div>
+                                            {(() => {
+                                                const prod = item.product || {};
+                                                const prodName = prod.name || prod.product_name || 'Product';
+                                                const prodPrice = prod.price ?? 'N/A';
+                                                const prodWeight = prod.weight ?? 'N/A';
+                                                const prodStore = prod.store_name || prod.platform || '';
+                                                const prodImage = prod.product_image || prod.image;
+                                                return (
+                                                    <>
+                                                        <div style={{ display: 'flex', gap: '10px', marginBottom: '8px', alignItems: 'flex-start' }}>
+                                                            {prodImage && (
+                                                                <img
+                                                                    src={prodImage}
+                                                                    alt={prodName}
+                                                                    style={{
+                                                                        width: '44px', height: '44px', objectFit: 'contain',
+                                                                        borderRadius: '6px', background: 'rgba(241,245,249,0.8)',
+                                                                        border: '1px solid rgba(226,232,240,0.8)', flexShrink: 0, padding: '2px',
+                                                                    }}
+                                                                    onError={e => { e.target.style.display = 'none'; }}
+                                                                />
+                                                            )}
+                                                            <div style={{ flex: 1, minWidth: 0 }}>
+                                                                <div style={{
+                                                                    fontSize: '13px', fontWeight: 600, color: '#0f172a',
+                                                                    whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', marginBottom: '3px'
+                                                                }}>
+                                                                    {prodName}
+                                                                </div>
+                                                                <div style={{ fontSize: '11px', color: '#64748b' }}>
+                                                                    {prodStore} {prod.platform ? `· ${prod.platform}` : ''}
+                                                                </div>
+                                                            </div>
+                                                            {/* Score or Status */}
+                                                            {item.status === 'done' && item.compliance ? (
+                                                                <div style={{ fontSize: '18px', fontWeight: 800, color: scoreColor, flexShrink: 0 }}>
+                                                                    {item.compliance.score}
+                                                                </div>
+                                                            ) : (
+                                                                <StatusIcon size={18} color={cfg.color} style={
+                                                                    item.status !== 'pending' && item.status !== 'done' && item.status !== 'error'
+                                                                        ? { animation: 'spin 2s linear infinite' }
+                                                                        : {}
+                                                                } />
+                                                            )}
+                                                        </div>
+                                                        <div style={{ fontSize: '11px', color: '#475569' }}>
+                                                            ₹{prodPrice} · {prodWeight}
+                                                        </div>
+                                                    </>
+                                                );
+                                            })()}
                                             {/* Status badge / compliance badges */}
                                             <div style={{ marginTop: '8px', display: 'flex', gap: '6px', alignItems: 'center', flexWrap: 'wrap' }}>
                                                 {item.status === 'done' && item.compliance ? (
                                                     <>
                                                         <span style={{ padding: '2px 6px', background: 'rgba(16,185,129,0.15)', borderRadius: '4px', fontSize: '10px', color: '#10b981' }}>
-                                                            {item.compliance.passed_rules.length} passed
+                                                            {item.compliance.passed_rules?.length || 0} passed
                                                         </span>
                                                         <span style={{ padding: '2px 6px', background: 'rgba(244,63,94,0.15)', borderRadius: '4px', fontSize: '10px', color: '#f43f5e' }}>
-                                                            {item.compliance.violations.length} issues
+                                                            {item.compliance.violations?.length || 0} issues
                                                         </span>
                                                         <span style={{ padding: '2px 6px', background: scoreColor === '#10b981' ? 'rgba(16,185,129,0.12)' : scoreColor === '#f59e0b' ? 'rgba(245,158,11,0.12)' : 'rgba(244,63,94,0.12)', borderRadius: '4px', fontSize: '10px', color: scoreColor, fontWeight: 600 }}>
                                                             {item.compliance.risk} Risk
@@ -385,9 +412,9 @@ const Scanner = () => {
                                                                 {item.time}s
                                                             </span>
                                                         )}
-                                                        {item.product.product_url && (
+                                                        {item.product?.product_url && (
                                                             <button
-                                                                onClick={e => { e.stopPropagation(); handleViewProductDetails(item.product.product_url, item.product.platform, item.product.name); }}
+                                                                onClick={e => { e.stopPropagation(); handleViewProductDetails(item.product.product_url, item.product.platform, item.product.name || item.product.product_name); }}
                                                                 style={{
                                                                     marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '10px',
                                                                     fontWeight: 600, color: '#38bdf8', background: 'rgba(56,189,248,0.08)',
@@ -432,53 +459,64 @@ const Scanner = () => {
                                     border: '1px solid rgba(226,232,240,0.8)', borderRadius: '10px', padding: '14px 20px',
                                     display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px',
                                 }}>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                        {selectedProduct.product.product_image && (
-                                            <img
-                                                src={selectedProduct.product.product_image}
-                                                alt={selectedProduct.product.name}
-                                                style={{
-                                                    width: '48px', height: '48px', objectFit: 'contain', borderRadius: '8px',
-                                                    background: 'rgba(241,245,249,0.8)', border: '1px solid rgba(226,232,240,0.8)', padding: '3px',
-                                                }}
-                                                onError={e => { e.target.style.display = 'none'; }}
-                                            />
-                                        )}
-                                        <div>
-                                            <div style={{ fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>
-                                                {selectedProduct.product.name}
-                                            </div>
-                                            <div style={{ fontSize: '12px', color: '#64748b', marginTop: '2px' }}>
-                                                ₹{selectedProduct.product.price} · MRP ₹{selectedProduct.product.mrp} · {selectedProduct.product.weight} · FSSAI: {selectedProduct.product.fssai_number || 'N/A'}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                                        {selectedProduct.time && (
-                                            <div style={{ fontSize: '12px', color: '#475569' }}>
-                                                Analyzed in {selectedProduct.time}s
-                                            </div>
-                                        )}
-                                        {selectedProduct.product.product_url && (
-                                            <button
-                                                onClick={() => handleViewProductDetails(
-                                                    selectedProduct.product.product_url,
-                                                    selectedProduct.product.platform,
-                                                    selectedProduct.product.name
-                                                )}
-                                                style={{
-                                                    display: 'flex', alignItems: 'center', gap: '6px',
-                                                    padding: '8px 16px', borderRadius: '8px',
-                                                    background: 'linear-gradient(135deg,rgba(56,189,248,0.15),rgba(56,189,248,0.05))',
-                                                    border: '1px solid rgba(56,189,248,0.3)',
-                                                    color: '#38bdf8', fontSize: '13px', fontWeight: 600,
-                                                    cursor: 'pointer', transition: 'all 0.2s',
-                                                }}
-                                            >
-                                                <Eye size={14} /> View Full Details
-                                            </button>
-                                        )}
-                                    </div>
+                                    {(() => {
+                                        const selProd = selectedProduct?.product || {};
+                                        const selName = selProd.name || selProd.product_name || 'Product';
+                                        const selPrice = selProd.price ?? 'N/A';
+                                        const selMrp = selProd.mrp ?? 'N/A';
+                                        const selWeight = selProd.weight ?? 'N/A';
+                                        const selFssai = selProd.fssai_number || 'N/A';
+                                        const selImage = selProd.product_image || selProd.image;
+                                        const selUrl = selProd.product_url;
+                                        const selPlatform = selProd.platform;
+                                        return (
+                                            <>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                                    {selImage && (
+                                                        <img
+                                                            src={selImage}
+                                                            alt={selName}
+                                                            style={{
+                                                                width: '48px', height: '48px', objectFit: 'contain', borderRadius: '8px',
+                                                                background: 'rgba(241,245,249,0.8)', border: '1px solid rgba(226,232,240,0.8)', padding: '3px',
+                                                            }}
+                                                            onError={e => { e.target.style.display = 'none'; }}
+                                                        />
+                                                    )}
+                                                    <div>
+                                                        <div style={{ fontSize: '16px', fontWeight: 700, color: '#0f172a' }}>
+                                                            {selName}
+                                                        </div>
+                                                        <div style={{ fontSize: '12px', color: '#64748b', marginTop: '2px' }}>
+                                                            ₹{selPrice} · MRP ₹{selMrp} · {selWeight} · FSSAI: {selFssai}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                                    {selectedProduct.time && (
+                                                        <div style={{ fontSize: '12px', color: '#475569' }}>
+                                                            Analyzed in {selectedProduct.time}s
+                                                        </div>
+                                                    )}
+                                                    {selUrl && (
+                                                        <button
+                                                            onClick={() => handleViewProductDetails(selUrl, selPlatform, selName)}
+                                                            style={{
+                                                                display: 'flex', alignItems: 'center', gap: '6px',
+                                                                padding: '8px 16px', borderRadius: '8px',
+                                                                background: 'linear-gradient(135deg,rgba(56,189,248,0.15),rgba(56,189,248,0.05))',
+                                                                border: '1px solid rgba(56,189,248,0.3)',
+                                                                color: '#38bdf8', fontSize: '13px', fontWeight: 600,
+                                                                cursor: 'pointer', transition: 'all 0.2s',
+                                                            }}
+                                                        >
+                                                            <Eye size={14} /> View Full Details
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </>
+                                        );
+                                    })()}
                                 </div>
 
                                 {/* Score + Violations */}
@@ -575,10 +613,18 @@ const Scanner = () => {
                                     background: '#ffffff', border: '1px solid rgba(226,232,240,0.8)', borderRadius: '12px',
                                 }}
                             >
-                                <Loader2 size={28} color={statusConfig[selectedProduct.status].color} style={{ animation: 'spin 1.2s linear infinite' }} />
-                                <div style={{ fontSize: '14px', fontWeight: 600, color: '#0f172a' }}>
-                                    {statusConfig[selectedProduct.status].label}: {selectedProduct.product.name}
-                                </div>
+                                {(() => {
+                                    const statusCfg = statusConfig[selectedProduct.status] || statusConfig.pending;
+                                    const prodTitle = selectedProduct.product?.name || selectedProduct.product?.product_name || 'Product';
+                                    return (
+                                        <>
+                                            <Loader2 size={28} color={statusCfg.color || '#3b82f6'} style={{ animation: 'spin 1.2s linear infinite' }} />
+                                            <div style={{ fontSize: '14px', fontWeight: 600, color: '#0f172a' }}>
+                                                {statusCfg.label || 'Processing'}: {prodTitle}
+                                            </div>
+                                        </>
+                                    );
+                                })()}
                                 <div style={{ fontSize: '13px', color: '#64748b' }}>
                                     {selectedProduct.stepMessage || 'Processing...'}
                                 </div>
